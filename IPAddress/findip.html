@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>Findmyip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link href="css/main.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script> 
+    <script type="text/javascript" src="js/jquery.min.js"></script>      
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+ 
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+
+<script>
+$(document).ready(function(){
+
+    
+$.ajax({
+      type: "GET",
+      url: "http://localhost:8085/GetIP",
+      contentType:"application/json; charset=utf-8",
+      // data: JSON.stringify(sendip),
+
+    
+
+  success: function(responsee){
+
+  var searchout = JSON.parse(responsee);
+console.log(searchout.ip_address[1].result)
+ 
+ $("#ip").html(searchout.ip_address[1].result);
+
+}
+
+});
+
+});
+</script>  
+  </head>
+  <body>
+  
+    <!-- NAVIGATION MENU -->
+
+    <div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img  alt=""> Find My IP </a>
+        </div> 
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html"><i class="icon-home icon-white"></i> Home</a></li>                            
+              <li><a href="tables.html"><i class="icon-th icon-white"></i> Tables</a></li>
+              <li><a href="login.html"><i class="icon-lock icon-white"></i> Login</a></li>
+              <li><a href="user.html"><i class="icon-user icon-white"></i> User</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container">
+
+    <!-- FIRST ROW OF BLOCKS -->     
+      <!-- <div class="row"> -->
+      <b >IP Address Details</b>
+      <p >
+The IP Address Lookup tool includes the following IP Address details: City, State / Region, Postal / Zip Code, Country Name, Country Code, Time Zone, ISP.</p>
+
+<br>
+
+      <div>
+      <table class="table">
+   
+    <tbody >
+      <tr class="success" style="width:200px"> 
+        <td><b>IPADDRESS</b></td>
+         <td id="ip"></td>
+     
+      </tr>      
+     
+      
+    </tbody>
+  </table>
+
+</div>
+       <br><p >
+       What Is My IP?<br>
+WhatIsMyIP.com® is the industry leader in providing IP address information. We provide IP address tools that allow users to perform an Internet Speed Test, IP address lookup, proxy detection, IP Whois Lookup, and more. We have extensive articles that show users how to trace an email address, how to change IP addresses, and how to hide their IP information. Knowing your IP address is crucial for online gaming, tech support, using remote desktop connections, connecting to a security camera DVR, anonymity or even running an email server. If you’ve got questions about IP addresses and can’t find the answer on our site, feel free to post your question in our IP Address Q & A section.<br><br>
+
+WhatIsMyIP.com API<br>
+If you need data returned to you via script, we provide an API section where you'll be able to call each of our tools and get the output in txt, json, or xml. You'll need to sign up for our Gold Membership to gain access to our API. Read our API Quick Start Guide to get the API up and running and working for you.
+</p>
+      
+      
+      
+  </div> <!-- /container -->
+  
+          
+</body></html>

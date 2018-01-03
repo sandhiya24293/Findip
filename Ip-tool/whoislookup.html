@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoxuTech</title>
+  
+
+  <!-- Bootstrap -->
+  <link href="plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Owl Carousel -->
+  <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <link href="plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- FAVICON -->
+  <link href="img/favicon.png" rel="shortcut icon">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+ <script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function lookup(){
+		     var  getip =  document.getElementById('getuserip').value
+	   
+	     var s={
+             "Getipfromuser":getip
+            };
+
+
+
+	$.ajax({
+         type: "POST",
+         url: "http://localhost:8085/IPwhoislookup",
+         contentType:"application/json; charset=utf-8",
+         data: JSON.stringify(s),
+         	success: function(responsee){
+         		console.log(responsee)
+    //      		alert("insidesuccess");
+    //      	var searchout1 = JSON.parse(responsee);
+ 			// console.log(searchout1)
+ 			// var  result = searchout1.whois[1].results
+ 		$("#result").html(responsee)
+ 			
+           
+
+ }});
+
+	}
+
+
+function speed(){
+	alert("Coming Soon!")
+}
+</script>
+
+</head>
+
+<body class="body-wrapper">
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg  navigation">
+					<a class="navbar-brand" href="index.html">
+						<img src="images/logo1.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="dashboard.html">Docker</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									IP Tools <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="iplookup.html"> IP LookUp</a>
+									<a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a>
+									<a class="dropdown-item" href="dnslookup.html">DNS Lookup</a>
+									<a class="dropdown-item" href="reverselookup.html">Reverse DNS Lookup</a>
+									<a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
+									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
+									<a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
+									<a class="dropdown-item" href="header.html">Server Headers Checker</a>
+
+
+
+
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="dashboard.html">SSL Checker</a>
+							</li>
+								<!-- Dropdown list -->
+							<!-- 	<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</div> -->
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							<!-- <li class="nav-item">
+								<a class="nav-link login-button" href="index.html">Login</a>
+							</li> -->
+							<li class="nav-item">
+								<a class="nav-link add-button" href="javascript:speed()">Speed Test</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--===============================
+=            Hero Area            =
+================================-->
+
+<section class="hero-area bg-1 text-center overly">
+	<!-- Container Start -->
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-12">
+			<div class="content-block">
+				<p>Check Who is Lookup</p>
+				
+				<!-- Advance Search -->
+				<div class="advance-search" style="margin-left:10%">
+					 <form action="" method="post" onsubmit="lookup();return false;">
+						<div class="row">
+							
+							<div class="col-lg-6 col-md-12" style="margin-left:20%">
+								<div class="block d-flex">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Search for Ip Lookup" id="getuserip" pattern="^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$" required="">
+									<!-- Search Button -->
+									<button class="btn btn-main" type="submit">SEARCH</button>
+								</div>
+							</div>
+						</div>
+
+<br>
+<br>
+
+							<div class="row" >
+							
+							<div class="col-lg-6 col-md-12" class="table-container">
+								<div id="result">
+								</div>
+  </table>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
+
+<!--===================================
+=            Client Slider            =
+====================================-->
+
+
+<!--===========================================
+=            Popular deals section            =
+============================================-->
+
+<section class="popular-deals section bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+					<h2>Trending Tools</h2>
+					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p> -->
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- offer 01 -->
+			<div class="col-sm-12 col-lg-4">
+				<!-- product card -->
+<div class="product-item bg-light">
+	<a href="docker.html">
+	<div class="card">
+		<div class="thumb-content">
+			
+				<img class="card-img-top img-fluid" src="images/docker.jpg" alt="Card image cap" style="height:260px">
+		
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title">Make Docker File</h4>
+		    
+		    <p class="card-text">The application itself is very simple so that you are not too distracted by what the code is doing. </p>
+		  
+		</div>
+	</div>
+	</a>
+</div>
+
+
+
+			</div>
+			<div class="col-sm-12 col-lg-4">
+				<!-- product card -->
+<div class="product-item bg-light">
+<a href="speed.html">
+	<div class="card">
+		<div class="thumb-content">
+			<!-- <div class="price">$200</div> -->
+			
+				<img class="card-img-top img-fluid" src="images/speed1.jpg" alt="Card image cap">
+			
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title">Internet Speed Checker</h4>
+		
+		    <p class="card-text">You tested your Internet connection to get a general idea of your broadband capacity and speed.</p>
+		    
+		</div>
+	</div>
+	</a>
+</div>
+
+
+
+			</div>
+			<div class="col-sm-12 col-lg-4">
+				<!-- product card -->
+<div class="product-item bg-light">
+<a href="ssl.html">
+	<div class="card">
+		<div class="thumb-content">
+			<!-- <div class="price">$200</div> -->
+			
+				<img class="card-img-top img-fluid" src="images/ssl1.jpg" alt="Card image cap" style="height:260px">
+			
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title">SSL Certificate Checker</h4>
+		    
+		    <p class="card-text">SSL Certificates provide secure, encrypted communications between a website and an internet browser. </p>
+		  
+		</div>
+	</div>
+	</a>
+</div>
+
+
+
+			</div>
+			
+			
+		</div>
+	</div>
+</section>
+
+
+
+<!--==========================================
+=            All Category Section            =
+===========================================-->
+
+<section class=" section">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- Section title -->
+				<div class="section-title">
+					<h2>All Categories</h2>
+					<p>IP ADDRESS EXPERTS TOOLS</p>
+				</div>
+				<div class="row">
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-laptop icon-bg-1"></i> 
+								<h4>My IP</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="index.html">IP <span></span></a></li>
+								<li><a href="index.html">State <span></span></a></li>
+								<li><a href="index.html">ISP  <span></span></a></li>
+							
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-apple icon-bg-2"></i> 
+								<h4>Proxy Detect</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="proxydetect.html">Proxy Check <span></span></a></li>
+								<li><a href="proxydetect.html">Tor Server Check <span></span></a></li>
+								<li><a href="proxydetect.html">DNSBL Check  <span></span></a></li>
+							
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-home icon-bg-3"></i> 
+								<h4>Check Blocklisted IP</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="blacklist.html">DNSBL <span></span></a></li>
+								<li><a href="blacklist.html">Spam filters <span></span></a></li>
+								<li><a href="blacklist.html">SURBLs  <span></span></a></li>
+								
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-shopping-basket icon-bg-4"></i> 
+								<h4>Dns Lookup</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="dnslookup.html">Check Domain<span></span></a></li>
+								<li><a href="dnslookup.html">Shows list <span></span></a></li>
+								<li><a href="dnslookup.html"> Internet  by IP addresses<span></span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-briefcase icon-bg-5"></i> 
+								<h4>Reverse Dns Lookup</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="reverselookup.html">Lookup Host <span></span></a></li>
+								<li><a href="reverselookup.html">Find IP <span></span></a></li>
+								<li><a href="reverselookup.html">Internet  by Host  <span></span></a></li>
+								
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-car icon-bg-6"></i> 
+								<h4>IP Whois Lookup</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="whoislookup.html">owners information <span></span></a></li>
+								<li><a href="whoislookup.html">ARIN, APNIC <span></span></a></li>
+								<li><a href="whoislookup.html">RIPE  <span></span></a></li>
+							
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-paw icon-bg-7"></i> 
+								<h4>Server Headers Check</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="header.html">Server <span></span></a></li>
+								<li><a href="header.html">StatusCode <span></span></a></li>
+								<li><a href="header.html">Set-Cookie  <span></span></a></li>
+								
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-laptop icon-bg-8"></i> 
+								<h4>User Agent Info</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a href="useragentinfo.html">Browser Info <span></span></a></li>
+								<li><a href="useragentinfo.html">Detect UA <span></span></a></li>
+								<li><a href="useragentinfo.html">Related Softwares  <span></span></a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
+
+
+
+
+<!--============================
+=            Footer            =
+=============================-->
+
+<footer class="footer section section-sm">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
+        <!-- About -->
+        <div class="block about">
+          <!-- footer logo -->
+            <a href="http://foxutech.com">
+         
+						<img src="images/logo1.png" alt="">
+					</a>
+          <!-- description -->
+          <p class="alt-color">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+        </div>
+      </div>
+      <!-- Link list -->
+      <!-- <div class="col-lg-2 offset-lg-1 col-md-3">
+        <div class="block">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/foxutech/">Facebook</a></li>
+            <li><a href="https://plus.google.com/105970773317038465374">Google+</a></li>
+             <li><a href="https://twitter.com/foxutech">Twitter</a></li>
+           
+          </ul>
+        </div>
+      </div> -->
+     
+      <!-- Promotion -->
+      <div class="col-lg-10 col-md-10">
+        <!-- App promotion -->
+       
+          <a href="http://foxutech.com">
+            <!-- Icon -->
+            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px"><span style="color:white;margin-left:14px" >Contact us: mail@foxutech.com</span>
+          </a>
+        
+        </div>
+     
+    </div>
+  </div>
+  <!-- Container End -->
+</footer>
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+    <!-- Container Start -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-12">
+          <!-- Copyright -->
+          <div class="copyright">
+            <p>Copyright © 2016. All Rights Reserved</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <!-- Social Icons -->
+          <ul class="social-media-icons text-right">
+              <li><a class="fa fa-facebook" href="https://www.facebook.com/foxutech/"></a></li>
+              <li><a class="fa fa-twitter" href="https://twitter.com/foxutech"></a></li>
+              <li><a class="fa fa-google" href="https://plus.google.com/105970773317038465374"></a></li>
+           
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Container End -->
+    <!-- To Top -->
+    <div class="top-to">
+      <a id="top" class="" href=""><i class="fa fa-angle-up"></i></a>
+    </div>
+</footer>
+
+ 
+
+</body>
+
+</html>
+
+
+

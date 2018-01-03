@@ -1,0 +1,82 @@
+<html>
+<style type="text/css">
+	table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script>
+function Submitip(){
+	
+    var AvailIp =  document.getElementById('sendip').value;
+	
+  
+    var sendip ={
+    	"Getipfromuser" : AvailIp
+    }
+    
+$.ajax({
+      type: "POST",
+      url: "http://176.111.105.86:8085/GetIP",
+      contentType:"application/json; charset=utf-8",
+      data: JSON.stringify(sendip),
+
+    
+
+  success: function(responsee){
+
+  var searchout = JSON.parse(responsee);
+
+  document.getElementById("visible").style.display = "inline";
+ $("#ip").html(searchout.ip_address);
+$("#country").html(searchout.country);
+$("#code").html(searchout.country_code);
+$("#continent").html(searchout.continent);
+$("#continentcode").html(searchout.continent_code);
+$("#city").html(searchout.city);
+$("#region").html(searchout.region);
+$("#longitude").html(searchout.longitude);
+$("#latitude").html(searchout.latitude);
+$("#currency").html(searchout.currency);
+}
+
+});
+
+}
+</script>
+<body>
+<div>
+<b>
+Find your IP Details Here
+</b>
+<br>
+<div style="margin-top:5%">
+<input type="text" name="" placeholder="Enter your IP" id="sendip">
+<button onclick="Submitip()">Submit</button>
+</div>
+<br>
+
+  
+<div style="display:none" id="visible">
+
+ <table style="font-family:hanken">
+
+<tr>
+       <div> <th >IP</th> <th style="text-align:center"  id="ip"></th></div></tr>
+        <tr> <th>Country</th><th style="text-align:center" id="country"></th></tr>
+        <tr><th>Country Code</th><th style="text-align:center;" id="code"></th></tr>
+        <tr><th>Continent</th><th style="text-align:center" id="continent"></th></tr>
+		 <tr> <th>Continent code</th><th style="text-align:center" id="continentcode"></th></tr>
+        <tr><th>City</th><th style="text-align:center;" id="city"></th></tr>
+        <tr><th>Region</th><th style="text-align:center" id="region"></th></tr>
+		 <tr> <th>longitude</th><th style="text-align:center" id="longitude"></th></tr>
+        <tr><th>lalitude </th><th style="text-align:center;" id="latitude"></th></tr>
+        <tr><th>currency</th><th style="text-align:center" id="currency"></th></tr>
+       
+        </table>
+		</div>
+</div>
+</body>
+</html>

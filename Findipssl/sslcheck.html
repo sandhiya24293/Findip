@@ -1,0 +1,48 @@
+<html>
+<style type="text/css">
+	table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+function Submitip(){
+  var AvailIp =  document.getElementById('sendip').value;
+	var Domain = "https" + AvailIp
+  var sendip ={
+    	"Getipfromuser" : AvailIp
+    }
+    
+$.ajax({
+      type: "POST",
+      url: "http://localhost:8085/SSlchecker",
+      contentType:"application/json; charset=utf-8",
+      data: JSON.stringify(sendip),
+     success: function(responsee){
+        document.getElementById("visible").style.display = "inline";
+        document.getElementById("hidediv").style.display = "none";
+        document.getElementById("demo").innerHTML = responsee;
+}
+});
+}
+
+
+</script>
+<body>
+<div>
+<b>
+Find your Domain Security Here
+</b>
+<br>
+<div style="margin-top:5%" id="hidediv">
+<input type="text" name="" placeholder="https://" id="sendip">
+<button onclick="Submitip()">Submit</button>
+</div>
+<br>
+<div style="display:none" id="visible">
+<div id="demo">
+</div>
+</div>
+</div>
+</body>
+</html>
