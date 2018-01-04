@@ -95,6 +95,7 @@ tr:nth-child(even){background-color: #f2f2f2}
  			// console.log(searchout1)
  			// var  result = searchout1.whois[1].results
  		$("#result").html(responsee)
+ 			document.getElementById("showtable").style.display = "inline";
  			
            
 
@@ -209,11 +210,13 @@ function speed(){
 
 							<div class="row" >
 							
-							<div class="col-lg-6 col-md-12" class="table-container">
-								<div id="result">
-								</div>
-  </table>
-							</div>
+							<table style="font-family:hanken;display:none" id="showtable">
+
+
+
+       <tr><th style="text-align:left"  id="result"></th></tr>
+        
+        </table>
 						</div>
 					</form>
 					

@@ -209,22 +209,26 @@ func Useragent(w http.ResponseWriter, r *http.Request) {
 }
 
 func Dnslookup(w http.ResponseWriter, r *http.Request) {
-	var Gethost Getipstruct
-	err := json.NewDecoder(r.Body).Decode(&Gethost)
+	var GetIpvalue Getipstruct
+	err := json.NewDecoder(r.Body).Decode(&GetIpvalue)
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
-	fmt.Println(Gethost)
-	addr, err := net.LookupAddr(Gethost.Getipfromuser)
-	fmt.Println(addr, err)
-	Senddata, err := json.Marshal(addr)
+	fmt.Println("value", GetIpvalue.Getipfromuser)
+	var client http.Client
 
-	//	if err != nil {
-	//		log.Error(err)
-	//	}
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Access-Control-Allow-Orgin", "*")
-	w.Write(Senddata)
+	clienturl := "http://api.whatismyip.com/host-name.php?key=89cd62c5ed209af9513765d85f690fef&input=" + GetIpvalue.Getipfromuser + "&output=json"
+	resp, _ := client.Get(clienturl)
+
+	defer resp.Body.Close()
+
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
+		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Access-Control-Allow-Orgin", "*")
+		w.Write(bodyBytes)
+	}
 }
 func ReverseDnslookup(w http.ResponseWriter, r *http.Request) {
 	var Gethost Getipstruct

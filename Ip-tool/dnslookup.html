@@ -76,9 +76,9 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 function lookup(){
 		var cardstring="";
-		alert("inside")
+	
 		     var  getip =  document.getElementById('getuserip').value
-	    alert(getip)
+	  
 	     var s={
              "Getipfromuser":getip
             };
@@ -92,19 +92,17 @@ function lookup(){
           data: JSON.stringify(s),
          	success: function(responsee){
  			var searchout = JSON.parse(responsee);
- 			//console.log(searchout)
- 				//document.getElementById("showtable").style.display = "inline";
- 				//alert(searchout)
- 			if(searchout == null){
+ 			console.log(searchout["host_name"][1].result )
+ 					document.getElementById("showtable").style.display = "inline";
+ 			if(searchout["host_name"][1].result == getip){
+ 				alert("insidenull")
+ 				$("#hoststring").html("Dns Name does not exist")
  				
- 				 document.getElementById("hoststring").innerHTML="Dns Name does not exist";
 
  			}
  			else{
- 				for (k=0;k<searchout.length;k++){
-                cardstring=cardstring+searchout[k];
-                }
-              document.getElementById("hoststring").innerHTML=cardstring;
+ 				$("#hoststring").html(searchout["host_name"][1].result)
+ 				
 
            
 
@@ -225,10 +223,12 @@ function speed(){
 							<div class="row" >
 							
 							<div class="col-lg-6 col-md-12" class="table-container">
-								<div id="hoststring">
-								</div>
-  </table>
-							</div>
+							
+  
+								<table style="font-family:hanken;display:none" id="showtable">
+       <tr><th>Dns Result</th><th style="text-align:left"  id="hoststring"></th></tr>
+        
+        </table>
 						</div>
 					</form>
 					
