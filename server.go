@@ -40,6 +40,7 @@ func Serve() bool {
 	router.HandleFunc("/ReverseDnslookup", Service.ReverseDnslookup)
 	router.HandleFunc("/Dnslookup", Service.Dnslookup)
 	router.HandleFunc("/SSlchecker", Service.Sslchecker)
+	router.HandleFunc("/Speed_Service", Speed_Service)
 
 	//For HTTPS
 
