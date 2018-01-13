@@ -76,7 +76,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function(){
         $.ajax({
          type: "GET",
-         url: "http://176.111.105.86:8085/GetIP",
+         url: "http://176.111.105.86:8087/GetIP",
          contentType:"application/json; charset=utf-8",
       
          
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
          $.ajax({
          type: "POST",
-         url: "http://176.111.105.86:8085/GetIPdetails",
+         url: "http://176.111.105.86:8087/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
          	success: function(responsee){
