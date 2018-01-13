@@ -85,16 +85,17 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 	$.ajax({
          type: "POST",
-         url: "http://localhost:8085/IPwhoislookup",
+         url: "http://176.111.105.86:8085/IPwhoislookup",
          contentType:"application/json; charset=utf-8",
          data: JSON.stringify(s),
          	success: function(responsee){
-         		console.log(responsee)
-    //      		alert("insidesuccess");
-    //      	var searchout1 = JSON.parse(responsee);
- 			// console.log(searchout1)
- 			// var  result = searchout1.whois[1].results
- 		$("#result").html(responsee)
+         	
+         		someText = responsee.replace(/(\r\n|\n|\r)/gm,"");
+    
+              var searchout1 = JSON.parse(someText);
+ 			
+ 			console.log(searchout1.whois[1].results)
+ 		$("#result").html(searchout1.whois[1].results)
  			document.getElementById("showtable").style.display = "inline";
  			
            
@@ -120,18 +121,18 @@ function speed(){
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg  navigation">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/logo1.png" alt="">
+						<img src="images/logofinal.png" style="margin-left:40px;margin-top:-15px" alt="" >
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right:40px">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Docker</a>
+								<a class="nav-link" href="docker.html">Docker</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -147,14 +148,14 @@ function speed(){
 									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
 									<a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
 									<a class="dropdown-item" href="header.html">Server Headers Checker</a>
-
+									
 
 
 
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">SSL Checker</a>
+								<a class="nav-link" href="ssl.html">SSL Checker</a>
 							</li>
 								<!-- Dropdown list -->
 							<!-- 	<div class="dropdown-menu dropdown-menu-right">
@@ -162,7 +163,7 @@ function speed(){
 									<a class="dropdown-item" href="#">Another action</a>
 									<a class="dropdown-item" href="#">Something else here</a>
 								</div> -->
-							</li>
+							
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<!-- <li class="nav-item">
@@ -178,6 +179,7 @@ function speed(){
 		</div>
 	</div>
 </section>
+
 
 <!--===============================
 =            Hero Area            =
@@ -198,7 +200,7 @@ function speed(){
 							
 							<div class="col-lg-6 col-md-12" style="margin-left:20%">
 								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Search for Ip Lookup" id="getuserip" pattern="^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$" required="">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Search Ip whoislookup" id="getuserip" pattern="^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$" required="">
 									<!-- Search Button -->
 									<button class="btn btn-main" type="submit">SEARCH</button>
 								</div>
@@ -275,7 +277,7 @@ function speed(){
 			<div class="col-sm-12 col-lg-4">
 				<!-- product card -->
 <div class="product-item bg-light">
-<a href="speed.html">
+<a href="javascript:speed()">
 	<div class="card">
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
@@ -477,7 +479,8 @@ function speed(){
 =            Footer            =
 =============================-->
 
-<footer class="footer section section-sm">
+
+<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
   <!-- Container Start -->
   <div class="container">
     <div class="row">
@@ -487,33 +490,21 @@ function speed(){
           <!-- footer logo -->
             <a href="http://foxutech.com">
          
-						<img src="images/logo1.png" alt="">
+							<img src="images/logofinal.png" alt="">
 					</a>
           <!-- description -->
-          <p class="alt-color">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
         </div>
       </div>
-      <!-- Link list -->
-      <!-- <div class="col-lg-2 offset-lg-1 col-md-3">
-        <div class="block">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="https://www.facebook.com/foxutech/">Facebook</a></li>
-            <li><a href="https://plus.google.com/105970773317038465374">Google+</a></li>
-             <li><a href="https://twitter.com/foxutech">Twitter</a></li>
-           
-          </ul>
-        </div>
-      </div> -->
-     
+   
       <!-- Promotion -->
       <div class="col-lg-10 col-md-10">
         <!-- App promotion -->
        
           <a href="http://foxutech.com">
             <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px"><span style="color:white;margin-left:14px" >Contact us: mail@foxutech.com</span>
-          </a>
+            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
+             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
         
         </div>
      

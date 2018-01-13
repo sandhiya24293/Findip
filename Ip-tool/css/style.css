@@ -885,7 +885,7 @@ ul.pagination .active a {
 }
 
 .short-popular-category-list h2 {
-  font-size: 24px;
+  font-size: 34px;
   
   text-transform: uppercase;
   font-weight: bold;
@@ -901,7 +901,7 @@ ul.pagination .active a {
 }
 
 .short-popular-category-list ul li a {
-  border: 2px solid #404040;
+  border: 2px solid white;
   /*color: #c1c1c1;*/
    color: white;
   font-weight: 500;

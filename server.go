@@ -26,8 +26,12 @@ func Serve() bool {
 	//http.Handle("/", fs)
 	router.PathPrefix("/Findipssl/").Handler(http.StripPrefix("/Findipssl/", fs1))
 	fs2 := http.FileServer(http.Dir("./assets/"))
-	//http.Handle("/", fs)
+
 	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", fs2))
+
+	fs3 := http.FileServer(http.Dir("./Docker/"))
+
+	router.PathPrefix("/Docker/").Handler(http.StripPrefix("/Docker/", fs3))
 
 	router.HandleFunc("/GetIP", Service.GETIP)
 	router.HandleFunc("/GetProxy", Service.GETProxy)
@@ -41,6 +45,8 @@ func Serve() bool {
 	router.HandleFunc("/Dnslookup", Service.Dnslookup)
 	router.HandleFunc("/SSlchecker", Service.Sslchecker)
 	router.HandleFunc("/Speed_Service", Speed_Service)
+	router.HandleFunc("/Dockerfile", Service.WriteDockerFile)
+	//router.HandleFunc("/Deletefile", Service.Deletedockerfile)
 
 	//For HTTPS
 

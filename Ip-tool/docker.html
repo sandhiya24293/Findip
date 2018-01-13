@@ -105,15 +105,16 @@ input {
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-
 $(function () {
     $("#btnAdd").bind("click", function () {
         var div = $("<tr />");
         div.html(GetDynamicTextPort(""));
         $("#TextBoxContainer").append(div);
-       
-    });
-     $("#btnAdd1").bind("click", function () {
+
+  });
+
+
+ $("#btnAdd1").bind("click", function () {
         var div = $("<tr />");
         div.html(GetDynamicTextBox(""));
       
@@ -149,36 +150,207 @@ $(function () {
 
 
 
-
-    $("body").on("click", ".remove", function () {
+   $("body").on("click", ".remove", function () {
         $(this).closest("tr").remove();
-    });
+
+       
+   
 });
+ });
+
+   
+ var count=0;
+    var wantedId=[];  
+    var  wantedId1=[];
+    var  wantedId2=[];
+    var  wantedId3=[];
+    var  wantedId4=[];
+    var  wantedId5=[];
+
+    function getdockerfile(){
+  
+// $("#clickdocker").on("click", function () {
+
+    
+         var  from =  document.getElementById('from').value
+         var  entry =  document.getElementById('entry').value
+         var cmd = document.getElementById('cmd').value
+         var workingdir = document.getElementById('workingdir').value
+         var user = document.getElementById('user').value
+
+ $("#TextBoxContainer > tr").each(function (rindex) {
+             
+                var wantedObj={};
+                $(this).find('td :input').each (function(index) {
+                  // do your cool stuff
+                  switch(index) {
+                        case 0:
+                            
+                            wantedObj.Port=$(this).val();
+                            break;
+                        case 1:
+                            
+                            wantedObj.Protocal=$(this).val();
+                            break;
+                        
+                    } });
+                 wantedId.push(wantedObj); 
+
+
+       });
+
+
+
+        $("#TextBoxContainer1 > tr").each(function (rindex) {
+             console.log("new tr"+rindex);
+                // var wantedObj1={};
+                $(this).find('td :input').each (function(index) {
+                  // do your cool stuff
+                  switch(index) {
+                        case 0:
+                            
+                            // wantedObj1.RUN=$(this).val();
+                            wantedId1.push($(this).val()); 
+                            break;
+                       
+                        
+                    } });
+                 
+  });
+
+
+
+          $("#TextBoxContainer2 > tr").each(function (rindex) {
+             
+                var wantedObj2={};
+                $(this).find('td :input').each (function(index) {
+                  // do your cool stuff
+                  switch(index) {
+                        case 0:
+                            
+                            wantedObj2.ADDSOURCE=$(this).val();
+                            break;
+                             case 1:
+                            
+                            wantedObj2.ADDDESTIN=$(this).val();
+                            break;
+                       
+                        
+                    } });
+                 wantedId2.push(wantedObj2); 
+                
+                 
+       });
+
+
+   $("#TextBoxContainer3 > tr").each(function (rindex) {
+             console.log("new tr"+rindex);
+                // var wantedObj3={};
+                $(this).find('td :input').each (function(index) {
+                  // do your cool stuff
+                  switch(index) {
+                        case 0:
+                            
+                            // wantedObj3.VOLUME=$(this).val();
+                            wantedId3.push($(this).val());
+                            break;
+                       
+                        
+                    } });
+                 
+                
+       });
+
+
+
+  $("#TextBoxContainer4 > tr").each(function (rindex) {
+            
+                var wantedObj4={};
+                $(this).find('td :input').each (function(index) {
+                  // do your cool stuff
+                  switch(index) {
+                        case 0:
+                            
+                            wantedObj4.ADDSOURCE=$(this).val();
+                            break;
+                       case 1:
+                            
+                            wantedObj4.ADDDESTIN=$(this).val();
+                            break;
+                   
+                    } });
+                 wantedId4.push(wantedObj4); 
+                
+       });
+
+      $("#TextBoxContainer5 > tr").each(function (rindex) {
+             var wantedObj5={};
+                 $(this).find('td :input').each (function(index) {
+                    switch(index) {
+                        case 0:
+                             wantedObj5.ADDSOURCE=$(this).val(); break;
+                        case 1:
+                            wantedObj5.ADDDESTIN=$(this).val();break;
+                        } 
+                  });
+                 });
+
+   
+      var s={  
+  "FROM"      :from,
+  "ENTRYPOINT" :entry,
+  "EXPOSE"     :wantedId,
+  "RUN"        :wantedId1,
+  "ENV"       :wantedId2,
+  "VOLUME"     :wantedId3,
+  "ADD"        :wantedId4,
+  "COPY"       :wantedId5,
+  "CMD"        :cmd,
+  "USER"       :user,
+  "WORKDIR"    :workingdir
+}
+ $.ajax({
+         type: "POST",
+         url: "http://176.111.105.86:8085/Dockerfile",
+         
+          data: JSON.stringify(s),
+         
+           success: function(responsee){
+            document.getElementById("showpre").style.display = "inline";
+            
+          console.log(responsee)
+        $("#getval").html(responsee);
+        $(document).scrollTop(1650)
+    }
+});
+
+}
+
+
+
+        
+
+
+
+
+
+
 function GetDynamicTextBox(value) {
-    return '<td><input name = "DynamicTextBox" type="text" value = "' + value + '" class="form-control" placeholder="ex : apk add --no-cache git" /></td>' +   '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
+    return '<td><input  type="text" value = "' + value + '" class="form-control getport" placeholder="ex : apk add --no-cache git" /></td>' +   '<td><button type="button" class="btn btn-danger remove getproto" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
 }
 function GetDynamicTextPort(value) {
- return '<td><input name = "DynamicTextBox" type="text" value = "' + value + '" class="form-control" placeholder="port"/></td>' + '<td ><select name="" class="form-control" style="height:30px"><option valaue="/udp"> Udp</option><option value="/tcp"> Tcp</option></select></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
+ return '<td><input type="text" value = "' + value + '" class="form-control" placeholder="port"/></td>' + '<td ><select  class="form-control" style="height:30px"><option value="/tcp"> Tcp</option><option value="/udp"> Udp</option></select></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
 }
 
 function GetDynamicTextenv(value) {
- return '<td><input name = "DynamicTextBox" type="text" value = "' + value + '" class="form-control" placeholder="key"/></td>' + '<td><input type="text" value = "' + value + '" class="form-control" placeholder="value" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
+ return '<td><input  type="text" value = "' + value + '" class="form-control" placeholder="key"/></td>' + '<td><input type="text" value = "' + value + '" class="form-control" placeholder="value" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
 }
 function GetDynamicTextvol(value) {
- return '<td><input name = "DynamicTextBox" type="text" value = "' + value + '" class="form-control" placeholder="/Folder "/></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px" ><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
+ return '<td><input  type="text" value = "' + value + '" class="form-control" placeholder="/Folder "/></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px" ><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
 }
 
 function GetDynamicTextKey(value) {
- return '<td><input name = "DynamicTextBox" type="text" value = "' + value + '" class="form-control" placeholder="Source"/></td>' + '<td><input type="text" value = "' + value + '" class="form-control" placeholder="Destination" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-
-
-
-
-
-function createdocker(){
-  alert("inside docker")
-   $('#myModal').modal('show');
+ return '<td><input  type="text" value = "' + value + '" class="form-control" placeholder="Source"/></td>' + '<td><input type="text" value = "' + value + '" class="form-control" placeholder="Destination" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
 }
 
 
@@ -186,51 +358,9 @@ function createdocker(){
 
 
 
-function lookup(){
-		     var  getip =  document.getElementById('getuserip').value
-	  
-	     var s={
-             "Getipfromuser":getip
-            };
 
 
 
-	$.ajax({
-         type: "POST",
-         url: "http://localhost:8085/GetIPdetails",
-         contentType:"application/json; charset=utf-8",
-          data: JSON.stringify(s),
-          async: false,
-         	success: function(responsee){
- 			var searchout1 = JSON.parse(responsee);
- 			
- 			document.getElementById("showtable").style.display = "inline";
- 			console.log(searchout1)
- 			var  city = searchout1.ip_address_lookup[1].city
- 			var  country = searchout1.ip_address_lookup[1].country
- 			var  ipaddress = searchout1.ip_address_lookup[1].ip
- 			var  lalitude = searchout1.ip_address_lookup[1].latitude
- 			var  longitude = searchout1.ip_address_lookup[1].longitude
-            var  postalcode = searchout1.ip_address_lookup[1].postalcode
-            var  region = searchout1.ip_address_lookup[1].region
-            var time= searchout1.ip_address_lookup[1].time
-             var isp= searchout1.ip_address_lookup[1].isp
-
-
-            $("#city").html(city)
-            $("#myip1").html(ipaddress)
-            $("#country").html(country)
-            $("#lalitude").html(lalitude)
-            $("#longitude").html(longitude)
-            $("#postalcode").html(postalcode)
-            $("#region").html(region)
-            $("#time").html(time)
-            $("#isp").html(isp)
-           
-
- }});
-
-	}
 
 
 function speed(){
@@ -244,68 +374,68 @@ function speed(){
 
 
 <section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg  navigation">
-					<a class="navbar-brand" href="index.html">
-						<img src="images/logo1.png" alt="">
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto main-nav ">
-							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Docker</a>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									IP Tools <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="iplookup.html"> IP LookUp</a>
-									<a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a>
-									<a class="dropdown-item" href="dnslookup.html">DNS Lookup</a>
-									<a class="dropdown-item" href="reverselookup.html">Reverse DNS Lookup</a>
-									<a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
-									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
-									<a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
-									<a class="dropdown-item" href="header.html">Server Headers Checker</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg  navigation">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logofinal.png" style="margin-left:40px;margin-top:-25px" alt="" >
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left:100px">
+            <ul class="navbar-nav ml-auto main-nav ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="docker.html">Docker</a>
+              </li>
+              <li class="nav-item dropdown dropdown-slide">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  IP Tools <span><i class="fa fa-angle-down"></i></span>
+                </a>
+                <!-- Dropdown list -->
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="iplookup.html"> IP LookUp</a>
+                  <a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a>
+                  <a class="dropdown-item" href="dnslookup.html">DNS Lookup</a>
+                  <a class="dropdown-item" href="reverselookup.html">Reverse DNS Lookup</a>
+                  <a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
+                  <a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
+                  <a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
+                  <a class="dropdown-item" href="header.html">Server Headers Checker</a>
+                  
 
 
 
-
-								</div>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">SSL Checker</a>
-							</li>
-								<!-- Dropdown list -->
-							<!-- 	<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</div> -->
-							</li>
-						</ul>
-						<ul class="navbar-nav ml-auto mt-10">
-							<!-- <li class="nav-item">
-								<a class="nav-link login-button" href="index.html">Login</a>
-							</li> -->
-							<li class="nav-item">
-								<a class="nav-link add-button" href="javascript:speed()">Speed Test</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ssl.html">SSL Checker</a>
+              </li>
+                <!-- Dropdown list -->
+              <!--  <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div> -->
+              
+            </ul>
+            <ul class="navbar-nav ml-auto mt-10">
+              <!-- <li class="nav-item">
+                <a class="nav-link login-button" href="index.html">Login</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link add-button" href="javascript:speed()" style="margin-left:50px">Speed Test</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!--===============================
@@ -325,7 +455,7 @@ function speed(){
 					<div id="wrapper" class="container">
   
 
-    <form id="form-work" class="" name="form-work" action="#" style="margin-left:20%">
+     <form action="" method="post" onsubmit="getdockerfile();return false;">
 	
 		<h3><b style="margin-left:-150px">Get Dockerfile </b></h3>
       
@@ -336,7 +466,7 @@ function speed(){
              
               <div class="input-group">
               
-                <input name="tel" class="form-control" placeholder="Image Name" type="text">
+                <input class="form-control" placeholder="Image Name" type="text" id="from">
               </div>
             </div>
           </div>
@@ -345,7 +475,7 @@ function speed(){
             <div class="col-md-10"  style="margin-top:30px">
               <b>ENTRYPOINT</b>
               <div class="input-group">
-                <input name="tel" class="form-control"  placeholder="Comma delimited :sh,-c" type="text">
+                <input  class="form-control"  placeholder="Comma delimited :sh,-c" type="text" id="entry">
               </div>
             </div>
           </div>
@@ -507,7 +637,7 @@ function speed(){
               <b>COMMAND</b>
               <div class="input-group">
              
-                <textarea placeholder="Comma delimited :echo,helloword" class="form-control"></textarea> 
+                <textarea placeholder="Comma delimited :echo,helloword" class="form-control" id="cmd"></textarea> 
               </div>
             </div>
           </div>
@@ -520,7 +650,7 @@ function speed(){
               <b>WORKING DIRECTORY</b>
               <div class="input-group">
                
-                <input name="tel" class="form-control" placeholder="/usr/app" type="text">
+                <input  class="form-control" placeholder="/usr/app" type="text" id="workingdir">
               </div>
             </div>
           </div>
@@ -532,7 +662,7 @@ function speed(){
               <b>USER</b>
               <div class="input-group">
            
-                <input name="tel" class="form-control" placeholder="User" type="text">
+                <input class="form-control" placeholder="User" type="text" id="user">
               </div>
             </div>
           </div>
@@ -545,7 +675,7 @@ function speed(){
          <div class="form-group">
             <div class="col-md-10" style="margin-top:30px">
               <div class="input-group">
-               <button type="submit" class="btn btn-success">Create Docker</button>
+               <button  class="btn btn-success" id="clickdocker" >Create Docker</button>
               </div>
             </div>
           </div>
@@ -573,12 +703,34 @@ function speed(){
 	</div>
 	</div>
 	<!-- Container End -->
+  <div class="container" style="display:none" id="showpre" >
+    <div class="row">
+      <div class="col-md-12">
+      <div class="content-block">
+        <p>Dockerfile</p>
+        
+        <!-- Advance Search -->
+        <div class="advance-search" style="margin-left:10%">
+           
+            <div class="row">
+              
+              <div class="col-lg-6 col-md-12" style="margin-left:10%;">
+             <pre id="getval" style="color:black;text-align:left">
+
+             </pre> 
+         
+          
+        </div>
+     
+        
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
 </section>
-
 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-
-
 
 
 
@@ -641,7 +793,7 @@ function speed(){
 			<div class="col-sm-12 col-lg-4">
 				<!-- product card -->
 <div class="product-item bg-light">
-<a href="speed.html">
+<a href="javascript:speed()">
 	<div class="card">
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
@@ -854,7 +1006,7 @@ function speed(){
       </div>
       <div class="modal-body">
       <p>
-       hjdsuiyffffffffyyyyyyyyyyyyyy
+       
        </p>
       </div>
       <div class="modal-footer">
@@ -877,8 +1029,8 @@ function speed(){
 <!--============================
 =            Footer            =
 =============================-->
-
-<footer class="footer section section-sm">
+<!-- ============================--> 
+<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
   <!-- Container Start -->
   <div class="container">
     <div class="row">
@@ -888,33 +1040,21 @@ function speed(){
           <!-- footer logo -->
             <a href="http://foxutech.com">
          
-						<img src="images/logo1.png" alt="">
-					</a>
+              <img src="images/logofinal.png" alt="">
+          </a>
           <!-- description -->
-          <p class="alt-color">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
         </div>
       </div>
-      <!-- Link list -->
-      <!-- <div class="col-lg-2 offset-lg-1 col-md-3">
-        <div class="block">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="https://www.facebook.com/foxutech/">Facebook</a></li>
-            <li><a href="https://plus.google.com/105970773317038465374">Google+</a></li>
-             <li><a href="https://twitter.com/foxutech">Twitter</a></li>
-           
-          </ul>
-        </div>
-      </div> -->
-     
+   
       <!-- Promotion -->
       <div class="col-lg-10 col-md-10">
         <!-- App promotion -->
        
           <a href="http://foxutech.com">
             <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px"><span style="color:white;margin-left:14px" >Contact us: mail@foxutech.com</span>
-          </a>
+            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
+             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
         
         </div>
      

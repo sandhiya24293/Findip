@@ -28,9 +28,12 @@ func usage() {
 	flag.PrintDefaults()
 }
 
-func Speed_Service(w http.ResponseWriter, r *http.Request) {
+var client *speedtest.Client
+var config1 *speedtest.Config
+var opts *speedtest.Opts
 
-	opts := speedtest.ParseOpts()
+func Init() {
+	opts = speedtest.ParseOpts()
 
 	switch {
 	case opts.Help:
@@ -41,7 +44,7 @@ func Speed_Service(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	client := speedtest.NewClient(opts)
+	client = speedtest.NewClient(opts)
 
 	if opts.List {
 		servers, err := client.AllServers()
@@ -51,13 +54,15 @@ func Speed_Service(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(servers)
 		return
 	}
-
-	config, err := client.Config()
+	config1, err := client.Config()
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(config1)
+}
+func Speed_Service(w http.ResponseWriter, r *http.Request) {
 
-	client.Log("Testing from %s (%s)...\n", config.Client.ISP, config.Client.IP)
+	client.Log("Testing from %s (%s)...\n", config1.Client.ISP, config1.Client.IP)
 
 	server := selectServer(opts, client)
 
@@ -70,12 +75,12 @@ func Speed_Service(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("getupload", getupload)
 
 	Senddata := &Responsespeed{}
-	Senddata.ISP = config.Client.ISP
-	Senddata.IP = config.Client.IP
+	Senddata.ISP = config1.Client.ISP
+	Senddata.IP = config1.Client.IP
 	Senddata.Downloadspeed = getDownload
 	Senddata.Uploadspeed = getupload
 
-	Responsedata, err := json.Marshal(Senddata)
+	Responsedata, _ := json.Marshal(Senddata)
 
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Access-Control-Allow-Orgin", "*")

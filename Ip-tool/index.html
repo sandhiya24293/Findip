@@ -76,7 +76,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 $(document).ready(function(){
         $.ajax({
          type: "GET",
-         url: "http://localhost:8085/GetIP",
+         url: "http://176.111.105.86:8085/GetIP",
          contentType:"application/json; charset=utf-8",
       
          
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
          $.ajax({
          type: "POST",
-         url: "http://localhost:8085/GetIPdetails",
+         url: "http://176.111.105.86:8085/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
          	success: function(responsee){
@@ -136,7 +136,7 @@ function Getipaddressdetails(){
 
 	$.ajax({
          type: "POST",
-         url: "http://localhost:8085/GetIPdetails",
+         url: "http://176.111.105.86:8085/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
            async: false,
@@ -173,7 +173,8 @@ function Getipaddressdetails(){
 }
 
 function speed(){
-	window.location.href ="ssl.html"
+	//window.location.href ="ssl.html"
+	alert("Coming soon!")
 }
 </script>
 
@@ -188,18 +189,18 @@ function speed(){
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg  navigation">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/logo1.png" alt="">
+						<img src="images/logofinal.png" style="margin-left:40px;margin-top:-15px" alt="" >
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right:40px">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Docker</a>
+								<a class="nav-link" href="docker.html">Docker</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -222,7 +223,7 @@ function speed(){
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">SSL Checker</a>
+								<a class="nav-link" href="ssl.html">SSL Checker</a>
 							</li>
 								<!-- Dropdown list -->
 							<!-- 	<div class="dropdown-menu dropdown-menu-right">
@@ -230,7 +231,7 @@ function speed(){
 									<a class="dropdown-item" href="#">Another action</a>
 									<a class="dropdown-item" href="#">Something else here</a>
 								</div> -->
-							</li>
+							
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<!-- <li class="nav-item">
@@ -258,8 +259,8 @@ function speed(){
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-				<p>IP ADDRESS EXPERTS</p>
-					<p>MYIP - <span id= "myip"></span><span>,</span><span id="city1"></span><span>,</span><span id="country1"></span><span>,</span><span id="isp1"></span></p>
+				<p><b>IP ADDRESS EXPERTS</b></p>
+					<p><b>MYIP - <span id= "myip"></span><span>,</span><span id="city1"></span><span>,</span><span id="country1"></span><span>,</span><span id="isp1"></span></b></p>
 					
 					
 				
@@ -267,24 +268,24 @@ function speed(){
 						
 						<ul class="list-inline">
 							<li class="list-inline-item">
-								<a href="iplookup.html"> IP LookUp</a></li>
+								<a href="iplookup.html"> <i ></i>  LookUp</a></li>
 							<li class="list-inline-item">
-								<a href="whoislookup.html"><i class="fa fa-grav"></i> IP WHOIS Lookup</a>
+								<a href="whoislookup.html"><i ></i> IP WHOIS Lookup</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="dnslookup.html"><i class="fa fa-car"></i> DNS Lookup</a>
+								<a href="dnslookup.html"><i></i> DNS Lookup</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="reverselookup.html"><i class="fa fa-cutlery"></i> Reverse DNS Lookup</a>
+								<a href="reverselookup.html"><i ></i> Reverse DNS Lookup</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="blacklist.html"><i class="fa fa-coffee"></i> Blacklist Check</a>
+								<a href="blacklist.html"><i></i> Blacklist Check</a>
 							</li>
 								<li class="list-inline-item">
-								<a href="proxydetect.html"><i class="fa fa-coffee"></i> Proxy Check</a>
+								<a href="proxydetect.html"><i></i> Proxy Check</a>
 							</li>
 								<li class="list-inline-item">
-								<a href="useragentinfo.html"><i class="fa fa-coffee"></i> User Agent Info</a>
+								<a href="useragentinfo.html"><i ></i> User Agent Info</a>
 							</li>
 								<!-- <li class="list-inline-item">
 								<a href=""><i class="fa fa-coffee"></i> speed test</a>
@@ -420,7 +421,7 @@ function speed(){
 			<div class="col-sm-12 col-lg-4">
 				<!-- product card -->
 <div class="product-item bg-light">
-<a href="speed.html">
+<a href="javascript:speed()">
 	<div class="card">
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
@@ -622,7 +623,7 @@ function speed(){
 =            Footer            =
 =============================-->
 
-<footer class="footer section section-sm">
+<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
   <!-- Container Start -->
   <div class="container">
     <div class="row">
@@ -632,33 +633,21 @@ function speed(){
           <!-- footer logo -->
             <a href="http://foxutech.com">
          
-						<img src="images/logo1.png" alt="">
+							<img src="images/logofinal.png" alt="">
 					</a>
           <!-- description -->
-          <p class="alt-color">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
         </div>
       </div>
-      <!-- Link list -->
-      <!-- <div class="col-lg-2 offset-lg-1 col-md-3">
-        <div class="block">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="https://www.facebook.com/foxutech/">Facebook</a></li>
-            <li><a href="https://plus.google.com/105970773317038465374">Google+</a></li>
-             <li><a href="https://twitter.com/foxutech">Twitter</a></li>
-           
-          </ul>
-        </div>
-      </div> -->
-     
+   
       <!-- Promotion -->
       <div class="col-lg-10 col-md-10">
         <!-- App promotion -->
        
           <a href="http://foxutech.com">
             <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px"><span style="color:white;margin-left:14px" >Contact us: mail@foxutech.com</span>
-          </a>
+            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
+             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
         
         </div>
      
