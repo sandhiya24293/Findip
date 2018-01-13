@@ -77,7 +77,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 function lookup(){
 		var cardstring="";
 		     var  getip =  document.getElementById('getuserip').value
-	    alert(getip)
+	  
 	     var s={
              "Getipfromuser":getip
             };
@@ -86,7 +86,7 @@ function lookup(){
 
 	$.ajax({
          type: "POST",
-         url: "http://176.111.105.86:8085/Blocklist",
+         url: "http://176.111.105.86:8087/Blocklist",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
          	success: function(responsee){
@@ -105,9 +105,9 @@ function lookup(){
  		document.getElementById("hidetable").style.display = "inline";
  		var block1 = blacklist["b.barracudacentral.org"]
  		var block22 = searchout.domain_blacklist[0]["bl.spamcop.net"]
- 		alert(block22)
+ 		
  		var block33 = searchout.domain_blacklist[0]["sbl-xbl.spamhaus.org"]
- 		alert(block33)
+ 	
 
  		
  		//var block3 = blacklist["sbl-xbl.spamhaus.org"]
