@@ -149,7 +149,7 @@ function speed(){
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="docker.html">Docker</a>
+								<a class="nav-link" href="javascript:speed()">Speed Test</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -187,7 +187,7 @@ function speed(){
 								<a class="nav-link login-button" href="index.html">Login</a>
 							</li> -->
 							<li class="nav-item">
-								<a class="nav-link add-button" href="javascript:speed()">Speed Test</a>
+								<a class="nav-link add-button" href="docker.html">Docker File</a>
 							</li>
 						</ul>
 					</div>
@@ -225,10 +225,15 @@ function speed(){
 						<br>
 						  <div class="row" >
 							
-		<div class="col-lg-6 col-md-12" >
-		<table class="table" id="customers" style="margin-left:42%" >
+		<div class="col-lg-6 col-md-12  table-responsive" style="margin-left:12%">
+		<table class="table" style="display:none" id="showtable" >
     
-    <tbody style="display:none" id="showtable">
+    <tbody >
+    <tr style="display:none">
+        <td>IP Address</td>
+        <td ></td>
+      
+      </tr> 
       <tr>
         <td>IP Address</td>
         <td id="myip1"></td>
@@ -236,11 +241,11 @@ function speed(){
       </tr>      
       <tr>
         <td>City</td>
-        <td id="city"></td>
+        <td id="city"></td></tr>
         
       <tr>
         <td>State/Region</td>
-        <td id="region"></td>
+        <td id="region"></td></tr>
        
       <tr>
         <td>Country Code</td>
@@ -274,6 +279,7 @@ function speed(){
       </tr>
     </tbody>
   </table>
+  </div>
   </div>
   </div>
 						</form>

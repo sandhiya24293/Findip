@@ -27,27 +27,10 @@
 
  
   <style>
-#customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
+.your-class {
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
 }
 
 
@@ -243,7 +226,7 @@ function speed(){
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="docker.html">Docker</a>
+								<a class="nav-link" href="javascript:speed()">Speed</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -281,7 +264,7 @@ function speed(){
 								<a class="nav-link login-button" href="index.html">Login</a>
 							</li> -->
 							<li class="nav-item">
-								<a class="nav-link add-button" href="javascript:speed()">Docker File Creation</a>
+								<a class="nav-link add-button" href="docker.html">Docker File</a>
 							</li>
 						</ul>
 					</div>
@@ -348,19 +331,20 @@ function speed(){
 									<!-- Search Button -->
 									<button class="btn btn-main" type="submit">SEARCH</button>
 								</div>
-							</div>
-						</div>
-
-<br>
-<br>
-
-							<div class="row" >
+								</div>
 							
-							<div class="col-lg-6 col-md-12 " >
-							<div style="display:none" id="showtable" class="table-responsive">
-								<table class="table table-responsive"  style="margin-left:42%;" >
+<br>
+<br>
+
+						<div class="col-lg-6 col-md-12  table-responsive" style="margin-left:12%">
+		<table class="table" style="display:none" id="showtable" >
     
     <tbody >
+    <tr style="display:none">
+        <td>IP Address</td>
+        <td ></td>
+      
+      </tr> 
       <tr>
         <td>IP Address</td>
         <td id="myip1"></td>
@@ -368,11 +352,11 @@ function speed(){
       </tr>      
       <tr>
         <td>City</td>
-        <td id="city"></td>
+        <td id="city"></td></tr>
         
       <tr>
         <td>State/Region</td>
-        <td id="region"></td>
+        <td id="region"></td></tr>
        
       <tr>
         <td>Country Code</td>
@@ -406,9 +390,13 @@ function speed(){
       </tr>
     </tbody>
   </table>
-  </tr>
-							</div>
-						</div>
+  </div>
+  </div>
+  </div>
+							
+							
+					
+
 					</form>
 					
 				</div>

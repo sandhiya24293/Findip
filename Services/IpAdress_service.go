@@ -38,11 +38,12 @@ func GETIP(w http.ResponseWriter, r *http.Request) {
 }
 
 func GETProxy(w http.ResponseWriter, r *http.Request) {
+	Ip, _, _ := net.SplitHostPort(r.RemoteAddr)
 
 	var client http.Client
 
-	//clienturl := "https://ipfind.co?ip=" + GetIpvalue.Getipfromuser + "&auth=05505f14-8de7-4e55-b836-65bd4bf312f7"
-	resp, _ := client.Get("https://api.whatismyip.com/proxy.php?key=89cd62c5ed209af9513765d85f690fef&output=json")
+	clienturl := "https://api.whatismyip.com/proxy.php?key=89cd62c5ed209af9513765d85f690fef" + Ip + "&output=json"
+	resp, _ := client.Get(clienturl)
 
 	defer resp.Body.Close()
 
