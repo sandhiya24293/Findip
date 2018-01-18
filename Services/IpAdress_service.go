@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net"
-
 	"net/http"
+	_ "strings"
 )
 
 type Getipstruct struct {
@@ -23,26 +23,17 @@ func Iplookup(Ipaddress string) (resp *http.Response) {
 }
 
 func GETIP(w http.ResponseWriter, r *http.Request) {
-	var GetIpvalue Getipstruct
-	err := json.NewDecoder(r.Body).Decode(&GetIpvalue)
+
+	Ip, _, _ := net.SplitHostPort(r.RemoteAddr)
+
+	Senddata, err := json.Marshal(Ip)
+
 	if err != nil {
-		fmt.Println("Error on Get particular details", err)
+		fmt.Println(err)
 	}
-	fmt.Println("value", GetIpvalue.Getipfromuser)
-	var client http.Client
-
-	//clienturl := "https://ipfind.co?ip=" + GetIpvalue.Getipfromuser + "&auth=05505f14-8de7-4e55-b836-65bd4bf312f7"
-	resp, _ := client.Get("https://api.whatismyip.com/ip.php?key=89cd62c5ed209af9513765d85f690fef&output=json")
-	fmt.Println("*************", resp.Body)
-	defer resp.Body.Close()
-
-	if resp.StatusCode == http.StatusOK {
-		bodyBytes, _ := ioutil.ReadAll(resp.Body)
-
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Access-Control-Allow-Orgin", "*")
-		w.Write(bodyBytes)
-	}
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Access-Control-Allow-Orgin", "*")
+	w.Write(Senddata)
 
 }
 
@@ -72,11 +63,6 @@ func GETIPdetails(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println("value", GetIpvalue.Getipfromuser)
 	resp := Iplookup(GetIpvalue.Getipfromuser)
-	//	var client http.Client
-
-	//	clienturl := "http://api.whatismyip.com/ip-address-lookup.php?key=89cd62c5ed209af9513765d85f690fef&input=" + GetIpvalue.Getipfromuser + "&output=json"
-	//	resp, _ := client.Get(clienturl)
-	//	fmt.Println(&resp.Body)
 
 	defer resp.Body.Close()
 
@@ -185,27 +171,30 @@ func Serverheadercheck(w http.ResponseWriter, r *http.Request) {
 }
 
 func Useragent(w http.ResponseWriter, r *http.Request) {
+
 	var GetIpvalue Getipstruct
 	err := json.NewDecoder(r.Body).Decode(&GetIpvalue)
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
 	fmt.Println("value", GetIpvalue.Getipfromuser)
-	var client http.Client
+	//	var client http.Client
 
-	clienturl := "http://api.whatismyip.com/user-agent.php?key=89cd62c5ed209af9513765d85f690fef&output=json"
-	resp, _ := client.Get(clienturl)
+	//	clienturl := "http://api.whatismyip.com/user-agent.php?key=89cd62c5ed209af9513765d85f690fef&input=176.111.105.86&output=json"
+	//	resp, _ := client.Get(clienturl)
 
-	defer resp.Body.Close()
+	//defer resp.Body.Close()
+	fmt.Printf("r: %+v\n", r.UserAgent())
+	addr := r.UserAgent()
 
-	if resp.StatusCode == http.StatusOK {
-		bodyBytes, _ := ioutil.ReadAll(resp.Body)
+	Senddata, err := json.Marshal(addr)
 
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Access-Control-Allow-Orgin", "*")
-		w.Write(bodyBytes)
-	}
-
+	//	if err != nil {
+	//		log.Error(err)
+	//	}
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Access-Control-Allow-Orgin", "*")
+	w.Write(Senddata)
 }
 
 func Dnslookup(w http.ResponseWriter, r *http.Request) {

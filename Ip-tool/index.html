@@ -19,19 +19,13 @@
   <!-- Fancy Box -->
   <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
   <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
-  <link href="plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
-  <!-- CUSTOM CSS -->
+ 
   <link href="css/style.css" rel="stylesheet">
 
   <!-- FAVICON -->
   <link href="img/favicon.png" rel="shortcut icon">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+ 
   <style>
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -55,6 +49,55 @@
     background-color: #4CAF50;
     color: white;
 }
+
+
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+/* EXAMPLE 5 - Logo with Text*/
+.example5 .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.example5 .navbar-brand>img {
+  padding: 7px 14px;
+}
+
+.brand-centered .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar-toggle {
+    z-index: 1;
+}
+.navbar-alignit .navbar-header {
+	  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+.navbar-alignit .navbar-brand {
+	top: 50%;
+	display: block;
+	position: relative;
+	height: auto;
+	transform: translate(0,-50%);
+	margin-right: 15px;
+  margin-left: 15px;
+}
+
+.navbar-nav>li>.dropdown-menu {
+	z-index: 9999;
+}
+
+
 </style>
 <style>
 table {
@@ -84,7 +127,7 @@ $(document).ready(function(){
  			var searchout = JSON.parse(responsee);
            //Get Curent ip details
            var s={
-             "Getipfromuser":searchout.ip_address[1].result
+             "Getipfromuser":searchout
             };
 
          $.ajax({
@@ -187,14 +230,14 @@ function speed(){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg  navigation">
+				<nav class="navbar navbar-expand-lg  navigation navbar-inverse navbar-static-top example6">
 					<a class="navbar-brand" href="index.html">
 						<img src="images/logofinal.png" style="margin-left:40px;margin-top:-15px" alt="" >
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right:40px">
+					<div class="collapse navbar-collapse " id="navbar6" style="margin-right:40px">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
@@ -238,7 +281,7 @@ function speed(){
 								<a class="nav-link login-button" href="index.html">Login</a>
 							</li> -->
 							<li class="nav-item">
-								<a class="nav-link add-button" href="javascript:speed()">Speed Test</a>
+								<a class="nav-link add-button" href="javascript:speed()">Docker File Creation</a>
 							</li>
 						</ul>
 					</div>
@@ -313,10 +356,11 @@ function speed(){
 
 							<div class="row" >
 							
-							<div class="col-lg-6 col-md-12" class="table-container">
-								<table class="table" id="customers" style="margin-left:42%;" >
+							<div class="col-lg-6 col-md-12 " >
+							<div style="display:none" id="showtable" class="table-responsive">
+								<table class="table table-responsive"  style="margin-left:42%;" >
     
-    <tbody style="display:none" id="showtable">
+    <tbody >
       <tr>
         <td>IP Address</td>
         <td id="myip1"></td>
@@ -362,6 +406,7 @@ function speed(){
       </tr>
     </tbody>
   </table>
+  </tr>
 							</div>
 						</div>
 					</form>
@@ -684,21 +729,14 @@ function speed(){
     </div>
 </footer>
 
-  <!-- JAVASCRIPTS -->
-<!--   <script src="plugins/jquery/jquery.min.js"></script>
-  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="plugins/tether/js/tether.min.js"></script>
-  <script src="plugins/raty/jquery.raty-fa.js"></script>
-  <script src="plugins/bootstrap/dist/js/popper.min.js"></script>
-  <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="plugins/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-  <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-  <script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
-  <script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
-  <script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-  <script src="js/scripts.js"></script>
-  -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112454083-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112454083-1');
+</script>
 
 </body>
 
