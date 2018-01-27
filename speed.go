@@ -62,7 +62,7 @@ func Init() {
 }
 func Speed_Service(w http.ResponseWriter, r *http.Request) {
 
-	client.Log("Testing from %s (%s)...\n", config1.Client.ISP, config1.Client.IP)
+	//client.Log("Testing from %s (%s)...\n", config1.Client.ISP, config1.Client.IP)
 
 	server := selectServer(opts, client)
 
@@ -75,8 +75,8 @@ func Speed_Service(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("getupload", getupload)
 
 	Senddata := &Responsespeed{}
-	Senddata.ISP = config1.Client.ISP
-	Senddata.IP = config1.Client.IP
+	//Senddata.ISP = config1.Client.ISP
+	//Senddata.IP = config1.Client.IP
 	Senddata.Downloadspeed = getDownload
 	Senddata.Uploadspeed = getupload
 

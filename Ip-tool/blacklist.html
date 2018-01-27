@@ -26,37 +26,7 @@
   <!-- FAVICON -->
   <link href="img/favicon.png" rel="shortcut icon">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <style>
-#customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-<style>
+ <style>
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -71,6 +41,7 @@ th, td {
 
 tr:nth-child(even){background-color: #f2f2f2}
 </style>
+
  <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -148,9 +119,9 @@ function speed(){
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link" href="javascript:speed()">Speed Test</a>
-							</li>
+							</li> -->
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									IP Tools <span><i class="fa fa-angle-down"></i></span>
@@ -227,20 +198,35 @@ function speed(){
 
 						  <div class="row" >
 
-							
-							<div class="col-lg-6 col-md-12" >
-							<table class="table"  style="margin-left:42%" >
+<div  table-responsive" style="margin-left:22%;margin-top:40px">
+		<table class="table" style="display:none;font-family:Times New Roman, Times, serif;font:bold;" id="hidetable1"> 
     
-    <tbody style="display:none" id="hidetable1">
+    <tbody >
+    <tr style="display:none">
+        <td>Domain</td>
+        <td style="display:none"></td>
+        <td ></td>
+      
+      </tr> 
       <tr>
         <td>Domain</td>
-        <td id="hoststring1"></td>
+
+        <td style="margin-left:40px" id="hoststring1"></td>
       
+      </tr>      
       
-      </tr>  
-     
+   
     </tbody>
   </table>
+  </div>
+
+
+
+
+
+
+
+
 								<table class="table" id="customers" style="margin-left:42%" >
     
     <tbody style="display:none" id="showtable">
@@ -542,11 +528,12 @@ function speed(){
 =            Footer            =
 
 
-<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
-  <!-- Container Start -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+    <!-- Container Start -->
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
@@ -554,35 +541,24 @@ function speed(){
          
 							<img src="images/logofinal.png" alt="">
 					</a>
+					</div>
+					<div>
+					
+					<br>
           <!-- description -->
-          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
+          <p style="color:white">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
         </div>
       </div>
    
-      <!-- Promotion -->
-      <div class="col-lg-10 col-md-10">
-        <!-- App promotion -->
-       
-          <a href="http://foxutech.com">
-            <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
-             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
-        
-        </div>
      
-    </div>
-  </div>
-  <!-- Container End -->
-</footer>
-<!-- Footer Bottom -->
-<footer class="footer-bottom">
-    <!-- Container Start -->
-    <div class="container">
-      <div class="row">
+        <br>
+        <br>
         <div class="col-sm-6 col-12">
+        <div>
+        </div>
           <!-- Copyright -->
-          <div class="copyright">
-            <p>Copyright © 2016. All Rights Reserved</p>
+          <div class="copyright" >
+            <p style="color:white">Copyright © 2018. All Rights Reserved</p>
           </div>
         </div>
         <div class="col-sm-6 col-12">

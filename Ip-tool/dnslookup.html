@@ -26,28 +26,20 @@
   <!-- FAVICON -->
   <link href="img/favicon.png" rel="shortcut icon">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  
-<style>
+ <style>
 table {
-    
+    border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
-    border: 1px solid black;
-    padding: 10px;
+    border: 1px solid #ddd;
 }
 
 th, td {
     text-align: left;
-    
-    height:40px;
+    padding: 8px;
 }
 
-
+tr:nth-child(even){background-color: #f2f2f2}
 </style>
  <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
@@ -70,27 +62,22 @@ function lookup(){
           data: JSON.stringify(s),
          	success: function(responsee){
  			var searchout = JSON.parse(responsee);
- 			console.log(searchout["host_name"][1].result )
+ 			
  					document.getElementById("showtable").style.display = "inline";
- 			if(searchout["host_name"][1].result == getip){
+ 					console.log(searchout)
+ 			if(searchout== "" || searchout == null){
+ 				alert(searchout );
  				
  				$("#hoststring").html("Dns Name does not exist")
  				
 
  			}
  			else{
- 				$("#hoststring").html(searchout["host_name"][1].result)
+ 				$("#hoststring").html(searchout[0])
  				
+	}
 
-           
-
- 			}
-
- 
-            
-  
-
- 			 }});
+  }});
 
 	}
 
@@ -120,9 +107,9 @@ function speed(){
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
-							<li class="nav-item">
+						<!-- 	<li class="nav-item">
 								<a class="nav-link" href="javascript:speed()">Speed Test</a>
-							</li>
+							</li> -->
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									IP Tools <span><i class="fa fa-angle-down"></i></span>
@@ -133,8 +120,8 @@ function speed(){
 									<a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a>
 									<a class="dropdown-item" href="dnslookup.html">DNS Lookup</a>
 									<a class="dropdown-item" href="reverselookup.html">Reverse DNS Lookup</a>
-									<a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
-									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
+									<!-- <a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
+									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a> -->
 									<a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
 									<a class="dropdown-item" href="header.html">Server Headers Checker</a>
 									
@@ -200,18 +187,70 @@ function speed(){
 	 
 
 							
-							<div class="col-lg-6 col-md-12"  style="margin-top:20px">
-							<table class="table"  style="margin-left:42%;display:none" id="showtable" style="background-color:white" >
+						
+
+<div  table-responsive" style="margin-left:22%;margin-top:40px">
+		<table class="table" style="display:none;font-family:Times New Roman, Times, serif;font:bold;" id="showtable" >
     
-    <tbody>
-      <tr style="">
+    <tbody >
+    <tr style="display:none">
+        <td>IP Address</td>
+        <td style="display:none"></td>
+        <td ></td>
+      
+      </tr> 
+      <tr>
         <td>Dns Result</td>
-        <td id="hoststring"></td>
- </tr>  
-     
+
+        <td style="margin-left:40px" id="hoststring"></td>
+      
+      </tr>      
+      
+   
     </tbody>
   </table>
-</div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 					</form>
 					
@@ -354,7 +393,7 @@ function speed(){
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-apple icon-bg-2"></i> 
@@ -367,9 +406,9 @@ function speed(){
 							
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div> --> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-home icon-bg-3"></i> 
@@ -382,7 +421,7 @@ function speed(){
 								
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div> --> <!-- /Category List -->
 					<!-- Category list -->
 					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
@@ -443,7 +482,7 @@ function speed(){
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-laptop icon-bg-8"></i> 
@@ -455,7 +494,7 @@ function speed(){
 								<li><a href="useragentinfo.html">Related Softwares  <span></span></a></li>
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div>  --><!-- /Category List -->
 					
 					
 				</div>
@@ -473,11 +512,12 @@ function speed(){
 =============================-->
 
 
-<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
-  <!-- Container Start -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+    <!-- Container Start -->
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
@@ -485,35 +525,24 @@ function speed(){
          
 							<img src="images/logofinal.png" alt="">
 					</a>
+					</div>
+					<div>
+					
+					<br>
           <!-- description -->
-          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
+          <p style="color:white">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
         </div>
       </div>
    
-      <!-- Promotion -->
-      <div class="col-lg-10 col-md-10">
-        <!-- App promotion -->
-       
-          <a href="http://foxutech.com">
-            <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
-             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
-        
-        </div>
      
-    </div>
-  </div>
-  <!-- Container End -->
-</footer>
-<!-- Footer Bottom -->
-<footer class="footer-bottom">
-    <!-- Container Start -->
-    <div class="container">
-      <div class="row">
+        <br>
+        <br>
         <div class="col-sm-6 col-12">
+        <div>
+        </div>
           <!-- Copyright -->
-          <div class="copyright">
-            <p>Copyright © 2016. All Rights Reserved</p>
+          <div class="copyright" >
+            <p style="color:white">Copyright © 2018. All Rights Reserved</p>
           </div>
         </div>
         <div class="col-sm-6 col-12">

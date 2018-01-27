@@ -15,7 +15,7 @@ type Getipstruct struct {
 
 func Iplookup(Ipaddress string) (resp *http.Response) {
 	var client http.Client
-	clienturl := "http://api.whatismyip.com/ip-address-lookup.php?key=89cd62c5ed209af9513765d85f690fef&input=" + Ipaddress + "&output=json"
+	clienturl := "https://ipfind.co?ip=" + Ipaddress + "&auth=05505f14-8de7-4e55-b836-65bd4bf312f7"
 	resp, _ = client.Get(clienturl)
 	fmt.Println(&resp.Body)
 	return resp
@@ -153,21 +153,21 @@ func Serverheadercheck(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
-	fmt.Println("value", GetIpvalue.Getipfromuser)
+
 	var client http.Client
 
-	clienturl := "http://api.whatismyip.com/server-headers.php?key=89cd62c5ed209af9513765d85f690fef&input=http://" + GetIpvalue.Getipfromuser + "&output=json"
+	//	clienturl := "http://api.whatismyip.com/server-headers.php?key=89cd62c5ed209af9513765d85f690fef&input=http://" + GetIpvalue.Getipfromuser + "&output=json"
+	clienturl := "https://" + GetIpvalue.Getipfromuser
 	resp, _ := client.Get(clienturl)
+	fmt.Println("resp", resp.Header)
 
 	defer resp.Body.Close()
 
-	if resp.StatusCode == http.StatusOK {
-		bodyBytes, _ := ioutil.ReadAll(resp.Body)
+	Senddata, err := json.Marshal(resp.Header)
 
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Access-Control-Allow-Orgin", "*")
-		w.Write(bodyBytes)
-	}
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Access-Control-Allow-Orgin", "*")
+	w.Write(Senddata)
 
 }
 
@@ -204,21 +204,17 @@ func Dnslookup(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
+
+	addr, err := net.LookupAddr(GetIpvalue.Getipfromuser)
+	fmt.Println(addr, err)
 	fmt.Println("value", GetIpvalue.Getipfromuser)
-	var client http.Client
+	fmt.Println(addr, err)
+	Senddata, err := json.Marshal(addr)
 
-	clienturl := "http://api.whatismyip.com/host-name.php?key=89cd62c5ed209af9513765d85f690fef&input=" + GetIpvalue.Getipfromuser + "&output=json"
-	resp, _ := client.Get(clienturl)
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Access-Control-Allow-Orgin", "*")
+	w.Write(Senddata)
 
-	defer resp.Body.Close()
-
-	if resp.StatusCode == http.StatusOK {
-		bodyBytes, _ := ioutil.ReadAll(resp.Body)
-
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Access-Control-Allow-Orgin", "*")
-		w.Write(bodyBytes)
-	}
 }
 func ReverseDnslookup(w http.ResponseWriter, r *http.Request) {
 	var Gethost Getipstruct

@@ -434,6 +434,7 @@ button {
  * Button Styles
  *
  */
+
 .btn {
   font-size: 15px;
   letter-spacing: 1px;
@@ -442,16 +443,16 @@ button {
   border-radius: 4px;
 }
 
-.btn-main, .btn-main-sm {
+/*.btn-main, .btn-main-sm {
   background: #5672f9;
   color: #fff;
-}
+}*/
 
-.btn-main:hover, .btn-main-sm:hover {
+/*.btn-main:hover, .btn-main-sm:hover {
   background: #082de1;
   color: #fff;
 }
-
+*/
 .btn-main-sm {
   padding: 6px 20px;
   font-size: 12px;

@@ -108,36 +108,35 @@ $(document).ready(function(){
          
       	success: function(responsee){
  			var searchout = JSON.parse(responsee);
-           //Get Curent ip details
+
+
+        
            var s={
              "Getipfromuser":searchout
             };
 
-         $.ajax({
+       $.ajax({
          type: "POST",
          url: "http://176.111.105.86:8087/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
          	success: function(responsee){
  			var searchout1 = JSON.parse(responsee);
- 			console.log(searchout1)
- 			var  city = searchout1.ip_address_lookup[1].city
- 			var  country = searchout1.ip_address_lookup[1].country
- 			var  ipaddress = searchout1.ip_address_lookup[1].ip
- 			var  lalitude = searchout1.ip_address_lookup[1].latitude
- 			var  longitude = searchout1.ip_address_lookup[1].longitude
-            var  postalcode = searchout1.ip_address_lookup[1].postalcode
-            var  region = searchout1.ip_address_lookup[1].region
-            var time= searchout1.ip_address_lookup[1].time
-             var isp= searchout1.ip_address_lookup[1].isp
+ 			
+ 			var  city = searchout1.country_code
+ 			var  country = searchout1.country
+ 			var  ipaddress = searchout1.ip_address
+            var  lalitude = searchout1.latitude
+ 			var  longitude = searchout1.longitude
+            var  postalcode = searchout1.country_code
+           var  continent = searchout1.continent
+            
 
 
             $("#city1").html(city)
             $("#myip").html(ipaddress)
-         
             $("#country1").html(country)
-            
-            $("#isp1").html(isp)
+            $("#continent").html(continent)
            
 
  }});
@@ -171,26 +170,31 @@ function Getipaddressdetails(){
  			
  			document.getElementById("showtable").style.display = "inline";
  			console.log(searchout1)
- 			var  city = searchout1.ip_address_lookup[1].city
- 			var  country = searchout1.ip_address_lookup[1].country
- 			var  ipaddress = searchout1.ip_address_lookup[1].ip
- 			var  lalitude = searchout1.ip_address_lookup[1].latitude
- 			var  longitude = searchout1.ip_address_lookup[1].longitude
-            var  postalcode = searchout1.ip_address_lookup[1].postalcode
-            var  region = searchout1.ip_address_lookup[1].region
-            var time= searchout1.ip_address_lookup[1].time
-             var isp= searchout1.ip_address_lookup[1].isp
+
+ 				
+ 			var  country = searchout1.country
+ 			var  country_code = searchout1.country_code
+ 			var  ipaddress = searchout1.ip_address
+ 			var  lalitude = searchout1.latitude
+ 			var  longitude = searchout1.longitude
+            var  countrycode = searchout1.country_code
+            var  region = searchout1.continent
+            var  continent_code = searchout1.continent_code
+            var  currency= searchout1.currency
+            
 
 
-            $("#city").html(city)
             $("#myip1").html(ipaddress)
             $("#country").html(country)
+            $("#country_code").html(country_code)
             $("#lalitude").html(lalitude)
             $("#longitude").html(longitude)
-            $("#postalcode").html(postalcode)
+            $("#countrycode").html(countrycode)
+           
             $("#region").html(region)
-            $("#time").html(time)
-            $("#isp").html(isp)
+            $("#continent_code").html(continent_code)
+            // $("#time").html(time)
+            $("#currency").html(currency)
            
 
  }});
@@ -225,9 +229,9 @@ function speed(){
 							<li class="nav-item active">
 								<a class="nav-link" href="index.html">Home</a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link" href="javascript:speed()">Speed</a>
-							</li>
+							</li> -->
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									IP Tools <span><i class="fa fa-angle-down"></i></span>
@@ -235,11 +239,11 @@ function speed(){
 								<!-- Dropdown list -->
 								<div class="dropdown-menu dropdown-menu-right">
 									<a class="dropdown-item" href="iplookup.html"> IP LookUp</a>
-									<a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a>
+									<!-- <a class="dropdown-item" href="whoislookup.html">IP WHOIS Lookup</a> -->
 									<a class="dropdown-item" href="dnslookup.html">DNS Lookup</a>
 									<a class="dropdown-item" href="reverselookup.html">Reverse DNS Lookup</a>
-									<a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
-									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a>
+							<!-- 		<a class="dropdown-item" href="blacklist.html">Blacklist Check</a>
+									<a class="dropdown-item" href="proxydetect.html">Proxy Check</a> -->
 									<a class="dropdown-item" href="useragentinfo.html">User Agent Info</a>
 									<a class="dropdown-item" href="header.html">Server Headers Checker</a>
 									
@@ -285,8 +289,8 @@ function speed(){
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-				<p><b>IP ADDRESS EXPERTS</b></p>
-					<p><b>MYIP - <span id= "myip"></span><span>,</span><span id="city1"></span><span>,</span><span id="country1"></span><span>,</span><span id="isp1"></span></b></p>
+				
+					<p><b>MYIP - <span id= "myip"></span><span>,</span><span id="city1"></span><span>,</span><span id="country1"></span><span>,</span><span id="continent"></span></b></p>
 					
 					
 				
@@ -296,7 +300,7 @@ function speed(){
 							<li class="list-inline-item">
 								<a href="iplookup.html"> <i ></i>  LookUp</a></li>
 							<li class="list-inline-item">
-								<a href="whoislookup.html"><i ></i> IP WHOIS Lookup</a>
+								<a href="header.html"><i ></i>Header Check</a>
 							</li>
 							<li class="list-inline-item">
 								<a href="dnslookup.html"><i></i> DNS Lookup</a>
@@ -304,12 +308,12 @@ function speed(){
 							<li class="list-inline-item">
 								<a href="reverselookup.html"><i ></i> Reverse DNS Lookup</a>
 							</li>
-							<li class="list-inline-item">
-								<a href="blacklist.html"><i></i> Blacklist Check</a>
-							</li>
+							<!-- <li class="list-inline-item">
+								<a href="blacklist.html"><i></i> Blacklist Check</a> -->
+							<!-- </li>
 								<li class="list-inline-item">
 								<a href="proxydetect.html"><i></i> Proxy Check</a>
-							</li>
+							</li> -->
 								<li class="list-inline-item">
 								<a href="useragentinfo.html"><i ></i> User Agent Info</a>
 							</li>
@@ -333,44 +337,46 @@ function speed(){
 								</div>
 								</div>
 							
-<br>
-<br>
 
-						<div class="col-lg-6 col-md-12  table-responsive" style="margin-left:12%">
-		<table class="table" style="display:none" id="showtable" >
+
+		<div  table-responsive" style="margin-left:22%;margin-top:100px">
+		<table class="table" style="display:none;" id="showtable" >
     
     <tbody >
     <tr style="display:none">
         <td>IP Address</td>
+        <td style="display:none"></td>
         <td ></td>
       
       </tr> 
       <tr>
         <td>IP Address</td>
-        <td id="myip1"></td>
+
+        <td style="margin-left:40px" id="myip1"></td>
       
       </tr>      
-      <tr>
-        <td>City</td>
-        <td id="city"></td></tr>
+   
         
       <tr>
-        <td>State/Region</td>
+        <td>continent </td>
         <td id="region"></td></tr>
+        <tr>
+        <td>continent-code </td>
+        <td id="continent_code"></td></tr>
        
       <tr>
-        <td>Country Code</td>
+        <td>Country </td>
         <td id="country"></td>
         
       </tr>
       <tr>
-        <td>Postal Code</td>
-        <td id="postalcode"></td>
+        <td> Country Code</td>
+        <td id="countrycode"></td>
    
       </tr>
       <tr>
-        <td>ISP</td>
-        <td id="isp"></td>
+        <td>Currency</td>
+        <td id="currency"></td>
         
       </tr>
       <tr>
@@ -383,11 +389,11 @@ function speed(){
         <td id="longitude"></td>
         
       </tr>
-        <tr>
+        <!-- <tr>
          <td>Time</td>
         <td id="time">Time Zone</td>
        
-      </tr>
+      </tr> -->
     </tbody>
   </table>
   </div>
@@ -538,7 +544,7 @@ function speed(){
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-apple icon-bg-2"></i> 
@@ -551,9 +557,9 @@ function speed(){
 							
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div>  --><!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-home icon-bg-3"></i> 
@@ -566,7 +572,7 @@ function speed(){
 								
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div>  --><!-- /Category List -->
 					<!-- Category list -->
 					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
@@ -597,7 +603,7 @@ function speed(){
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-car icon-bg-6"></i> 
@@ -610,7 +616,7 @@ function speed(){
 							
 							</ul>
 						</div>
-					</div> <!-- /Category List -->
+					</div> --> <!-- /Category List -->
 					<!-- Category list -->
 					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
@@ -627,7 +633,7 @@ function speed(){
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					<div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+					<!-- <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-laptop icon-bg-8"></i> 
@@ -640,7 +646,7 @@ function speed(){
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
-					
+					 
 					
 				</div>
 			</div>
@@ -656,11 +662,12 @@ function speed(){
 =            Footer            =
 =============================-->
 
-<footer class="footer section section-sm" style="background-color:#B2BEB5;color:black">
-  <!-- Container Start -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+    <!-- Container Start -->
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-10 col-md-10 offset-md-1 offset-lg-0">
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
@@ -668,35 +675,24 @@ function speed(){
          
 							<img src="images/logofinal.png" alt="">
 					</a>
+					</div>
+					<div>
+					<br>
+
           <!-- description -->
-          <p ><b style="color:black">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</b></p>
+          <p style="color:white">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
         </div>
       </div>
    
-      <!-- Promotion -->
-      <div class="col-lg-10 col-md-10">
-        <!-- App promotion -->
-       
-          <a href="http://foxutech.com">
-            <!-- Icon -->
-            <img src="images/footer/phone-icon.png" alt="mobile-icon" style="height:15px">
-             <a href="mailto:mail@foxutech.com"><b>mail@foxutech.com</b></a>
-        
-        </div>
      
-    </div>
-  </div>
-  <!-- Container End -->
-</footer>
-<!-- Footer Bottom -->
-<footer class="footer-bottom">
-    <!-- Container Start -->
-    <div class="container">
-      <div class="row">
+        <br>
+        <br>
         <div class="col-sm-6 col-12">
+        <div>
+        </div>
           <!-- Copyright -->
-          <div class="copyright">
-            <p>Copyright © 2016. All Rights Reserved</p>
+          <div class="copyright" >
+            <p style="color:white">Copyright © 2018. All Rights Reserved</p>
           </div>
         </div>
         <div class="col-sm-6 col-12">
