@@ -94,6 +94,7 @@ function lookup(){
  			console.log(searchout1)
  			if (searchout1.length != 0){
  			document.getElementById("showtable").style.display = "inline";
+ 			console.log(searchout1)
  			
  			var  http = [];
  			var  cache = [];
@@ -102,31 +103,32 @@ function lookup(){
  			var  setcooki = [];
             // var  lenght = searchout1.server_headers["results"]["Content-Length"]
             var  date = searchout1.Date[0]
-            if (http.length == 0){
+
+            if (searchout1.Server.length == 0){
             	http = "-"
             }else{
             	http = searchout1.Server[0]
             }
-            if (cache.length == 0){
+            if (searchout1["Cache-Control"].length == 0){
             	cache = "-"
             }else{
             	cache = searchout1["Cache-Control"][0]
             }
-             if (policy.length == 0){
+             if (searchout1["P3p"].length == 0){
             	policy = "-"
             }else{
             	policy = searchout1.P3p[0]
             }
-             if (setcooki.length == 0){
+             if (searchout1["Set-Cookie"].length == 0){
             	setcooki = "-"
             }else{
             	setcooki = searchout1["Set-Cookie"][0]
 
             }
-             if (content.length == 0){
+             if (searchout1["Content-Type"].length == 0){
             	content = "-"
             }else{
-            	content = searchout1["Set-Cookie"][0]
+            	content = searchout1["Content-Type"][0]
 
             }
 
