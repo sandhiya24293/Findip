@@ -55,11 +55,11 @@ label {
   color: #848484;
 }
 
-.nav-pills .nav-link {
+/*.nav-pills .nav-link {
   font-size: 16px;
-}
+}*/
 
-@media (max-width: 480px) {
+/*@media (max-width: 480px) {
   .nav-pills .nav-link {
     font-size: 12px;
   }
@@ -91,7 +91,7 @@ label {
 
 .nav-pills.with-background .nav-link.active:hover {
   color: #fff;
-}
+}*/
 
 .nav-pills.with-background .nav-link.active:after {
   content: '';
@@ -120,7 +120,7 @@ label {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .nav-pills.transparent .nav-link {
     font-size: 12px;
   }

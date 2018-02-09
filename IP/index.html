@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  
+    Document Title
+    =============================================
+    -->
+    <title> FoxuTech</title>
+    <!--  
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+    <style type="text/css">
+      .newspaper {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+.form-wrapper {
+  width: 450px;
+  padding: 8px;
+  margin: 100px auto;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dedede #bababa #aaa #bababa;
+  -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+  -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+  box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;    
+  background-color: #f6f6f6;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8)); 
+  background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+  background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+  background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+  background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+  background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+}
+
+.form-wrapper #search {
+  width: 330px;
+  height: 20px;
+  padding: 10px 5px;
+  float: left;    
+  font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border: 1px solid #ccc;
+  -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+  -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+  box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;      
+}
+
+.form-wrapper #search:focus {
+  outline: 0; 
+  border-color: #aaa;
+  -moz-box-shadow: 0 1px 1px #bbb inset;
+  -webkit-box-shadow: 0 1px 1px #bbb inset;
+  box-shadow: 0 1px 1px #bbb inset;  
+}
+
+.form-wrapper #search::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+}
+
+.form-wrapper #search:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+}
+
+.form-wrapper #search:-ms-input-placeholder {
+        color: #999;
+        font-weight: normal;
+} 
+
+.form-wrapper #submit {
+  float: right;    
+  border: 1px solid #00748f;
+  height: 42px;
+  width: 100px;
+  padding: 0;
+  cursor: pointer;
+  font: bold 15px Arial, Helvetica;
+  color: #fafafa;
+  text-transform: uppercase;    
+  background-color: #0483a0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+  background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+  background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+  background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+  background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+  background-image: linear-gradient(top, #31b2c3, #0483a0);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;      
+  text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+}
+  
+.form-wrapper #submit:hover,
+.form-wrapper #submit:focus {   
+  background-color: #31b2c3;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+  background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+  background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+  background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+  background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+  background-image: linear-gradient(top, #0483a0, #31b2c3);
+} 
+  
+.form-wrapper #submit:active {
+  outline: 0;    
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
+}
+  
+.form-wrapper #submit::-moz-focus-inner {
+  border: 0;
+}
+
+.byline p{
+  text-align:center;
+  color:#555;
+  font: bold 18px Arial, Helvetica, Sans-serif;
+  text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.byline p a{
+  color:#000;
+  text-decoration:none;
+}
+    </style>
+    <!-- Default stylesheets-->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Tools.</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a  href="index.html">Home</a>
+             
+              </li>
+            
+ 
+   
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Features</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="iplookup.html"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                               <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
+                </ul>
+              </li>
+         
+              <li class="dropdown">
+              <a  href="documentation.html">DockerFile</a>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+     
+      <div class="main showcase-page" style="margin-top:70px">
+        <img src="assets/images/logofinal.png" style="height:40%;margin-left:90px;margin-bottom:20px">
+      </div> 
+      <nav class="navbar" role="navigation" style="margin-bottom:-15px;background-color:black;">
+
+
+        <div class="container" >
+          
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-left">
+             
+            
+ 
+   
+             
+                    <li><a   href="iplookup.html"  style="color:white"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html"  style="color:white">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html"  style="color:white">Reverse DNS Lookup</a></li>
+                               <li><a  href="useragentinfo.html"  style="color:white">User Agent Info</a></li>
+                   <li><a  href="header.html"  style="color:white">Server Headers Checker</a></li>
+               
+         
+              <li class="dropdown">
+              <a  href="documentation.html"  style="color:white">DockerFile</a>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <section class="bg-dark-30 showcase-page-header module parallax-bg newspaper"   data-background="assets/images/aa.jpg">
+       
+        
+        <div class="titan-caption" style="width:50%;margin-left:-2px">
+          <!-- <div class="caption-content"> -->
+            <div style="font-size:40px">MY IP ADDRESS</div>
+            <div style="font-size:30px">10.10.10.10</div>
+            <div class="font-alt mb-40 titan-title-size-1">
+            <div>Country Name</div>
+            <div>ISP</div>
+            <div>Region</div>
+            </div>
+            </div>
+               <div class="titan-caption" style="margin-top:-40px;width:50%" >
+
+
+            <div> <form class="form-wrapper" >
+  <input type="text" id="search" placeholder="Ip lookup" style="height:40px;" required>
+  <input type="submit" value="go" id="submit">
+</form></div>
+            <div>ISP</div>
+            <div>Region</div>
+            </div>
+           
+          
+      </section>
+      </div>
+      <div class="main showcase-page">
+     
+        <section class="module-medium" id="demos">
+          <div class="container">
+            <div class="row multi-columns-row">
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_mp_fullscreen_video_background.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/main_demo.jpg" alt="Main Demo"></div>
+                  <h3 class="content-box-title font-serif"> IP LookUp</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_agency.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/agency.jpg" alt="Agency"></div>
+                  <h3 class="content-box-title font-serif">DNS Lookup</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_portfolio.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/portfolio.jpg" alt="Portfolio"></div>
+                  <h3 class="content-box-title font-serif">Reverse DNS</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_restaurant.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/restaurant.jpg" alt="Restaurant"></div>
+                  <h3 class="content-box-title font-serif">Blacklist Check</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_finance.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/finance.jpg" alt="Finance"></div>
+                  <h3 class="content-box-title font-serif">User Agent Info</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_landing.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/landing.jpg" alt="Landing"></div>
+                  <h3 class="content-box-title font-serif">Server Headers Checker</h3></a></div>
+            <!--   <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_photography.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/photography.jpg" alt="Photography"></div>
+                  <h3 class="content-box-title font-serif">Photography</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_shop.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/shop.jpg" alt="Shop"></div>
+                  <h3 class="content-box-title font-serif">Shop</h3></a></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_op_fullscreen_gradient_overlay.html">
+                  <div class="content-box-image"><img src="assets/images/screenshots/one_page.jpg" alt="One Page"></div>
+                  <h3 class="content-box-title font-serif">One Page</h3></a></div>
+            </div> -->
+          </div>
+        </section>
+         <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">About Titan</h5>
+                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
+                  <p>Email:<a href="#">somecompany@example.com</a></p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Recent Comments</h5>
+                  <ul class="icon-list">
+                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                    <li>Jack on <a href="#">Bottle Mockup</a></li>
+                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Blog Categories</h5>
+                  <ul class="icon-list">
+                    <li><a href="#">Photography - 7</a></li>
+                    <li><a href="#">Web Design - 3</a></li>
+                    <li><a href="#">Illustration - 12</a></li>
+                    <li><a href="#">Marketing - 1</a></li>
+                    <li><a href="#">Wordpress - 16</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Popular Posts</h5>
+                  <ul class="widget-posts">
+                    <li class="clearfix">
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-body">
+                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                        <div class="widget-posts-meta">23 january</div>
+                      </div>
+                    </li>
+                    <li class="clearfix">
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-body">
+                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                        <div class="widget-posts-meta">15 February</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+     
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+    <!--  
+    JavaScripts
+    =============================================
+    -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="assets/lib/smoothscroll.js"></script>
+    <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

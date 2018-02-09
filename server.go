@@ -32,6 +32,9 @@ func Serve() bool {
 	fs3 := http.FileServer(http.Dir("./Docker/"))
 
 	router.PathPrefix("/Docker/").Handler(http.StripPrefix("/Docker/", fs3))
+	fs4 := http.FileServer(http.Dir("./IP/"))
+
+	router.PathPrefix("/IP/").Handler(http.StripPrefix("/IP/", fs4))
 
 	router.HandleFunc("/GetIP", Service.GETIP)
 	router.HandleFunc("/GetProxy", Service.GETProxy)
