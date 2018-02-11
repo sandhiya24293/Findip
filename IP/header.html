@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title>Titan | Multipurpose HTML5 Template</title>
+    <title>FoxuTech</title>
     <!--  
     Favicons
     =============================================
@@ -53,9 +53,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
     <style type="text/css">
-   input{
-    text-transform: lowercase;
-}
+   
 
 
 
@@ -63,262 +61,84 @@
  <script src="assets/js/jquery.min.js"></script>
 <script type="text/javascript">
 
-$(function () {
-    $("#btnAdd").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextPort(""));
-        $("#TextBoxContainer").append(div);
-
-  });
-
-
- $("#btnAdd1").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextBox(""));
-      
-        $("#TextBoxContainer1").append(div);
-    });
-
-    $("#btnAdd2").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextenv(""));
-      
-        $("#TextBoxContainer2").append(div);
-    });
-
-     $("#btnAdd3").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextvol(""));
-      
-        $("#TextBoxContainer3").append(div);
-    });
-      $("#btnAdd4").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextKey(""));
-      
-        $("#TextBoxContainer4").append(div);
-    });
-
- $("#btnAdd5").bind("click", function () {
-        var div = $("<tr />");
-        div.html(GetDynamicTextKey(""));
-      
-        $("#TextBoxContainer5").append(div);
-    });
-
-
-
-   $("body").on("click", ".remove", function () {
-        $(this).closest("tr").remove();
-
-       
-   
-});
- });
-
-   
- var count=0;
-    var wantedId=[];  
-    var  wantedId1=[];
-    var  wantedId2=[];
-    var  wantedId3=[];
-    var  wantedId4=[];
-    var  wantedId5=[];
-
-    function getdockerfile(){
-  
-// $("#clickdocker").on("click", function () {
-
+function lookup(){
+         var  getip =  document.getElementById('getuserip').value
     
-         var  from =  document.getElementById('from').value
-         var  entry =  document.getElementById('entry').value
-         var cmd = document.getElementById('cmd').value
-         var workingdir = document.getElementById('workingdir').value
-         var user = document.getElementById('user').value
-
- $("#TextBoxContainer > tr").each(function (rindex) {
-             
-                var wantedObj={};
-                $(this).find('td :input').each (function(index) {
-                  // do your cool stuff
-                  switch(index) {
-                        case 0:
-                            
-                            wantedObj.Port=$(this).val();
-                            break;
-                        case 1:
-                            
-                            wantedObj.Protocal=$(this).val();
-                            break;
-                        
-                    } });
-                 wantedId.push(wantedObj); 
-
-
-       });
+       var s={
+             "Getipfromuser":getip
+            };
 
 
 
-        $("#TextBoxContainer1 > tr").each(function (rindex) {
-             console.log("new tr"+rindex);
-                // var wantedObj1={};
-                $(this).find('td :input').each (function(index) {
-                  // do your cool stuff
-                  switch(index) {
-                        case 0:
-                            
-                            // wantedObj1.RUN=$(this).val();
-                            wantedId1.push($(this).val()); 
-                            break;
-                       
-                        
-                    } });
-                 
-  });
-
-
-
-          $("#TextBoxContainer2 > tr").each(function (rindex) {
-             
-                var wantedObj2={};
-                $(this).find('td :input').each (function(index) {
-                  // do your cool stuff
-                  switch(index) {
-                        case 0:
-                            
-                            wantedObj2.ADDSOURCE=$(this).val();
-                            break;
-                             case 1:
-                            
-                            wantedObj2.ADDDESTIN=$(this).val();
-                            break;
-                       
-                        
-                    } });
-                 wantedId2.push(wantedObj2); 
-                
-                 
-       });
-
-
-   $("#TextBoxContainer3 > tr").each(function (rindex) {
-             console.log("new tr"+rindex);
-                // var wantedObj3={};
-                $(this).find('td :input').each (function(index) {
-                  // do your cool stuff
-                  switch(index) {
-                        case 0:
-                            
-                            // wantedObj3.VOLUME=$(this).val();
-                            wantedId3.push($(this).val());
-                            break;
-                       
-                        
-                    } });
-                 
-                
-       });
-
-
-
-  $("#TextBoxContainer4 > tr").each(function (rindex) {
-            
-                var wantedObj4={};
-                $(this).find('td :input').each (function(index) {
-                  // do your cool stuff
-                  switch(index) {
-                        case 0:
-                            
-                            wantedObj4.ADDSOURCE=$(this).val();
-                            break;
-                       case 1:
-                            
-                            wantedObj4.ADDDESTIN=$(this).val();
-                            break;
-                   
-                    } });
-                 wantedId4.push(wantedObj4); 
-                
-       });
-
-      $("#TextBoxContainer5 > tr").each(function (rindex) {
-             var wantedObj5={};
-                 $(this).find('td :input').each (function(index) {
-                    switch(index) {
-                        case 0:
-                             wantedObj5.ADDSOURCE=$(this).val(); break;
-                        case 1:
-                            wantedObj5.ADDDESTIN=$(this).val();break;
-                        } 
-                  });
-                 wantedId5.push(wantedObj5); 
-                 });
-
-   
-      var s={  
-  "FROM"      :from,
-  "ENTRYPOINT" :entry,
-  "EXPOSE"     :wantedId,
-  "RUN"        :wantedId1,
-  "ENV"       :wantedId2,
-  "VOLUME"     :wantedId3,
-  "ADD"        :wantedId4,
-  "COPY"       :wantedId5,
-  "CMD"        :cmd,
-  "USER"       :user,
-  "WORKDIR"    :workingdir
-}
- $.ajax({
+  $.ajax({
          type: "POST",
-         url: "http://localhost:8087/Dockerfile",
-         
+         url: "http://localhost:8087/Serverheadercheck",
+         contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
-         
-           success: function(responsee){
-            document.getElementById("showpre").style.display = "inline";
-            
-          console.log(responsee)
-        $("#getval").html(responsee);
-        $(document).scrollTop(1650)
-    }
-});
+          async: false,
+          success: function(responsee){
+      var searchout1 = JSON.parse(responsee);
+      console.log(searchout1)
+      if (searchout1.length != 0){
+      document.getElementById("showtable").style.display = "inline";
+      console.log(searchout1)
+      
+      var  http = [];
+      var  cache = [];
+      var  content = [];
+      var  policy = [];
+      var  setcooki = [];
+            // var  lenght = searchout1.server_headers["results"]["Content-Length"]
+            var  date = searchout1.Date[0]
 
-}
+            if (searchout1.Server.length == 0){
+              http = "-"
+            }else{
+              http = searchout1.Server[0]
+            }
+            if (searchout1["Cache-Control"].length == 0){
+              cache = "-"
+            }else{
+              cache = searchout1["Cache-Control"][0]
+            }
+             if (searchout1["P3p"].length == 0){
+              policy = "-"
+            }else{
+              policy = searchout1.P3p[0]
+            }
+             if (searchout1["Set-Cookie"].length == 0){
+              setcooki = "-"
+            }else{
+              setcooki = searchout1["Set-Cookie"][0]
+
+            }
+             if (searchout1["Content-Type"].length == 0){
+              content = "-"
+            }else{
+              content = searchout1["Content-Type"][0]
+
+            }
+
+           
 
 
+            $("#http").html(http)
+            $("#cache").html(cache)
+            $("#content").html(content)
+            $("#policy").html(policy)
+             $("#setcooki").html(setcooki)
+           
+            // $("#lenght").html(lenght)
+            $("#date").html(date)
+        }else{
+          alert("Please enter valid Host")
+        }
+          
 
-        
+ }});
 
-
-
-
-
-
-function GetDynamicTextBox(value) {
-    return '<td><input   type="text" value = "' + value + '" class="form-control getport" style="text-transform: lowercase;" placeholder="ex : apk add --no-cache git" /></td>' +   '<td><button type="button" class="btn btn-danger remove getproto" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-function GetDynamicTextPort(value) {
- return '<td><input type="text" value = "' + value + '" class="form-control"  style="text-transform: lowercase;" placeholder="port"/></td>' + '<td ><select  class="form-control" style="height:30px"><option value="/tcp"> Tcp</option><option value="/udp"> Udp</option></select></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-
-function GetDynamicTextenv(value) {
- return '<td><input  type="text" style="text-transform: lowercase;" value = "' + value + '" class="form-control" placeholder="key"/></td>' + '<td><input type="text" style="text-transform: lowercase;"  value = "' + value + '" class="form-control" placeholder="value" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-function GetDynamicTextvol(value) {
- return '<td><input  type="text" value = "' + value + '" class="form-control" style="text-transform: lowercase;" placeholder="/Folder "/></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px" ><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-
-function GetDynamicTextKey(value) {
- return '<td><input  type="text" value = "' + value + '" class="form-control" style="text-transform: lowercase;" placeholder="Source"/></td>' + '<td><input type="text" value = "' + value + '" class="form-control" style="text-transform: lowercase;" placeholder="Destination" /></td>'  + '<td><button type="button" class="btn btn-danger remove" style="margin-top:-2px"><i class="glyphicon glyphicon-remove-sign"></i></button></td>'
-}
-
-
-
-
-
-
-
-
+  
+        }
 
 
 
@@ -370,288 +190,73 @@ function speed(){
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                
+                <h2 class="module-title font-alt">IP LOOKUP</h2>
                 <div class="module-subtitle font-serif">
-                <div class="container" >
-    <div class="row">
-      <div>
-      <div class="content-block">
-
-        <div class="advance-search">
-          <div id="wrapper" class="container">
-  
-
-     <form action="" method="post" onsubmit="getdockerfile();return false;" style="width:50%">
-  
-    <h3><b >Get Dockerfile </b></h3>
-      
-      <fieldset>
-        <div class="form-group">
-            <div>
-           <div style="text-align:left">BASE IMAGE*</div> 
-           <input class="form-control" placeholder="Image Name" type="text" id="from" style="text-transform: lowercase;">
-             </div>
-          </div>
-
-  <div class="form-group">
-            <div  >
-              <div style="text-align:left">ENTRYPOINT</div>
-              
-                <input  class="form-control"  placeholder="Comma delimited :sh,-c" type="text" id="entry" style="text-transform: lowercase;">
-              
-            </div>
-          </div>
-
-       
-
-        <div class="form-group">
-       <div >
-           <div class="table table-responsive"  style="margin-top:30px">
-            <div style="text-align:left">EXPOSE PORT</div>
-           <table class="table table-bordered" >
-              
-      <tbody id="TextBoxContainer" >
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>  
-
-
-
-
-      <div class="form-group" >
-       <div >
-           <div class="table table-responsive">
-             <div style="text-align:left">RUN COMMAND</div>
-           <table class="table table-bordered">
-              
-      <tbody id="TextBoxContainer1" style="height:2px">
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd1" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>   
-
-
+                 <form id="subscription-form" role="form">
+                    <div class="input-group">
+                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Enter Domain"  required="required"/><span class="input-group-btn">
+                        <button class="btn btn-g btn-round"  type="submit" onclick="lookup()">Submit</button></span>
+                    </div>
+                  </form> 
+                  <br>
+                    <div  style="margin-left:12%">
+    <table class="table table-responsive" id="showtable" style="display:none;width:100%" >
     
-      <div class="form-group" >
-       <div >
-           <div class="table table-responsive">
-            <div style="text-align:left">ENVIRONMENT</div>
-           <table class="table table-bordered">
-              
-      <tbody id="TextBoxContainer2" style="height:2px">
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd2" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>   
-
-
-
-<div class="form-group" >
-       <div >
-           <div class="table table-responsive" >
-            <div style="text-align:left">VOLUME</div>
-           <table class="table table-bordered">
-              
-      <tbody id="TextBoxContainer3" style="height:2px">
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd3" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>   
-
-
-
-
-
-<div class="form-group" >
-       <div >
-           <div class="table table-responsive">
-            <div style="text-align:left">ADD</div>
-           <table class="table table-bordered">
-              
-      <tbody id="TextBoxContainer4" style="height:2px">
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd4" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>   
-
-
-
-
-<div class="form-group" >
-       <div >
-           <div class="table table-responsive">
-             <div style="text-align:left">COPY</div>
-           <table class="table table-bordered">
-              
-      <tbody id="TextBoxContainer5" style="height:2px">
-      </tbody>
-    <tfoot>
-        <tr>
-          <th colspan="5">
-          <button id="btnAdd5" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">
-          <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></th>
-       </tr>
-    </tfoot>
-
-    </table>
-
-    </div>
-   </div>
- </div>   
-
-
-
-         
-
-          <div class="form-group">
-            <div  style="margin-top:7px">
-              <div style="text-align:left">COMMAND</div>
-                            <textarea placeholder="Comma delimited :echo,helloword" class="form-control" id="cmd" style="text-transform: lowercase;"></textarea> 
-
-              
-            </div>
-          </div>
-
-
-
-
-         <div class="form-group">
-            <div  style="margin-top:25px">
-               <div style="text-align:left">WORKING DIRECTORY</div>
-              
-               
-                <input  class="form-control" placeholder="/usr/app" type="text" id="workingdir" style="text-transform: lowercase;">
-           </div>
-          </div>
-
-
-
-         <div class="form-group">
-            <div  style="margin-top:30px">
-                <div style="text-align:left">USER</div>
-             
-           
-                <input class="form-control" placeholder="User" type="text" id="user" style="text-transform: lowercase;">
-              </div>
-          
-          </div>
-
-
-
- 
-
-
-         <div class="form-group">
-            <div  style="margin-top:30px">
-              
-               <button  class="btn btn-success" id="clickdocker" >Create Docker</button>
-              </div>
-       
-          </div>
-
-
+    <tbody style="border: 2px solid white;">
+   
+    
+        
+       <tr style="visibility:hidden">
+        <td>IP Address</td>
 
       
+      
+      </tr>    
+   
 
-
-
-
-      </fieldset> 
-    </form>
-</div>
-    </div>
-
-
-            <br>
-            <br>
-            <br>
-
+ <tr>
+        <td>Http Server</td>
+        <td id="http"></td>
+      
+      </tr>      
+      <tr>
+        <td>Cache-Control</td>
+        <td id="cache"></td>
+        </tr>
         
-      </div>
-    </div>
-  </div>
-  </div>
-  <!-- Container End -->
-  <div class="container" style="display:none" id="showpre" >
-    <div class="row">
-      <div >
-      <div class="content-block">
-        <p>Dockerfile</p>
+      <tr>
+        <td>Content-Type</td>
+        <td id="content"></td>
+        </tr>
+       
+      <tr>
+        <td>Referrer-Policy</td>
+        <td id="policy"></td>
         
-        <!-- Advance Search -->
-        <div class="advance-search" >
-           
-            <div class="row">
-              
-              <div  >
-             <pre id="getval" style="color:black;text-align:left">
+      </tr>
+      <tr>
+        <td>setcooki</td>
+        <td id="setcooki"></td>
+   
+      </tr>
+    
+      <tr>
+        <td>Date</td>
+        <td id="date"></td>
+        
+      </tr>
+      
+        <!-- <tr>
+         <td>Time</td>
+        <td id="time">Time Zone</td>
+       
+      </tr> -->
+    </tbody>
+  </table>
 
-             </pre> 
-         
-          
-        </div>
-     
-        
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-                 </div>
+                </div>
+              </div>
             </div>
-          </div>
           </div>
         </section>
         <section class="module">

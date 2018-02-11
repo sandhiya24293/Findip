@@ -159,7 +159,6 @@ func Serverheadercheck(w http.ResponseWriter, r *http.Request) {
 	//	clienturl := "http://api.whatismyip.com/server-headers.php?key=89cd62c5ed209af9513765d85f690fef&input=http://" + GetIpvalue.Getipfromuser + "&output=json"
 	clienturl := "https://" + GetIpvalue.Getipfromuser
 	resp, _ := client.Get(clienturl)
-	fmt.Println("resp", resp.Header)
 
 	defer resp.Body.Close()
 
