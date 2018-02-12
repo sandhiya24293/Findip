@@ -243,7 +243,7 @@ func Sslchecker(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("value", GetIpvalue.Getipfromuser)
 	var client http.Client
-	clienturl := "https://www.sslshopper.com/assets/snippets/sslshopper/ajax/ajax_check_ssl.php?hostname=" + GetIpvalue.Getipfromuser + "&recaptcha_challenge_field=&recaptcha_response_field=&rand=371"
+	clienturl := "https://www.sslshopper.com/ssl-checker.html?hostname=" + GetIpvalue.Getipfromuser + "&recaptcha_challenge_field=&recaptcha_response_field=&rand=371"
 	resp, _ := client.Get(clienturl)
 
 	defer resp.Body.Close()

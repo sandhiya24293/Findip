@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SSL Checker - SSL Certificate Verify</title>
+        <meta name="description" content="Use this SSL Checker to troubleshoot common SSL Certificate installation problems on your server including verifying that the correct certificate is installed, valid, and properly trusted.">
+        <meta name="keywords" content="ssl checker, ssl certificate verify, ssl verify">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://www.sslshopper.com/feed.html" />
+        <link href="/assets/templates/sslshopper2016/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/templates/sslshopper2016/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/assets/templates/sslshopper2016/css/styles/style.css" rel="stylesheet">
+        <link href="/assets/templates/sslshopper2016/css/styles/skin-blue.css" rel="stylesheet" id="color_theme">
+        <link href="/assets/templates/sslshopper2016/css/custom.css" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=kPgMqpXJo8">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png?v=kPgMqpXJo8" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png?v=kPgMqpXJo8" sizes="16x16">
+        <link rel="manifest" href="/manifest.json?v=kPgMqpXJo8">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=kPgMqpXJo8" color="#5bbad5">
+        <link rel="shortcut icon" href="/favicon.ico?v=kPgMqpXJo8">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="outer">
+            <div class="header-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="/assets/templates/sslshopper2016/img/ssl-shopper-logo.svg" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="navy">
+                                <ul class="main_nav">
+                                    <li class="first">
+                                        <a href="https://www.sslshopper.com/" title="SSL Certificate Comparison and Reviews" >Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="ssl-certificate-wizard.html" title="Compare SSL with the SSL Certificate Wizard" >SSL Wizard</a>
+                                        <ul>
+                                            <li class="first">
+                                                <a href="ssl-advanced-search.html" title="SSL Certificate Advanced Search" >Advanced Search</a>
+                                            </li>
+                                            <li>
+                                                <a href="ssl-certificate-list.html" title="SSL Certificate List" >View List</a>
+                                            </li>
+                                            <li class="last">
+                                                <a href="ssl-certificate-categories.html" title="SSL Certificate Categories" >SSL Categories</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="ssl-faq.html" title="SSL FAQ" >SSL FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="certificate-authority-reviews.html" title="SSL Certificate Reviews" >SSL Reviews</a>
+                                    </li>
+                                    <li>
+                                        <a href="ssl-security-news.html" title="SSL News" >SSL News</a>
+                                    </li>
+                                    <li class="last active">
+                                        <a href="ssl-certificate-tools.html" title="SSL Certificate Tools" >SSL Tools</a>
+                                        <ul>
+                                            <li class="first active">
+                                                <a href="ssl-checker.html" title="SSL Checker - SSL Certificate Verify" >SSL Checker</a>
+                                            </li>
+                                            <li>
+                                                <a href="csr-decoder.html" title="CSR Decoder - Check CSR to verify its contents" >CSR Decoder</a>
+                                            </li>
+                                            <li>
+                                                <a href="certificate-decoder.html" title="Certificate Decoder - Decode certificates to view their contents" >Certificate Decoder</a>
+                                            </li>
+                                            <li>
+                                                <a href="certificate-key-matcher.html" title="Certificate Key Matcher - Check whether your private key matches your SSL certificate." >Certificate Key Matcher</a>
+                                            </li>
+                                            <li class="last">
+                                                <a href="ssl-converter.html" title="SSL Converter - Convert SSL Certificates to different formats" >SSL Converter</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <!-- Search section -->
+                            <div class="head-search pull-right">
+                                <a href="#" class="b-dropdown" id="search_button">
+                                    <i class="fa fa-search square-2 rounded-1 bg-color white"></i>
+                                </a>
+                                <div class="b-dropdown-block">
+                                    <form role="form" action="/site-search-results.html" id="search_form">
+                                        <div class="input-group">
+                                            <input id="search_box" type="text" class="form-control" placeholder="Search..." name="search">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-color" type="submit">Search</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-block">
+                <div class="page-heading-two">
+                    <div class="container">
+                        <h1>SSL Checker</h1>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="blog-two">
+                        <div class="row">
+                            <div class="col-md-8" id="main_content_div">
+                                <!-- Javascript files -->
+                                <script src="/assets/templates/sslshopper2016/js/jquery.js"></script>
+                                <script src="/assets/templates/sslshopper2016/js/bootstrap.min.js"></script>
+                                <!-- Respond JS for IE8 -->
+                                <script src="/assets/templates/sslshopper2016/js/respond.min.js"></script>
+                                <!-- HTML5 Support for IE -->
+                                <script src="/assets/templates/sslshopper2016/js/html5shiv.js"></script>
+                                <!-- Main JS -->
+                                <script src="/assets/templates/sslshopper2016/js/main.js"></script>
+                                <p>This 
+                                    <strong>SSL Checker</strong> will help you diagnose problems with your SSL certificate installation. You can verify the SSL certificate on your web server to make sure it is correctly installed, valid, trusted and doesn't give any errors to any of your users. To use the SSL Checker, simply enter your server's hostname (must be public) in the box below and click the Check SSL button. If you need an SSL certificate, check out the
+                                    <a href="ssl-certificate-wizard.html">SSL Wizard</a>.
+                                </p>
+                                <p>
+                                    <a id="toggle1" onclick="$('#notes1').toggle('slow');return false;" name="toggle1" href="#">More Information About the SSL Checker</a>
+                                </p>
+                                <p id="notes1" style="display: none;">The SSL Checker makes it easy to verify your SSL certificates by connecting to your server and displaying the results of the SSL connection including what SSL certificate is installed and whether it gives out the correct intermediate certificates. The SSL Checker even lets you set up a reminder of a certificate's expiration so you don't forget to renew your certificate on time and avoid embarrassing error messages.  SSL Checker entries may be cached up to a day after repeated checking to conserve server resources. You can check SSL installations on internal names by downloading OpenSSL and running this 
+                                    <a href="article-most-common-openssl-commands.html">OpenSSL command</a>: openssl s_client -connect www.paypal.com:443
+                                    <br />
+                                    <br /> For a more detailed report of the SSL security of your server (including revocation, cipher, and protocol information), check your site using
+                                    <a href="https://www.ssllabs.com/ssltest/">SSL Labs' SSL Server Test</a>. If you have any problems using the SSL Checker to verify your SSL certificate installation, please
+                                    <a href="contact-ssl-shopper.html">contact us</a>.
+                                </p>
+                                <p>
+                                    <form name="hostForm" id="check_form" method="get">
+                                        <div class="panel panel-blue">
+                                            <div class="panel-heading">Server Hostname</div>
+                                            <div class="panel-body">
+                                                <div class="input-group">
+                                                    <input class="checkerHostname" id="hostname" type="text" name="host" placeholder="www.google.com" value="" />
+                                                    <span class="input-group-btn">
+                                                        <a href="#" class="btn btn-blue" id="checkButton">Check SSL</a>
+                                                    </span>
+                &nbsp;
+                                                    <span id="loading">&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                        <!-- spinner -->
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div id="checkData"></div>
+                                    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+                                    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+                                    <script src="/assets/snippets/sslshopper/js/ssl-checker.js"></script>
+                                    <div id="reminderContent"></div>
+                                    <div id="captchaDiv"></div>
+                                </p>
+                            </div>
+                            <div class="col-md-4" id="sideblocks_div">
+                                <div class="sidebar">
+                                    <div class="s-widget">
+                                        <h5>
+                                            <i class="fa fa-search color"></i> Quick SSL Search
+                                        </h5>
+                                        <div id="home_quick_search_buttons">
+                                            <a href="/cheapest-ssl-certificates.html" class="btn btn-blue">Cheap SSL Certificates</a>
+                                            <br/>
+                                            <a href="/cheapest-ev-ssl-certificates.html" class="btn btn-blue">EV Certificates</a>
+                                            <br/>
+                                            <a href="/unified-communications-uc-ssl-certificates.html" class="btn btn-blue">UC/SAN Certificates</a>
+                                            <br/>
+                                            <a href="/best-ssl-wildcard-certificate.html" class="btn btn-blue">Wildcard Certificates</a>
+                                            <br/>
+                                            <a href="/best-domain-validated-ssl-certificates.html" class="btn btn-blue">Domain Validated(DV) Certificates</a>
+                                            <br/>
+                                            <a href="/cheap-code-signing-certificates.html" class="btn btn-blue">Code Signing Certificates</a>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="s-widget">
+                                        <h5>
+                                            <i class="fa fa-fire color"></i> Popular Pages
+                                        </h5>
+                                        <div>
+                                            <ul class="list-6">
+                                                <li>
+                                                    <a href="/ssl-certificate-wizard.html">The SSL Certificate Wizard</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/article-most-common-openssl-commands.html">The Most Common OpenSSL Commands</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/article-most-common-java-keytool-keystore-commands.html">The Most Common Java Keytool Keystore Commands</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/apache-redirect-http-to-https.html">Redirect HTTP to HTTPS on Apache</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/iis7-redirect-http-to-https.html">Redirect HTTP to HTTPS on IIS 7</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/article-installing-an-ssl-certificate-in-windows-server-2008-iis-7.0.html">Installing an SSL Certificate on Windows</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/article-how-to-create-a-self-signed-certificate.html">How to Create A Self Signed Certificate</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/how-to-move-or-copy-an-ssl-certificate-from-one-server-to-another.html">How to Move or Copy a Certificate to Another Server</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="s-widget">
+                                        <h5>
+                                            <i class="fa fa-wrench color"></i> SSL Tools
+                                        </h5>
+                                        <div>
+                                            <ul class="tools-list">
+                                                <li>
+                                                    <a class="btn btn-blue" href="/ssl-checker.html">SSL Checker</a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn btn-blue" href="/csr-decoder.html">CSR Decoder</a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn btn-blue" href="/certificate-decoder.html" >Certificate Decoder</a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn btn-blue" href="/certificate-key-matcher.html">Certificate Key Matcher</a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn btn-blue" href="/ssl-converter.html">SSL Converter</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <p class="pull-left">&copy; 2018 SSL Shopper&trade;
+					 All Rights Reserved | 
+                        <a href="/full-disclosure.html" style="color:#ccc;text-decoration:none;" >Full Disclosure</a>
+                    </p>
+                    <ul class="list-inline pull-right">
+                        <li class="first">
+                            <a href="https://www.sslshopper.com/" title="SSL Certificate Comparison and Reviews" >Home</a>
+                        </li>
+                        <li>
+                            <a href="ssl-certificate-wizard.html" title="Compare SSL with the SSL Certificate Wizard" >SSL Wizard</a>
+                        </li>
+                        <li>
+                            <a href="ssl-faq.html" title="SSL FAQ" >SSL FAQ</a>
+                        </li>
+                        <li>
+                            <a href="certificate-authority-reviews.html" title="SSL Certificate Reviews" >SSL Reviews</a>
+                        </li>
+                        <li>
+                            <a href="ssl-security-news.html" title="SSL News" >SSL News</a>
+                        </li>
+                        <li>
+                            <a href="site-map.html" title="Site Map" >Site Map</a>
+                        </li>
+                        <li>
+                            <a href="about-ssl-shopper.html" title="About SSL Shopper" >About</a>
+                        </li>
+                        <li class="last current">
+                            <a href="ssl-certificate-tools.html" title="SSL Certificate Tools" >SSL Tools</a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </footer>
+        </div>
+        <!-- Scroll to top -->
+        <span class="totop">
+            <a href="#">
+                <i class="fa fa-angle-up bg-color"></i>
+            </a>
+        </span>
+        <!-- Google Analytics -->
+        <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-779203-2', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+    </body>
+</html>

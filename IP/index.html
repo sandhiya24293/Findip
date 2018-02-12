@@ -177,6 +177,118 @@ th, td {
 }
 
 </style>
+ <script src="assets/js/jquery.min.js"></script>
+ <script>
+$(document).ready(function(){
+        $.ajax({
+         type: "GET",
+         url: "http://localhost:8087/GetIP",
+         contentType:"application/json; charset=utf-8",
+      
+         
+        success: function(responsee){
+      var searchout = JSON.parse(responsee);
+
+
+        
+           var s={
+             "Getipfromuser":"176.111.105.86"
+            };
+
+       $.ajax({
+         type: "POST",
+         url: "http://localhost:8087/GetIPdetails",
+         contentType:"application/json; charset=utf-8",
+          data: JSON.stringify(s),
+          success: function(responsee){
+      var searchout1 = JSON.parse(responsee);
+      
+      var  city = searchout1.country_code
+      var  country = searchout1.country
+      var  ipaddress = searchout1.ip_address
+      var  lalitude = searchout1.latitude
+      var  longitude = searchout1.longitude
+      var  postalcode = searchout1.country_code
+      var  continent = searchout1.continent
+            
+
+
+            $("#city1").html(city)
+            $("#myip").html(ipaddress)
+            $("#country1").html(country)
+            $("#continent").html(continent)
+             $("#lat").html(lalitude)
+             $("#long").html(longitude)
+            $("#post").html(postalcode)
+
+ }});
+
+
+          }});
+ 
+});
+
+
+
+function Getipaddressdetails(){
+  
+
+      var  getip =  document.getElementById('getuserip').value
+    
+       var s={
+             "Getipfromuser":getip
+            };
+
+
+
+  $.ajax({
+         type: "POST",
+         url: "http://localhost:8087/GetIPdetails",
+         contentType:"application/json; charset=utf-8",
+          data: JSON.stringify(s),
+           async: false,
+          success: function(responsee){
+      var searchout1 = JSON.parse(responsee);
+      
+      document.getElementById("showtable").style.display = "inline";
+      console.log(searchout1)
+
+        
+      var  country = searchout1.country
+      var  country_code = searchout1.country_code
+      var  ipaddress = searchout1.ip_address
+      var  lalitude = searchout1.latitude
+      var  longitude = searchout1.longitude
+            var  countrycode = searchout1.country_code
+            var  region = searchout1.continent
+            var  continent_code = searchout1.continent_code
+            var  currency= searchout1.currency
+            
+
+
+            $("#myip1").html(ipaddress)
+            $("#country").html(country)
+            $("#country_code").html(country_code)
+            $("#lalitude").html(lalitude)
+            $("#longitude").html(longitude)
+            $("#countrycode").html(countrycode)
+           
+            $("#region").html(region)
+            $("#continent_code").html(continent_code)
+            // $("#time").html(time)
+            $("#currency").html(currency)
+           
+
+ }});
+
+
+}
+
+function speed(){
+  //window.location.href ="ssl.html"
+  alert("Coming soon!")
+}
+</script>
     <!-- Default stylesheets-->
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Template specific stylesheets-->
@@ -225,18 +337,31 @@ th, td {
               </li>
          
               <li class="dropdown">
-              <a  href="documentation.html">DockerFile</a>
+              <a  href="docker.html">DockerFile</a>
                 
               </li>
+            
             </ul>
           </div>
         </div>
       </nav>
      
-      <div class="main showcase-page" style="margin-top:70px">
-        <img src="assets/images/logofinal.png" style="height:40%;margin-left:90px;margin-bottom:20px">
+      <div class="main showcase-page" >
+        <img src="assets/images/logofinal.png" height="50%" style="height:50%;margin-left:90px;margin-bottom:20px">
+
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="1234567890"></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5921980498900731",
+    enable_page_level_ads: true
+  });
+</script>
       </div> 
-      <nav class="navbar" role="navigation" style="margin-bottom:-15px;background-color:black;">
+      <nav class="navbar" role="navigation" style="margin-bottom:-10px;background-color:black;">
 
 
         <div class="container" >
@@ -244,11 +369,7 @@ th, td {
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-left">
              
-            
- 
-   
-             
-                    <li><a   href="iplookup.html"  style="color:white;font-size:13px"> IP LookUp</a></li>
+               <li><a   href="iplookup.html"  style="color:white;font-size:13px"> IP LookUp</a></li>
                    <li><a  href="dnslookup.html"  style="color:white;font-size:13px"">DNS Lookup</a></li>
                    <li><a  href="reverselookup.html"  style="color:white;font-size:13px"">Reverse DNS Lookup</a></li>
                                <li><a  href="useragentinfo.html"  style="color:white;font-size:13px"">User Agent Info</a></li>
@@ -281,12 +402,17 @@ th, td {
         
         <div class="titan-caption" >
           <div class="caption-content">
-            <div style="font-size:40px">MY IP ADDRESS -<span>10.10.10.10</span></div>
+            <div style="font-size:40px">MY IP ADDRESS -<span id= "myip"></span></div>
             
+
+
             <div class="font-alt mb-40 titan-title-size-1">
-            <div >CITY - <span>gddwidudfhu</span></div>
-            <div >COUNTRY - <span>gddwidudfhu</span></div>
-            <div >CONTINENT -<span>gddwidudfhu</span></div>
+         
+            <div >COUNTRY - <span  id="country1"></span></div>
+               <div >COUNTRYCODE - <span id="city1"></span></div>
+            <div >CONTINENT -<span id="continent"></span></div>
+            <div >LALITUDE -<span id="lat"></span></div>
+            <div >LONGITUDE<span id="long"></span></div>
             </div>
             </div>
             </div>
@@ -301,22 +427,22 @@ th, td {
         <section class="module-medium" id="demos">
           <div class="container">
             <div class="row multi-columns-row">
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="about.html">
-                  <div class="content-box-image"><img src="assets/images/iplook.png" alt="Main Demo"></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="iplookup.html">
+                  <div class="content-box-image"><img src="assets/images/iplook.png" alt="Ip lookup" style="height:200px"></div>
                   <h3 class="content-box-title font-serif"> IP LookUp</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_agency.html">
-                  <div class="content-box-image"><img src="assets/images/dns.jfif" alt="Agency"></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="dnslookup.html">
+                  <div class="content-box-image"><img src="assets/images/dns.jfif" alt="Agency" style="height:200px"></div>
                   <h3 class="content-box-title font-serif">DNS Lookup</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_portfolio.html">
-                  <div class="content-box-image"><img src="assets/images/reverse.jfif" alt="Portfolio"></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="reverselookup.html">
+                  <div class="content-box-image"><img src="assets/images/reverse.jfif" alt="Portfolio" style="height:200px"></div>
                   <h3 class="content-box-title font-serif">Reverse DNS</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_restaurant.html">
-                  <div class="content-box-image"><img src="assets/images/docker.png" alt="Restaurant"></div>
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="docker.html">
+                  <div class="content-box-image"><img src="assets/images/docker.png" alt="Restaurant" style="height:200px"></div>
                   <h3 class="content-box-title font-serif">Docker</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_finance.html">
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="useragentinfo.html">
                   <div class="content-box-image"><img src="assets/images/ua.jfif" alt="Finance"></div>
                   <h3 class="content-box-title font-serif">User Agent Info</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="index_landing.html">
+              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="header.html">
                   <div class="content-box-image"><img src="assets/images/header.jfif" alt="Landing"></div>
                   <h3 class="content-box-title font-serif">Server Headers Checker</h3></a></div>
           
@@ -336,8 +462,8 @@ th, td {
                                    
 
                                     <p style="margin-top:20px">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
-                  <p>Phone: +1 9884379333</p>
-                  <p>Email:<a href="#"></a></p>
+                  <p>Phone: +91 9884379333</p>
+                  <p>Contact us: mail@foxutech.com</p>
                 </div>
               </div>
              
@@ -358,36 +484,16 @@ th, td {
           </div>
         </footer>
       </div>
-     
- 
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
     <!--  
     JavaScripts
     =============================================
     -->
+   
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/lib/wow/dist/wow.js"></script>
