@@ -78,17 +78,13 @@ function lookup(){
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
           success: function(responsee){
-      var searchout = JSON.parse(responsee);
-      
+          var searchout = JSON.parse(responsee);
           document.getElementById("showtable").style.display = "inline";
-          console.log(searchout)
-      if(searchout== "" || searchout == null){
-        alert(searchout );
+           if(searchout== "" || searchout == null){
+     
+                $("#hoststring").html("Dns Name does not exist")
         
-        $("#hoststring").html("Dns Name does not exist")
-        
-
-      }
+               }
       else{
         $("#hoststring").html(searchout[0])
         
