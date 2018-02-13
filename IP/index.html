@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title> FoxuTech</title>
+    <title>FoxuTech | Tools.</title>
     <!--  
     Favicons
     =============================================
@@ -182,7 +182,7 @@ th, td {
 $(document).ready(function(){
         $.ajax({
          type: "GET",
-         url: "http://localhost:8087/GetIP",
+         url: "http://176.111.105.86:8087/GetIP",
          contentType:"application/json; charset=utf-8",
       
          
@@ -192,12 +192,12 @@ $(document).ready(function(){
 
         
            var s={
-             "Getipfromuser":"176.111.105.86"
+             "Getipfromuser":searchout
             };
 
        $.ajax({
          type: "POST",
-         url: "http://localhost:8087/GetIPdetails",
+         url: "http://176.111.105.86:8087/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
           success: function(responsee){
@@ -243,7 +243,7 @@ function Getipaddressdetails(){
 
   $.ajax({
          type: "POST",
-         url: "http://localhost:8087/GetIPdetails",
+         url: "http://176.111.105.86:8087/GetIPdetails",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
            async: false,
@@ -347,21 +347,16 @@ function speed(){
       </nav>
      
       <div class="main showcase-page" >
-        <img src="assets/images/logofinal.png" height="50%" style="height:50%;margin-left:90px;margin-bottom:20px">
+        <img src="assets/images/logofinal.png" height="50%" style="margin-left:90px;margin-top:-130px">
 
-<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
-<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="1234567890"></ins>
+<ins class="adsbygoogle" style="display:inline-block;width:828px;height:110px;margin-left:50px;margin-top:20px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
 <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-5921980498900731",
-    enable_page_level_ads: true
-  });
+(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-      <nav class="navbar" role="navigation" style="margin-bottom:-10px;background-color:black;">
+      <nav class="navbar" role="navigation" style="background-color:black;">
 
 
         <div class="container" >
@@ -377,7 +372,7 @@ function speed(){
                
          
               <li class="dropdown">
-              <a  href="documentation.html"  style="color:white;font-size:13px"">DockerFile</a>
+              <a  href="docker.html"  style="color:white;font-size:13px"">DockerFile</a>
                 
               </li>
             </ul>
@@ -397,7 +392,7 @@ function speed(){
 
 
 
-      <section class="bg-dark-30 showcase-page-header module parallax-bg "   data-background="assets/images/aa.jpg">
+      <section class="bg-dark-30 showcase-page-header module parallax-bg " style="margin-top:-20px"  data-background="assets/images/aa.jpg" style="margin-top:-20px">
        
         
         <div class="titan-caption" >
@@ -448,7 +443,98 @@ function speed(){
           
           </div>
         </section>
-         <div class="module-small bg-dark">
+            <section class="module">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h5 class="font-alt">IP Lookup</h5><br/>
+                <p>Your IP Location can be found using our IP Lookup tool. No IP Lookup tool is 100% accurate due to many different factors. Some of those factors include where the owner of the IP has it registered, where the agency that controls the IP is located, proxies, cellular IPs, etc.</p>
+              </div>
+              <div class="col-sm-6">
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Development
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+                <h6 class="font-alt"><span class="icon-strategy"></span> Technology
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+                <h6 class="font-alt"><span class="icon-target"></span> Trending
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+               
+                </div>
+              </div>
+            </div>
+         
+        </section>
+        <hr class="divider-w">
+           <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-8 col-lg-8 col-lg-offset-4">
+                <div class="callout-text font-alt">
+                <a class="btn btn-g btn-round"  id="subscription-form-submit" href="docker.html">Docker File Creation</a>
+                    
+                 
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        
+
+
+        <section class="module" id="alt-features">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">Our feFoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-strategy"></span></div>
+                  <h3 class="alt-features-title font-alt">IP LOOKUP</h3>The IP Address Lookup tool includes the following IP Address details: City, State / Region, Postal / Zip Code, Country Name, Country Code, Time Zone, ISP.
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-tools-2"></span></div>
+                  <h3 class="alt-features-title font-alt">DNS LOOKUP</h3>The Domain Name System, otherwise known as DNS, is a key component of the Internet. DNS is the resolution of a domain name to an IP address. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-target"></span></div>
+                  <h3 class="alt-features-title font-alt">REVERSE DNS LOOKUP</h3>The Reverse DNS Lookup Tool requires you to enter the any IP address that has a corresponding host name. 
+                </div>
+               
+              </div>
+              <div class="col-md-6 col-lg-6 hidden-xs hidden-sm">
+                <div class="alt-services-image align-center"><img src="assets/images/ip.png" style="height:400px;margin-top:70px" alt="Feature Image"></div>
+              </div>
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-camera"></span></div>
+                  <h3 class="alt-features-title font-alt">DOCKER FILE</h3>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-mobile"></span></div>
+                  <h3 class="alt-features-title font-alt">SERVER HEADER CHECK</h3>The server headers check tool commonly referred to as a server header checker is used to return a number of important results. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-linegraph"></span></div>
+                  <h3 class="alt-features-title font-alt">USER AGENT INFO</h3>Your User Agent tells every site your visit what browser you're using. Sites are able to detect your UA and redirect to a more fitting page for your browser if desired. 
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </section>
+             <div class="module-small bg-dark">
           <div class="container">
             <div class="row">
               <div class="col-sm-8">
@@ -484,7 +570,6 @@ function speed(){
           </div>
         </footer>
       </div>
-    
 
 
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
