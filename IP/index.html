@@ -202,24 +202,58 @@ $(document).ready(function(){
           data: JSON.stringify(s),
           success: function(responsee){
       var searchout1 = JSON.parse(responsee);
-      
-      var  city = searchout1.country_code
+      var  city = searchout1.city
       var  country = searchout1.country
+
       var  ipaddress = searchout1.ip_address
       var  lalitude = searchout1.latitude
       var  longitude = searchout1.longitude
-      var  postalcode = searchout1.country_code
-      var  continent = searchout1.continent
-            
+   
+  var  countrycode = searchout1.country_code
+            var  region = searchout1.region
+            var  continent = searchout1.continent
+            var  currency= searchout1.currency
 
 
-            $("#city1").html(city)
+            if(city != null){
+              document.getElementById("showcity").style.display = "inline";
+                }
+              if(region != null){
+              document.getElementById("showregion").style.display = "inline";
+                }
+                if(country != null){
+              document.getElementById("showcountry").style.display = "inline";
+                }
+                if(countrycode != null){
+              document.getElementById("showcode").style.display = "inline";
+                }
+                  if(continent != null){
+              document.getElementById("showcontinent").style.display = "inline";
+                }
+                  if(lalitude != null){
+                
+              document.getElementById("showlat").style.display = "inline";
+                }
+                 if(longitude != null){
+              document.getElementById("showlong").style.display = "inline";
+                }
+                 if(currency != null){
+              document.getElementById("showcurrency").style.display = "inline";
+                }
+                
+
+
+
+           
             $("#myip").html(ipaddress)
             $("#country1").html(country)
             $("#continent").html(continent)
              $("#lat").html(lalitude)
              $("#long").html(longitude)
-            $("#post").html(postalcode)
+            $("#city").html(city)
+            $("#region").html(region)
+            $("#currency").html(currency)
+            $("#countcode").html(postalcode)
 
  }});
 
@@ -230,59 +264,6 @@ $(document).ready(function(){
 
 
 
-function Getipaddressdetails(){
-  
-
-      var  getip =  document.getElementById('getuserip').value
-    
-       var s={
-             "Getipfromuser":getip
-            };
-
-
-
-  $.ajax({
-         type: "POST",
-         url: "http://176.111.105.86:8087/GetIPdetails",
-         contentType:"application/json; charset=utf-8",
-          data: JSON.stringify(s),
-           async: false,
-          success: function(responsee){
-      var searchout1 = JSON.parse(responsee);
-      
-      document.getElementById("showtable").style.display = "inline";
-      console.log(searchout1)
-
-        
-      var  country = searchout1.country
-      var  country_code = searchout1.country_code
-      var  ipaddress = searchout1.ip_address
-      var  lalitude = searchout1.latitude
-      var  longitude = searchout1.longitude
-            var  countrycode = searchout1.country_code
-            var  region = searchout1.continent
-            var  continent_code = searchout1.continent_code
-            var  currency= searchout1.currency
-            
-
-
-            $("#myip1").html(ipaddress)
-            $("#country").html(country)
-            $("#country_code").html(country_code)
-            $("#lalitude").html(lalitude)
-            $("#longitude").html(longitude)
-            $("#countrycode").html(countrycode)
-           
-            $("#region").html(region)
-            $("#continent_code").html(continent_code)
-            // $("#time").html(time)
-            $("#currency").html(currency)
-           
-
- }});
-
-
-}
 
 function speed(){
   //window.location.href ="ssl.html"
@@ -346,13 +327,14 @@ function speed(){
         </div>
       </nav>
      
-      <div class="main showcase-page" >
-        <img src="assets/images/logofinal.png" height="50%" style="margin-left:90px;margin-top:-130px">
+      <div class="main showcase-page" style="margin-top:70px">
+        <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:15px;">
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
-<ins class="adsbygoogle" style="display:inline-block;width:828px;height:110px;margin-left:50px;margin-top:20px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:120px;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
 <script>
+
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
@@ -392,26 +374,28 @@ function speed(){
 
 
 
-      <section class="bg-dark-30 showcase-page-header module parallax-bg " style="margin-top:-20px"  data-background="assets/images/aa.jpg" style="margin-top:-20px">
+      <section class="bg-dark-30 showcase-page-header module parallax-bg "   data-background="assets/images/aa.jpg" style="margin-top:-35px">
        
         
         <div class="titan-caption" >
           <div class="caption-content">
-            <div style="font-size:40px">MY IP ADDRESS -<span id= "myip"></span></div>
+            <div style="font-size:40px">MY IP ADDRESS <span id= "myip"></span></div>
             
 
 
             <div class="font-alt mb-40 titan-title-size-1">
-         
-            <div >COUNTRY - <span  id="country1"></span></div>
-               <div >Countrycode- <span id="city1"></span></div>
-            <div >CONTINENT -<span id="continent"></span></div>
-            <div >LALITUDE -<span id="lat"></span></div>
-            <div >LONGITUDE<span id="long"></span></div>
+           <div  style="display :none" id="showcity">CITY - <span  id="city"></span></div><br>
+            <div style="display :none" id="showregion" >REGION - <span  id="region"></span></div><br>
+            <div style="display :none" id="showcountry">COUNTRY - <span  id="country1"></span></div><br>
+            <div style="display :none" id="showcode">Countrycode- <span id="countcode"></span></div><br>
+            <div style="display :none" id="showcontinent">CONTINENT -<span id="continent"></span></div><br>
+            <div style="display :none" id="showlat">LALITUDE -<span id="lat"></span></div><br>
+            <div style="display :none" id="showlong">LONGITUDE<span id="long"></span></div><br>
+            <div style="display :none" id="showcurrency">CURRENCY <span id="currency"></span></div><br>
             </div>
             </div>
             </div>
-           
+        
           
       </section>
       <br>
