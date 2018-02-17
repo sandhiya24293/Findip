@@ -49,7 +49,7 @@ func Serve() bool {
 	router.HandleFunc("/SSlchecker", Service.Sslchecker)
 	router.HandleFunc("/Speed_Service", Speed_Service)
 	router.HandleFunc("/Dockerfile", Service.WriteDockerFile)
-	//router.HandleFunc("/Deletefile", Service.Deletedockerfile)
+	router.HandleFunc("/Awsping", Service.Awsping)
 
 	//For HTTPS
 

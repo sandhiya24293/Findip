@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  
+    Document Title
+    =============================================
+    -->
+    <title>FoxuTech | Tools.</title>
+    <!--  
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+    <!-- Default stylesheets-->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+     <link id="color-scheme" href="assets/css/table.css" rel="stylesheet">
+    <style type="text/css">
+ .no-js #loader { display: none; }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(assets/images/Preloader_2.gif) center no-repeat #fff;
+}
+ 
+</style>
+ <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+function Ping(){
+ 
+  document.getElementById("showdiv").style.display = "inline";
+  
+
+
+   $.ajax({
+         type: "GET",
+         url: "http://176.111.105.86:8087/Awsping",
+         contentType:"application/json; charset=utf-8",
+         
+      success: function(responsee){
+      var searchout = JSON.parse(responsee);
+       
+
+               
+          $("#heath1").html(searchout[0].Ping)
+          $("#dns1").html(searchout[0].DNSLookup)
+          $("#tcp1").html(searchout[0].TCPConnection)
+          $("#tls1").html(searchout[0].TLSHandshake)
+          $("#server1").html(searchout[0].ServerProcessing)
+          $("#content1").html(searchout[0].ContentTransfer)
+
+          $("#heath2").html(searchout[1].Ping)
+          $("#dns2").html(searchout[1].DNSLookup)
+          $("#tcp2").html(searchout[1].TCPConnection)
+          $("#tls2").html(searchout[1].TLSHandshake)
+          $("#server2").html(searchout[1].ServerProcessing)
+          $("#content2").html(searchout[1].ContentTransfer)
+         
+          $("#heath3").html(searchout[2].Ping)
+          $("#dns3").html(searchout[2].DNSLookup)
+          $("#tcp3").html(searchout[2].TCPConnection)
+          $("#tls3").html(searchout[2].TLSHandshake)
+          $("#server3").html(searchout[2].ServerProcessing)
+          $("#content3").html(searchout[2].ContentTransfer)
+
+          $("#heath4").html(searchout[3].Ping)
+          $("#dns4").html(searchout[3].DNSLookup)
+          $("#tcp4").html(searchout[3].TCPConnection)
+          $("#tls4").html(searchout[3].TLSHandshake)
+          $("#server4").html(searchout[3].ServerProcessing)
+          $("#content4").html(searchout[3].ContentTransfer)
+            
+             $("#heath5").html(searchout[4].Ping)
+          $("#dns5").html(searchout[4].DNSLookup)
+          $("#tcp5").html(searchout[4].TCPConnection)
+          $("#tls5").html(searchout[4].TLSHandshake)
+          $("#server5").html(searchout[4].ServerProcessing)
+          $("#content5").html(searchout[4].ContentTransfer)
+
+          $("#heath6").html(searchout[5].Ping)
+          $("#dns6").html(searchout[5].DNSLookup)
+          $("#tcp6").html(searchout[5].TCPConnection)
+          $("#tls6").html(searchout[5].TLSHandshake)
+          $("#server6").html(searchout[5].ServerProcessing)
+          $("#content6").html(searchout[5].ContentTransfer)
+
+
+          $("#heath7").html(searchout[6].Ping)
+          $("#dns7").html(searchout[6].DNSLookup)
+          $("#tcp7").html(searchout[6].TCPConnection)
+          $("#tls7").html(searchout[6].TLSHandshake)
+          $("#server7").html(searchout[6].ServerProcessing)
+          $("#content7").html(searchout[6].ContentTransfer)
+
+            $("#heath8").html(searchout[7].Ping)
+          $("#dns8").html(searchout[7].DNSLookup)
+          $("#tcp8").html(searchout[7].TCPConnection)
+          $("#tls8").html(searchout[7].TLSHandshake)
+          $("#server8").html(searchout[7].ServerProcessing)
+          $("#content8").html(searchout[7].ContentTransfer)
+
+           $("#heath9").html(searchout[8].Ping)
+          $("#dns9").html(searchout[8].DNSLookup)
+          $("#tcp9").html(searchout[8].TCPConnection)
+          $("#tls9").html(searchout[8].TLSHandshake)
+          $("#server9").html(searchout[8].ServerProcessing)
+          $("#content9").html(searchout[8].ContentTransfer)
+ $("#heath10").html(searchout[9].Ping)
+          $("#dns10").html(searchout[9].DNSLookup)
+          $("#tcp10").html(searchout[9].TCPConnection)
+          $("#tls10").html(searchout[9].TLSHandshake)
+          $("#server10").html(searchout[9].ServerProcessing)
+          $("#content10").html(searchout[9].ContentTransfer)
+
+            $("#heath11").html(searchout[10].Ping)
+          $("#dns11").html(searchout[10].DNSLookup)
+          $("#tcp11").html(searchout[10].TCPConnection)
+          $("#tls11").html(searchout[10].TLSHandshake)
+          $("#server11").html(searchout[10].ServerProcessing)
+          $("#content11").html(searchout[10].ContentTransfer)
+
+           $("#heath12").html(searchout[11].Ping)
+          $("#dns12").html(searchout[11].DNSLookup)
+          $("#tcp12").html(searchout[11].TCPConnection)
+          $("#tls12").html(searchout[11].TLSHandshake)
+          $("#server12").html(searchout[11].ServerProcessing)
+          $("#content12").html(searchout[11].ContentTransfer)
+
+           $("#heath13").html(searchout[12].Ping)
+          $("#dns13").html(searchout[12].DNSLookup)
+          $("#tcp13").html(searchout[12].TCPConnection)
+          $("#tls13").html(searchout[12].TLSHandshake)
+          $("#server13").html(searchout[12].ServerProcessing)
+          $("#content13").html(searchout[12].ContentTransfer)
+
+           $("#heath14").html(searchout[13].Ping)
+          $("#dns14").html(searchout[13].DNSLookup)
+          $("#tcp14").html(searchout[13].TCPConnection)
+          $("#tls14").html(searchout[13].TLSHandshake)
+          $("#server14").html(searchout[13].ServerProcessing)
+          $("#content14").html(searchout[13].ContentTransfer)
+          document.getElementById("showdiv").style.display = "none";
+
+
+           
+
+ }});
+
+}
+
+</script>
+
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Tools.</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a  href="index.html">Home</a>
+             
+              </li>
+            
+ 
+   
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Features</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="iplookup.html"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                               <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
+                </ul>
+              </li>
+         
+              <li class="dropdown">
+              <a  href="docker.html">DockerFile</a>
+                
+              </li>
+              <li class="dropdown"><a  href="aws.html">Aws Ping</a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+        <div class="main showcase-page" style="margin-top:70px">
+        <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;">
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:120px;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<script>
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      </div> 
+      <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+        <div class="container">
+          <div class="navbar-header">
+            
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-left">
+             
+               <li><a   href="iplookup.html"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                               <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
+                 </li>
+         
+              <li class="dropdown"> <a  href="docker.html">DockerFile Creation</a> </li>
+               <li class="dropdown"><a  href="aws.html">Aws Ping</a>
+                
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <div></div>
+  <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+               
+                <div class="module-subtitle font-serif">Amazon Cloud is available in multiple regions and this tool will help you measure the Health,DNSLookup,TCPConnection,TLSHandshake,ServerProcessing,ContentTransfer from your browser to different regions.</div>
+                    <div style="margin-top:-50px">
+                   <button class="btn btn-g btn-round" style="background-color:orange;color:white;margin-left:30%;width:35%; border-radius: 25px;height:50px;"  type="submit" onclick="Ping()"><b>Start ping</b></button>
+              </div>
+              </div>
+            </div>
+            <br>
+<div class="se-pre-con" id="showdiv" style="display:none"></div>
+<div class="table" id="results" style="margin-top:-9px">
+  <div class='theader'>
+    <div class='table_header'>AWS Region</div>
+    <div class='table_header'>Region Code</div>
+    <div class='table_header'>Service Name</div>
+    <div class='table_header'>Health Check(MS)</div>
+    <div class='table_header'>DNSLookup(MS)</div>
+    <div class='table_header'>TCPConnection(MS)</div>
+    <div class='table_header'>TLSHandshake(MS)</div>
+    <div class='table_header'>ServerProcessing(MS)</div>
+    <div class='table_header'>ContentTransfer(ms  )</div>
+    
+
+  </div>
+  <!--1-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>US East (N. Virginia)</b></div>
+      
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>us-east-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath1">0ms</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns1">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp1">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls1">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server1">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content1">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--2-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>US East (Ohio)</b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>us-east-2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath2">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns2">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp2">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls2">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server2">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content2">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--3-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>US West (N. California)</b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'> us-west-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath3">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns3">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp3">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls3">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server3">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content3">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--4-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>US West (Oregon)</b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>us-west-2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+   <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath4">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns4">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp4">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls4">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server4">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content4">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--5-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Canada (Central) </b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>ca-central-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath5">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns5">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp5">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls5">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server5">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content5">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--6-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>EU (Ireland) </b> </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>eu-west-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath6">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns6">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp6">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls6">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server6">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content6">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--7-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>EU (Frankfurt)</b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>eu-central-1  </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+   <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath7">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns7">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp7">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls7">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server7">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content7">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--8-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>EU (London) </b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>eu-west-2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath8">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns8">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp8">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls8">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server8">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content8">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--9-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Asia Pacific (Singapore)</b> </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>ap-southeast-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath9">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns9">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp9">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls9">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server9">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content9">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--10-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Asia Pacific (Sydney) </b> </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'> ap-southeast-2 </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath10">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns10">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp10">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls10">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server10">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content10">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--11-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Asia Pacific (Seoul) </b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>ap-northeast-2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath11">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns11">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp11">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls11">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server11">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content11">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--12-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Asia Pacific (Tokyo) </b> </div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'> ap-northeast-1 </div>
+    </div>
+    <div class='table_small'>
+      
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath12">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns12">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp12">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls12">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server12">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content12">0<span>ms</span></div>
+    </div>
+  </div>
+    <!--13-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>Asia Pacific (Mumbai)</b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'>ap-south-1 </div>
+    </div>
+    <div class='table_small'>
+     
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+
+  <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath13">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns13">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp13">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls13">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server13">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content13">0<span>ms</span></div>
+    </div>
+  </div>
+  <!--14-->
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>AWS Region</div>
+      <div class='table_cell'><b>South America (Sao Paulo) </b></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Region Code</div>
+      <div class='table_cell'> sa-east-1</div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>Service Name</div>
+      <div class='table_cell'>EC2</div>
+    </div>
+   <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath14">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>DNSLookup</div>
+      <div class='table_cell' id="dns14">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp14">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>TLSHandshake</div>
+      <div class='table_cell' id="tls14">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server14">0<span>ms</span></div>
+    </div>
+    <div class='table_small'>
+      <div class='table_cell'>ContentTransfer</div>
+      <div class='table_cell' id="content14">0<span>ms</span></div>
+    </div>
+  </div>
+  
+
+</div>
+</div>
+
+
+            <br>
+       
+
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  
+                 </div>
+            </div>
+          </div>
+          </div>
+        </section>
+         <section class="module">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h5 class="font-alt">AWS </h5><br/>
+                <p>Amazon Cloud is available in multiple regions and this tool will help you measure the latency from your browser to different regions. </p>
+              </div>
+              <div class="col-sm-6">
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Development
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+                <h6 class="font-alt"><span class="icon-strategy"></span> Technology
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+                <h6 class="font-alt"><span class="icon-target"></span> Trending
+                </h6>
+                <div class="progress">
+                  <div class="progress-bar pb-dark" aria-valuenow="90" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                </div>
+               
+                </div>
+              </div>
+            </div>
+         
+        </section>
+        <hr class="divider-w">
+         
+
+
+        <section class="module" id="alt-features">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">Our features</h2>
+                <div class="module-subtitle font-serif">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-strategy"></span></div>
+                  <h3 class="alt-features-title font-alt">IP LOOKUP</h3>The IP Address Lookup tool includes the following IP Address details: City, State / Region, Postal / Zip Code, Country Name, Country Code, Time Zone, ISP.
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-tools-2"></span></div>
+                  <h3 class="alt-features-title font-alt">DNS LOOKUP</h3>The Domain Name System, otherwise known as DNS, is a key component of the Internet. DNS is the resolution of a domain name to an IP address. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-target"></span></div>
+                  <h3 class="alt-features-title font-alt">REVERSE DNS LOOKUP</h3>The Reverse DNS Lookup Tool requires you to enter the any IP address that has a corresponding host name. 
+                </div>
+               
+              </div>
+              <div class="col-md-6 col-lg-6 hidden-xs hidden-sm">
+                <div class="alt-services-image align-center"><img src="assets/images/ip.png" style="height:400px;margin-top:70px" alt="Feature Image"></div>
+              </div>
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-camera"></span></div>
+                  <h3 class="alt-features-title font-alt">DOCKER FILE CREATION</h3>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-mobile"></span></div>
+                  <h3 class="alt-features-title font-alt">SERVER HEADER CHECK</h3>The server headers check tool commonly referred to as a server header checker is used to return a number of important results. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-linegraph"></span></div>
+                  <h3 class="alt-features-title font-alt">USER AGENT INFO</h3>Your User Agent tells every site your visit what browser you're using. Sites are able to detect your UA and redirect to a more fitting page for your browser if desired. 
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </section>
+             <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="widget">
+                 <a href="http://foxutech.com">
+         
+              <img src="assets/images/logofinal.png" alt="">
+          </a>
+                  <br>
+
+                                   
+
+                                    <p style="margin-top:20px">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+                  <p>Phone: +91 9884379333</p>
+                  <p>Contact us: mail@foxutech.com</p>
+                </div>
+              </div>
+             
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">Copyright © 2018. All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="https://www.facebook.com/foxutech/"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/foxutech"><i class="fa fa-twitter"></i></a> <a class="fa fa-google" href="https://plus.google.com/105970773317038465374"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+    <!--  
+    JavaScripts
+    =============================================
+    -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="assets/lib/smoothscroll.js"></script>
+    <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
