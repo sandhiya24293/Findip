@@ -50,6 +50,7 @@ func Serve() bool {
 	router.HandleFunc("/Speed_Service", Speed_Service)
 	router.HandleFunc("/Dockerfile", Service.WriteDockerFile)
 	router.HandleFunc("/Awsping", Service.Awsping)
+	router.HandleFunc("/Googleping", Service.Googleping)
 
 	//For HTTPS
 

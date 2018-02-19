@@ -78,111 +78,190 @@ function Ping(){
 
    $.ajax({
          type: "GET",
-         url: "http://176.111.105.86:8087/Awsping",
+         url: "http://176.111.105.86:8087/Googleping",
          contentType:"application/json; charset=utf-8",
          
       success: function(responsee){
       var searchout = JSON.parse(responsee);
        
 
-               
-          $("#heath1").html(searchout[0].Ping)
-          $("#dns1").html(searchout[0].DNSLookup)
+          if (searchout[0].Ping == "pong"){
+           $("#heath1").html("Healthy")
+          }else{
+           $("#heath1").html("Unhealthy")
+           }
+         
           $("#tcp1").html(searchout[0].TCPConnection)
           $("#tls1").html(searchout[0].Latency)
           $("#server1").html(searchout[0].ServerProcessing)
-          $("#content1").html(searchout[0].ContentTransfer)
-
-          $("#heath2").html(searchout[1].Ping)
-          $("#dns2").html(searchout[1].DNSLookup)
-          $("#tcp2").html(searchout[1].TCPConnection)
+        
+           if (searchout[1].Ping == "pong"){
+           $("#heath2").html("Healthy")
+          }else{
+           $("#heath2").html("Unhealthy")
+           }
+           $("#tcp2").html(searchout[1].TCPConnection)
           $("#tls2").html(searchout[1].Latency)
           $("#server2").html(searchout[1].ServerProcessing)
-          $("#content2").html(searchout[1].ContentTransfer)
          
-          $("#heath3").html(searchout[2].Ping)
-          $("#dns3").html(searchout[2].DNSLookup)
+          if (searchout[2].Ping == "pong"){
+           $("#heath3").html("Healthy")
+          }else{
+           $("#heath3").html("Unhealthy")
+           }
+       
           $("#tcp3").html(searchout[2].TCPConnection)
           $("#tls3").html(searchout[2].Latency)
           $("#server3").html(searchout[2].ServerProcessing)
-          $("#content3").html(searchout[2].ContentTransfer)
+          
+           if (searchout[3].Ping == "pong"){
+           $("#heath4").html("Healthy")
+          }else{
+           $("#heath4").html("Unhealthy")
+           }
 
-          $("#heath4").html(searchout[3].Ping)
-          $("#dns4").html(searchout[3].DNSLookup)
-          $("#tcp4").html(searchout[3].TCPConnection)
+         $("#tcp4").html(searchout[3].TCPConnection)
           $("#tls4").html(searchout[3].Latency)
           $("#server4").html(searchout[3].ServerProcessing)
-          $("#content4").html(searchout[3].ContentTransfer)
+
+           if (searchout[4].Ping == "pong"){
+           $("#heath5").html("Healthy")
+          }else{
+           $("#heath5").html("Unhealthy")
+           }
             
-             $("#heath5").html(searchout[4].Ping)
-          $("#dns5").html(searchout[4].DNSLookup)
+        
           $("#tcp5").html(searchout[4].TCPConnection)
           $("#tls5").html(searchout[4].Latency)
           $("#server5").html(searchout[4].ServerProcessing)
-          $("#content5").html(searchout[4].ContentTransfer)
-
-          $("#heath6").html(searchout[5].Ping)
-          $("#dns6").html(searchout[5].DNSLookup)
+          
+          if (searchout[5].Ping == "pong"){
+           $("#heath6").html("Healthy")
+          }else{
+           $("#heath6").html("Unhealthy")
+           }
+            
+      
           $("#tcp6").html(searchout[5].TCPConnection)
           $("#tls6").html(searchout[5].Latency)
           $("#server6").html(searchout[5].ServerProcessing)
-          $("#content6").html(searchout[5].ContentTransfer)
 
+           if (searchout[6].Ping == "pong"){
+           $("#heath7").html("Healthy")
+          }else{
+           $("#heath7").html("Unhealthy")
+           }
 
-          $("#heath7").html(searchout[6].Ping)
-          $("#dns7").html(searchout[6].DNSLookup)
           $("#tcp7").html(searchout[6].TCPConnection)
           $("#tls7").html(searchout[6].Latency)
           $("#server7").html(searchout[6].ServerProcessing)
-          $("#content7").html(searchout[6].ContentTransfer)
 
-            $("#heath8").html(searchout[7].Ping)
-          $("#dns8").html(searchout[7].DNSLookup)
+
+           if (searchout[7].Ping == "pong"){
+           $("#heath8").html("Healthy")
+          }else{
+           $("#heath8").html("Unhealthy")
+           }
+           
           $("#tcp8").html(searchout[7].TCPConnection)
           $("#tls8").html(searchout[7].Latency)
           $("#server8").html(searchout[7].ServerProcessing)
-          $("#content8").html(searchout[7].ContentTransfer)
+           
 
-           $("#heath9").html(searchout[8].Ping)
-          $("#dns9").html(searchout[8].DNSLookup)
+            if (searchout[8].Ping == "pong"){
+           $("#heath9").html("Healthy")
+          }else{
+           $("#heath9").html("Unhealthy")
+           }
+           
           $("#tcp9").html(searchout[8].TCPConnection)
           $("#tls9").html(searchout[8].Latency)
           $("#server9").html(searchout[8].ServerProcessing)
-          $("#content9").html(searchout[8].ContentTransfer)
-          $("#heath10").html(searchout[9].Ping)
-          $("#dns10").html(searchout[9].DNSLookup)
+         
+              if (searchout[9].Ping == "pong"){
+           $("#heath10").html("Healthy")
+          }else{
+           $("#heath10").html("Unhealthy")
+           }
+
+
+
+        
           $("#tcp10").html(searchout[9].TCPConnection)
           $("#tls10").html(searchout[9].Latency)
           $("#server10").html(searchout[9].ServerProcessing)
-          $("#content10").html(searchout[9].ContentTransfer)
 
-          $("#heath11").html(searchout[10].Ping)
-          $("#dns11").html(searchout[10].DNSLookup)
+
+          if (searchout[10].Ping == "pong"){
+           $("#heath11").html("Healthy")
+          }else{
+           $("#heath11").html("Unhealthy")
+           }
+
+        
           $("#tcp11").html(searchout[10].TCPConnection)
           $("#tls11").html(searchout[10].Latency)
           $("#server11").html(searchout[10].ServerProcessing)
-          $("#content11").html(searchout[10].ContentTransfer)
 
-           $("#heath12").html(searchout[11].Ping)
-          $("#dns12").html(searchout[11].DNSLookup)
+           if (searchout[11].Ping == "pong"){
+           $("#heath12").html("Healthy")
+          }else{
+           $("#heath12").html("Unhealthy")
+           }
+
+
+         
           $("#tcp12").html(searchout[11].TCPConnection)
           $("#tls12").html(searchout[11].Latency)
           $("#server12").html(searchout[11].ServerProcessing)
-          $("#content12").html(searchout[11].ContentTransfer)
 
-           $("#heath13").html(searchout[12].Ping)
-          $("#dns13").html(searchout[12].DNSLookup)
+          if (searchout[12].Ping == "pong"){
+           $("#heath13").html("Healthy")
+          }else{
+           $("#heath13").html("Unhealthy")
+           }
+
+
+        
           $("#tcp13").html(searchout[12].TCPConnection)
           $("#tls13").html(searchout[12].Latency)
           $("#server13").html(searchout[12].ServerProcessing)
-          $("#content13").html(searchout[12].ContentTransfer)
 
-           $("#heath14").html(searchout[13].Ping)
-          $("#dns14").html(searchout[13].DNSLookup)
+          if (searchout[13].Ping == "pong"){
+           $("#heath14").html("Healthy")
+          }else{
+           $("#heath14").html("Unhealthy")
+           }
+
           $("#tcp14").html(searchout[13].TCPConnection)
           $("#tls14").html(searchout[13].Latency)
           $("#server14").html(searchout[13].ServerProcessing)
-          $("#content14").html(searchout[13].ContentTransfer)
+
+
+            if (searchout[14].Ping == "pong"){
+           $("#heath15").html("Healthy")
+          }else{
+           $("#heath15").html("Unhealthy")
+           }
+
+          $("#tcp15").html(searchout[14].TCPConnection)
+          $("#tls15").html(searchout[14].Latency)
+          $("#server15").html(searchout[14].ServerProcessing)
+
+
+           if (searchout[15].Ping == "pong"){
+           $("#heath16").html("Healthy")
+          }else{
+           $("#heath16").html("Unhealthy")
+           }
+
+          $("#tcp16").html(searchout[15].TCPConnection)
+          $("#tls16").html(searchout[15].Latency)
+          $("#server16").html(searchout[15].ServerProcessing)
+
+
+
+
           document.getElementById("showdiv").style.display = "none";
 
 
@@ -228,7 +307,7 @@ function Ping(){
               <a  href="docker.html">DockerFile</a>
                 
               </li>
-                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="aws.html"> AWS PING</a></li>
                    <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
@@ -238,13 +317,12 @@ function Ping(){
              
 
             <a href= "https://foxutech.com/" class="btn btn-g btn-round" type="button" style="background-color:#ff5100;color:white;margin-left:15px;margin-top:8px;font-size:12px">Visit to Foxutech.com</a>
-       
-            </ul>
+                   </ul>
           </div>
         </div>
       </nav>
         <div class="main showcase-page" style="margin-top:70px">
-<a href="index.html"><img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
+      <a href="index.html">  <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
@@ -270,13 +348,14 @@ function Ping(){
                  </li>
          
               <li class="dropdown"> <a  href="docker.html">DockerFile Creation</a> </li>
-                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="aws.html"> AWS PING</a></li>
                    <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
                    
                 </ul>
               </li>
+            
             </ul>
           </div>
         </div>
@@ -295,29 +374,24 @@ function Ping(){
 <div class="se-pre-con" id="showdiv" style="display:none"></div>
 <div class="table" id="results" style="margin-top:-9px">
   <div class='theader'>
-    <div class='table_header'>AWS EC2 REGION </div>
-    <div class='table_header'>REGION CODE</div>
-   
+    <div class='table_header'>GOOGLE CLOUD REGION </div>
+ 
     <div class='table_header'>HEALTH CHECK</div>
-    <div class='table_header'>LATENCY(MS)</div>
-    <div class='table_header'>DNSLOOKUP(MS)</div>
-    <div class='table_header'>TCP CONNECTION(MS)</div>
-     <div class='table_header'>SERVER PROCESSING(MS)</div>
-    <div class='table_header'>CONTENT TRANSFER(MS)</div>
+     <div class='table_header'>LATENCY(MS)</div>
+     <div class='table_header'>TCP CONNECTION(MS)</div>
+    <div class='table_header'>SERVER PROCESSING(MS)</div>
+
     
 
   </div>
   <!--1-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>US East (N. Virginia)</b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b>Taiwan (asia-east1)</b></div>
       
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>us-east-1</div>
-    </div>
+   
    
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -327,10 +401,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls1">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns1">0<span>ms</span></div>
-    </div>
+ 
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp1">0<span>ms</span></div>
@@ -340,20 +411,13 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server1">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content1">0<span>ms</span></div>
-    </div>
+
   </div>
     <!--2-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>US East (Ohio)</b></div>
-    </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>us-east-2</div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b>Tokyo(asia-northeast1)</b></div>
     </div>
   
     <div class='table_small'>
@@ -364,10 +428,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls2">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns2">0<span>ms</span></div>
-    </div>
+
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp2">0<span>ms</span></div>
@@ -377,21 +438,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server2">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content2">0<span>ms</span></div>
-    </div>
+  
   </div>
     <!--3-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>US West (N. California)</b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b>Mumbai(asia-south1) </b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'> us-west-1</div>
-    </div>
+   
  
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -401,10 +456,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls3">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns3">0<span>ms</span></div>
-    </div>
+    
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp3">0<span>ms</span></div>
@@ -414,21 +466,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server3">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content3">0<span>ms</span></div>
-    </div>
+  
   </div>
     <!--4-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>US West (Oregon)</b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b>Singapore(asia-southeast1)</b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>us-west-2</div>
-    </div>
+    
 
    <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -438,10 +484,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls4">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns4">0<span>ms</span></div>
-    </div>
+  
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp4">0<span>ms</span></div>
@@ -451,21 +494,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server4">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content4">0<span>ms</span></div>
-    </div>
+ 
   </div>
     <!--5-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Canada (Central) </b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Sydney(australia-southeast1) </b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>ca-central-1</div>
-    </div>
+   
 
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -475,10 +512,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls5">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns5">0<span>ms</span></div>
-    </div>
+  
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp5">0<span>ms</span></div>
@@ -488,22 +522,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server5">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content5">0<span>ms</span></div>
-    </div>
+
   </div>
     <!--6-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>EU (Ireland) </b> </div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Belgium(europe-west1)</b> </div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>eu-west-1</div>
-    </div>
-
+   
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
       <div class='table_cell' id="heath6">check</div>
@@ -512,10 +539,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls6">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns6">0<span>ms</span></div>
-    </div>
+   
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp6">0<span>ms</span></div>
@@ -525,22 +549,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server6">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content6">0<span>ms</span></div>
-    </div>
+   
   </div>
     <!--7-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>EU (Frankfurt)</b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> London, UK(europe-west2)
+</b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>eu-central-1  </div>
-    </div>
- 
+   
    <div class='table_small'>
       <div class='table_cell'>Health Check</div>
       <div class='table_cell' id="heath7">check</div>
@@ -549,10 +567,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls7">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns7">0<span>ms</span></div>
-    </div>
+  
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp7">0<span>ms</span></div>
@@ -562,22 +577,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server7">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content7">0<span>ms</span></div>
-    </div>
+   
   </div>
     <!--8-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>EU (London) </b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Frankfurt, Germany(europe-west3)</b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>eu-west-2</div>
-    </div>
-   
+    
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
       <div class='table_cell' id="heath8">check</div>
@@ -586,10 +594,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls8">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns8">0<span>ms</span></div>
-    </div>
+   
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp8">0<span>ms</span></div>
@@ -599,21 +604,15 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server8">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content8">0<span>ms</span></div>
-    </div>
+   
   </div>
     <!--9-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Asia Pacific (Singapore)</b> </div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Netherlands(europe-west4)</b> </div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>ap-southeast-1</div>
-    </div>
+   
 
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -623,10 +622,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls9">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns9">0<span>ms</span></div>
-    </div>
+   
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp9">0<span>ms</span></div>
@@ -636,21 +632,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server9">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content9">0<span>ms</span></div>
-    </div>
+   
   </div>
     <!--10-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Asia Pacific (Sydney) </b> </div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b>A Global HTTP Load Balancer(global)
+ </b> </div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'> ap-southeast-2 </div>
-    </div>
+    
 
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -660,10 +651,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls10">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns10">0<span>ms</span></div>
-    </div>
+  
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp10">0<span>ms</span></div>
@@ -673,22 +661,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server10">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content10">0<span>ms</span></div>
-    </div>
+  
   </div>
     <!--11-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Asia Pacific (Seoul) </b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Montreal, Canada(northamerica-northeast1)
+ </b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>ap-northeast-2</div>
-    </div>
-  
+   
     <div class='table_small'>
       <div class='table_cell'>Health Check</div>
       <div class='table_cell' id="heath11">check</div>
@@ -697,10 +679,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls11">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns11">0<span>ms</span></div>
-    </div>
+    
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp11">0<span>ms</span></div>
@@ -710,21 +689,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server11">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content11">0<span>ms</span></div>
-    </div>
+    
   </div>
     <!--12-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Asia Pacific (Tokyo) </b> </div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> São Paulo(southamerica-east1)
+ </b> </div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'> ap-northeast-1 </div>
-    </div>
+   
       <div class='table_small'>
       <div class='table_cell'>Health Check</div>
       <div class='table_cell' id="heath12">check</div>
@@ -733,10 +707,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls12">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns12">0<span>ms</span></div>
-    </div>
+   
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp12">0<span>ms</span></div>
@@ -746,22 +717,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server12">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content12">0<span>ms</span></div>
-    </div>
+   
   </div>
     <!--13-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>Asia Pacific (Mumbai)</b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Iowa, USA(us-central1)
+</b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'>ap-south-1 </div>
-    </div>
-
+    
 
   <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -773,10 +738,6 @@ function Ping(){
     </div>    
 
     <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns13">0<span>ms</span></div>
-    </div>
-    <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp13">0<span>ms</span></div>
     </div>
@@ -785,21 +746,16 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server13">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content13">0<span>ms</span></div>
-    </div>
+   
   </div>
   <!--14-->
   <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>AWS Region</div>
-      <div class='table_cell'><b>South America (Sao Paulo) </b></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> South Carolina, USA(us-east1)
+ </b></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>Region Code</div>
-      <div class='table_cell'> sa-east-1</div>
-    </div>
+   
    
    <div class='table_small'>
       <div class='table_cell'>Health Check</div>
@@ -809,10 +765,7 @@ function Ping(){
       <div class='table_cell'>Latency</div>
       <div class='table_cell' id="tls14">0<span>ms</span></div>
     </div>
-    <div class='table_small'>
-      <div class='table_cell'>DNSLookup</div>
-      <div class='table_cell' id="dns14">0<span>ms</span></div>
-    </div>
+  
     <div class='table_small'>
       <div class='table_cell'>TCPConnection</div>
       <div class='table_cell' id="tcp14">0<span>ms</span></div>
@@ -822,10 +775,62 @@ function Ping(){
       <div class='table_cell'>ServerProcessing</div>
       <div class='table_cell' id="server14">0<span>ms</span></div>
     </div>
+ 
+  </div>
+  <div class='table_row'>
     <div class='table_small'>
-      <div class='table_cell'>ContentTransfer</div>
-      <div class='table_cell' id="content14">0<span>ms</span></div>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Northern Virginia, USA(us-east4)
+ </b></div>
     </div>
+ 
+   <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath15">check</div>
+    </div>
+     <div class='table_small'>
+      <div class='table_cell'>Latency</div>
+      <div class='table_cell' id="tls15">0<span>ms</span></div>
+    </div>
+  
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp15">0<span>ms</span></div>
+    </div>
+
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server15">0<span>ms</span></div>
+    </div>
+ 
+  </div>
+  
+  <div class='table_row'>
+    <div class='table_small'>
+      <div class='table_cell'>Google cloud Region</div>
+      <div class='table_cell'><b> Oregon, USA(us-west1)</b></div>
+    </div>
+   
+   
+   <div class='table_small'>
+      <div class='table_cell'>Health Check</div>
+      <div class='table_cell' id="heath16">check</div>
+    </div>
+     <div class='table_small'>
+      <div class='table_cell'>Latency</div>
+      <div class='table_cell' id="tls16">0<span>ms</span></div>
+    </div>
+  
+    <div class='table_small'>
+      <div class='table_cell'>TCPConnection</div>
+      <div class='table_cell' id="tcp16">0<span>ms</span></div>
+    </div>
+
+    <div class='table_small'>
+      <div class='table_cell'>ServerProcessing</div>
+      <div class='table_cell' id="server16">0<span>ms</span></div>
+    </div>
+ 
   </div>
   
 
@@ -847,20 +852,22 @@ function Ping(){
           </div>
           </div>
         </section>
-      
-            <div class="main showcase-page" >
+   
+              <div class="main showcase-page">
      
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
-<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:120px;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:auto;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
 <script>
 
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-            
-          
+                </div>
+               
+                </div>
+                  
 
 
         <section class="module" id="alt-features">
