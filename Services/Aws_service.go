@@ -1,12 +1,15 @@
 package Services
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"os/exec"
 	"strings"
 	"time"
 
@@ -21,6 +24,7 @@ type Awsout struct {
 	TLSHandshake     int
 	ServerProcessing int
 	ContentTransfer  int
+	Latency          string
 }
 
 func Awsping(w http.ResponseWriter, r *http.Request) {
@@ -49,6 +53,17 @@ func Awsping(w http.ResponseWriter, r *http.Request) {
 		var Response Awsout
 		var bodyString string
 
+		//Calculate Latency
+		cmd := exec.Command("curl", "-X", "POST", "-w", "'%{time_total}\n'", "-o", "/dev/nul", "-s", server)
+		cmdOutput := &bytes.Buffer{}
+		cmd.Stdout = cmdOutput
+		err := cmd.Run() // will wait for command to return
+		if err != nil {
+			log.Fatal(err)
+		}
+		latency := string(cmdOutput.Bytes())
+
+		//Http Request
 		req, err := http.NewRequest("GET", server, nil)
 		if err != nil {
 			log.Fatal(err)
@@ -68,22 +83,19 @@ func Awsping(w http.ResponseWriter, r *http.Request) {
 			bodyBytes, _ := ioutil.ReadAll(res.Body)
 			bodyString = string(bodyBytes)
 			bodyString = strings.TrimSuffix(bodyString, "\n")
-			log.Println("bodystring", bodyString)
 
 		}
 		if _, err := io.Copy(ioutil.Discard, res.Body); err != nil {
 			log.Fatal(err)
 		}
 		res.Body.Close()
+		latency = strings.TrimSuffix(latency, "\n")
 
 		//end := time.Now()
 		// Show the results
-		log.Printf("responsebody", res.Body)
-		log.Printf("DNS lookup: %d ms", int(result.DNSLookup/time.Millisecond))
-		log.Printf("TCP connection: %d ms", int(result.TCPConnection/time.Millisecond))
-		log.Printf("TLS handshake: %d ms", int(result.TLSHandshake/time.Millisecond))
-		log.Printf("Server processing: %d ms", int(result.ServerProcessing/time.Millisecond))
-		log.Printf("Content transfer: %d ms", int(result.ContentTransfer(time.Now())/time.Millisecond))
+		log.Printf("latency", latency)
+
+		Response.Latency = latency
 		Response.Ping = bodyString
 		Response.Servername = server
 		Response.DNSLookup = int(result.DNSLookup / time.Millisecond)
