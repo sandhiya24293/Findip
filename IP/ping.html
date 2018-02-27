@@ -62,84 +62,33 @@
 <script type="text/javascript">
 
 function lookup(){
+    var cardstring="";
+  
          var  getip =  document.getElementById('getuserip').value
     
        var s={
-             "Getipfromuser":getip
+             "IP":getip
             };
 
 
 
   $.ajax({
          type: "POST",
-         url: "http://176.111.105.86:8087/Serverheadercheck",
+         url: "http://176.111.105.86:8087/GoPing",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
-          async: false,
           success: function(responsee){
-      var searchout1 = JSON.parse(responsee);
-      console.log(searchout1)
-      if (searchout1.length != 0){
-      document.getElementById("showtable").style.display = "inline";
-      console.log(searchout1)
-      
-      var  http = [];
-      var  cache = [];
-      var  content = [];
-      var  policy = [];
-      var  setcooki = [];
-            // var  lenght = searchout1.server_headers["results"]["Content-Length"]
-            var  date = searchout1.Date[0]
+          var searchout = JSON.parse(responsee);
+          document.getElementById("showtable").style.display = "inline";
 
-            if (searchout1.Server.length == 0){
-              http = "-"
-            }else{
-              http = searchout1.Server[0]
-            }
-            if (searchout1["Cache-Control"].length == 0){
-              cache = "-"
-            }else{
-              cache = searchout1["Cache-Control"][0]
-            }
-             if (searchout1["P3p"].length == 0){
-              policy = "-"
-            }else{
-              policy = searchout1.P3p[0]
-            }
-             if (searchout1["Set-Cookie"].length == 0){
-              setcooki = "-"
-            }else{
-              setcooki = searchout1["Set-Cookie"][0]
+     
+                $("#hoststring").html(searchout)
+        
+            
 
-            }
-             if (searchout1["Content-Type"].length == 0){
-              content = "-"
-            }else{
-              content = searchout1["Content-Type"][0]
+  }});
 
-            }
-
-           
-
-
-            $("#http").html(http)
-            $("#cache").html(cache)
-            $("#content").html(content)
-            $("#policy").html(policy)
-             $("#setcooki").html(setcooki)
-           
-            // $("#lenght").html(lenght)
-            $("#date").html(date)
-        }else{
-          alert("Please enter valid Domain")
-        }
-          
-
- }});
-
-  
-        }
-
+  }
 
 
 function speed(){
@@ -181,20 +130,21 @@ function speed(){
               <a  href="docker.html">DockerFile Creation</a>
                 
               </li>
-             <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="aws.html"> AWS PING</a></li>
                    <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
                    
                 </ul>
               </li>
-                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
+                 <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="ping.html"> IP PING</a></li>
                    <li><a  href="hostping.html">HOST Ping</a></li>
                    
                 </ul>
               </li>
+             
              
 
             <a href= "https://foxutech.com/" class="btn btn-g btn-round" type="button" style="background-color:#ff5100;color:white;margin-left:15px;margin-top:8px;font-size:12px">Visit to Foxutech.com</a>
@@ -203,8 +153,8 @@ function speed(){
           </div>
         </div>
       </nav>
-   <div class="main showcase-page" style="margin-top:70px">
-      <a href="index.html">  <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
+  <div class="main showcase-page" style="margin-top:70px">
+      <a href="index.html">  <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px"></a>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
@@ -214,7 +164,7 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-         <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+       <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
         <div class="container">
           <div class="navbar-header">
             
@@ -252,7 +202,7 @@ function speed(){
           </div>
         </div>
       </nav>
-  <div>
+
   <div>
 
       <div class="main">
@@ -260,17 +210,17 @@ function speed(){
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">SERVER HEADER CHECK</h2>
+                <h2 class="module-title font-alt">IP PING</h2>
                 <div class="module-subtitle font-serif">
                  <form id="subscription-form" role="form">
                     <div class="input-group">
-                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Enter Domain"  required="required"/><span class="input-group-btn">
-                        <button class="btn btn-g btn-round"  type="submit" onclick="lookup()" style="background-color:#ff5100;color:white">Submit</button></span>
+                      <input class="form-control" type="text" id="getuserip" placeholder="Enter Ip" pattern="^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$" data-validation-required-message="Please enter valid address." required="required"/><span class="input-group-btn">
+                        <button class="btn btn-g btn-round" style="background-color:#ff5100;color:white"  type="submit" onclick="lookup()">Submit</button></span>
                     </div>
                   </form> 
                   <br>
                     <div  style="margin-left:12%">
-    <table class="table table-responsive" id="showtable" style="display:none;width:100%" >
+    <table class="table" id="showtable" style="display:none;width:100%" >
     
     <tbody style="border: 2px solid white;">
    
@@ -285,36 +235,12 @@ function speed(){
    
 
  <tr>
-        <td>Http Server</td>
-        <td id="http"></td>
+        <td style="width:50%">IP PING  RESULT</td>
+
+        <td style="margin-left:40px;width:50%" id="hoststring"></td>
       
       </tr>      
-      <tr>
-        <td>Cache-Control</td>
-        <td id="cache"></td>
-        </tr>
-        
-      <tr>
-        <td>Content-Type</td>
-        <td id="content"></td>
-        </tr>
-       
-      <tr>
-        <td>Referrer-Policy</td>
-        <td id="policy"></td>
-        
-      </tr>
-      <tr>
-        <td>setcooki</td>
-        <td id="setcooki"></td>
    
-      </tr>
-    
-      <tr>
-        <td>Date</td>
-        <td id="date"></td>
-        
-      </tr>
       
         <!-- <tr>
          <td>Time</td>
@@ -329,8 +255,8 @@ function speed(){
             </div>
           </div>
         </section>
-
-           <div class="main showcase-page">
+  
+                 <div class="main showcase-page" >
      
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -341,12 +267,8 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-               
-                </div>
-             
-        <hr class="divider-w">
-          
-        
+              
+              
 
 
         <section class="module" id="alt-features">

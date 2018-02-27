@@ -51,6 +51,8 @@ func Serve() bool {
 	router.HandleFunc("/Dockerfile", Service.WriteDockerFile)
 	router.HandleFunc("/Awsping", Service.Awsping)
 	router.HandleFunc("/Googleping", Service.Googleping)
+	router.HandleFunc("/GoPing", Service.GoPing)
+	router.HandleFunc("/HostPing", Service.HostPing)
 
 	//For HTTPS
 
