@@ -53,6 +53,7 @@ func Serve() bool {
 	router.HandleFunc("/Googleping", Service.Googleping)
 	router.HandleFunc("/GoPing", Service.GoPing)
 	router.HandleFunc("/HostPing", Service.HostPing)
+	router.HandleFunc("/Monitorip", Service.Monitorip)
 
 	//For HTTPS
 
