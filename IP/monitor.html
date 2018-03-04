@@ -35,248 +35,97 @@
     =============================================
     
     -->
-    <style type="text/css">
-      .newspaper {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
+    <!-- Default stylesheets-->
+    <style>
+    .square-card {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 255px;
+/*  height: 22.5rem; */
+  border-radius: 6px;
+  background: #fff;
+  text-align: left;
+  position: relative;
+  transition: box-shadow 0.3s ease, border 0.3s; ease;
+  box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+/*  border-radius: 6px; */
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
-.form-wrapper {
-  width: 450px;
-  padding: 8px;
-  margin: 100px auto;
-  overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dedede #bababa #aaa #bababa;
-  -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-  -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-  box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;    
-  background-color: #f6f6f6;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8)); 
-  background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
-  background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
-  background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
-  background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
-  background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+.square-card:hover {
+  box-shadow: 2px 4px 8px 0px rgba(46,61,73,0.2);
+  border: none;
 }
 
-.form-wrapper #search {
-  width: 330px;
-  height: 20px;
-  padding: 10px 5px;
-  float: left;    
-  font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
-  border: 1px solid #ccc;
-  -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-  -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-  box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;      
+/* square-card */
+.square-card a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #525c65;
+  border-bottom: none;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  max-width: 348px;
+}
+.square-card:hover {
+  color: #24292d;
 }
 
-.form-wrapper #search:focus {
-  outline: 0; 
-  border-color: #aaa;
-  -moz-box-shadow: 0 1px 1px #bbb inset;
-  -webkit-box-shadow: 0 1px 1px #bbb inset;
-  box-shadow: 0 1px 1px #bbb inset;  
+/*  card-header */
+.card-header {
+  width: 255px;
+  height: 37px;
+  /*background-image: url('assets/images/ip.jpg');*/
+    /*background-repeat: no-repeat;*/
+/*     background-attachment: fixed; */
+    /*background-position: center center;*/
+/*  background-size: cover !important; */
+  
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
-.form-wrapper #search::-webkit-input-placeholder {
-   color: #999;
-   font-weight: normal;
+/* card-header_overlay */
+.card-header_overlay {
+/*  background-color: rgba(2,179,228,0.8); */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  height: 9.75em;
+  width: 100%;
+  z-index: 4000;
+}
+/* pill */
+
+
+/* card-title */
+.card-title {
+/*  padding: 24px 32px; */
+  position: relative;
 }
 
-.form-wrapper #search:-moz-placeholder {
+
+
+/* cta */
+.cta {
+  padding-bottom: 10px;
+}
+.cta a {
+/*  color: #aa8553; */
   color: #999;
-  font-weight: normal;
-}
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  display: inline;
 
-.form-wrapper #search:-ms-input-placeholder {
-        color: #999;
-        font-weight: normal;
-} 
-
-.form-wrapper #submit {
-  float: right;    
-  border: 1px solid #00748f;
-  height: 42px;
-  width: 100px;
-  padding: 0;
-  cursor: pointer;
-  font: bold 15px Arial, Helvetica;
-  color: #fafafa;
-  text-transform: uppercase;    
-  background-color: #0483a0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
-  background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
-  background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
-  background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
-  background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
-  background-image: linear-gradient(top, #31b2c3, #0483a0);
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;      
-  text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+  margin-left: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
-  
-.form-wrapper #submit:hover,
-.form-wrapper #submit:focus {   
-  background-color: #31b2c3;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
-  background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
-  background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
-  background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
-  background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
-  background-image: linear-gradient(top, #0483a0, #31b2c3);
-} 
-  
-.form-wrapper #submit:active {
-  outline: 0;    
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
-}
-  
-.form-wrapper #submit::-moz-focus-inner {
-  border: 0;
-}
-
-.byline p{
-  text-align:center;
-  color:#555;
-  font: bold 18px Arial, Helvetica, Sans-serif;
-  text-shadow: 0 2px 3px rgba(0,0,0,0.1);
-}
-
-.byline p a{
-  color:#000;
-  text-decoration:none;
+.cta a:hover {
+  text-decoration: underline; 
+  color: #141414;
 }
     </style>
-    <style type="text/css">
-    table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-   
-    border: 2px solid white;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: #FFFF00;
-    color: #FFC0CB;
-}
-.nav > li > a:focus, 
-.nav > li > a:hover 
-{
-    text-decoration: underline;
-    background-color: pink;
-}
-</style>
- <script src="assets/js/jquery.min.js"></script>
- <script>
-$(document).ready(function(){
-        $.ajax({
-         type: "GET",
-         url: "http://176.111.105.86:8087/GetIP",
-         contentType:"application/json; charset=utf-8",
-      
-         
-        success: function(responsee){
-      var searchout = JSON.parse(responsee);
-   var s={
-             "Getipfromuser":searchout
-            };
-
-       $.ajax({
-         type: "POST",
-         url: "http://176.111.105.86:8087/GetIPdetails",
-         contentType:"application/json; charset=utf-8",
-          data: JSON.stringify(s),
-          success: function(responsee){
-      var searchout1 = JSON.parse(responsee);
-      var  city = searchout1.city
-      var  country = searchout1.country
-
-      var  ipaddress = searchout1.ip_address
-      var  lalitude = searchout1.latitude
-      var  longitude = searchout1.longitude
-   
-  var  countrycode = searchout1.country_code
-            var  region = searchout1.region
-            var  continent = searchout1.continent
-            var  currency= searchout1.currency
-
-
-            if(city != null){
-              document.getElementById("showcity").style.display = "inline";
-                }
-              if(region != null){
-              document.getElementById("showregion").style.display = "inline";
-                }
-                if(country != null){
-              document.getElementById("showcountry").style.display = "inline";
-                }
-                if(countrycode != null){
-              document.getElementById("showcode").style.display = "inline";
-                }
-                  if(continent != null){
-              document.getElementById("showcontinent").style.display = "inline";
-                }
-                  if(lalitude != null){
-                
-              document.getElementById("showlat").style.display = "inline";
-                }
-                 if(longitude != null){
-              document.getElementById("showlong").style.display = "inline";
-                }
-                 if(currency != null){
-              document.getElementById("showcurrency").style.display = "inline";
-                }
-                
-
-
-
-           
-            $("#myip").html(ipaddress)
-            $("#country1").html(country)
-            $("#continent").html(continent)
-             $("#lat").html(lalitude)
-             $("#long").html(longitude)
-            $("#city").html(city)
-            $("#region").html(region)
-            $("#currency").html(currency)
-            $("#countcode").html(countrycode)
-
- }});
-
-
-          }});
- 
-});
-
-
-
-
-function speed(){
-  //window.location.href ="ssl.html"
-  alert("Coming soon!")
-}
-</script>
-    <!-- Default stylesheets-->
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Template specific stylesheets-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
@@ -293,6 +142,49 @@ function speed(){
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <style type="text/css">
+   
+
+
+
+</style>
+ <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+function monitopip(){
+    var cardstring="";
+  
+         var  getip =  document.getElementById('getip').value
+         var  getmailid =  document.getElementById('emailid').value
+    
+       var s={
+             "Ip":getip,
+             "Mailid":getmailid,
+            };
+
+
+
+  $.ajax({
+         type: "POST",
+         url: "http://localhost:8087/Monitorip",
+         contentType:"application/json; charset=utf-8",
+          data: JSON.stringify(s),
+          success: function(){
+         
+     alert("We Successfully start Monitor your Ip..Thanks for Using Our Tool!!!!!!!")
+        
+            
+
+  }});
+
+  }
+
+
+function speed(){
+  alert("Coming Soon!")
+}
+</script>
+
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -327,7 +219,7 @@ function speed(){
               <a  href="docker.html">DockerFile Creation</a>
                 
               </li>
-                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="aws.html"> AWS PING</a></li>
                    <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
@@ -341,27 +233,17 @@ function speed(){
                    
                 </ul>
               </li>
-              <li class="dropdown">
-              <a  href="monitor.html">Server Monitor</a>
-             
-              </li>
              
              
 
             <a href= "https://foxutech.com/" class="btn btn-g btn-round" type="button" style="background-color:#ff5100;color:white;margin-left:15px;margin-top:8px;font-size:12px">Visit to Foxutech.com</a>
        
-             
-              <!-- </li> -->
-
-           
-            
             </ul>
           </div>
         </div>
       </nav>
-     
-      <div class="main showcase-page" style="margin-top:70px">
-       <a href="index.html"> <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
+  <div class="main showcase-page" style="margin-top:70px">
+      <a href="index.html">  <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px"></a>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
@@ -371,11 +253,7 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-    
-
-
-
-          <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+       <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
         <div class="container">
           <div class="navbar-header">
             
@@ -409,99 +287,111 @@ function speed(){
                    
                 </ul>
               </li>
-               <li class="dropdown">
-              <a  href="monitor.html">Server Monitor</a>
-             
-              </li>
             </ul>
           </div>
         </div>
       </nav>
+
   <div>
 
+      <div class="main">
+        <section class="module bg-dark-60 about-page-header" data-background="assets/images/aa.jpg" style="margin-top:-20px">
+          <div class="container">
+            
+             
+         
+           
+            <div class="row" style="border-style: solid;padding:8px">
 
 
-
-
-
-      <section class="bg-dark-30 showcase-page-header module parallax-bg "   data-background="assets/images/aa.jpg" style="margin-top:-35px">
-       
-        
-        <div class="titan-caption" >
-          <div class="caption-content">
-            <div style="font-size:40px">MY IP ADDRESS <span id= "myip"></span></div>
+  
             
 
 
-            <div class="font-alt mb-40 titan-title-size-1">
-            <div  style="display :none;text-align:left" id="showcity">CITY - <span  id="city"></span></div><br>
-            <div style="display :none;text-align:left" id="showregion" >REGION - <span  id="region"></span></div><br>
-            <div style="display :none" id="showcountry">COUNTRY - <span  id="country1"></span></div><br>
-            <div style="display :none" id="showcode">Countrycode- <span id="countcode"></span></div><br>
-            <div style="display :none" id="showcontinent">CONTINENT -<span id="continent"></span></div><br>
-            <div style="display :none" id="showlat">LALITUDE -<span id="lat"></span></div><br>
-            <div style="display :none" id="showlong">LONGITUDE<span id="long"></span></div><br>
-            <div style="display :none" id="showcurrency">CURRENCY <span id="currency"></span></div><br>
-            </div>
-            </div>
-            </div>
+  <div class="col-md-5 col-sm-12" >
+
+    <div class="square-card">
+  <a href="#" alt="square card">
+    <div class="card-header" style="background-color:#ff5100;">
+
+     <h4 style="color:white;text-align:center;">IP MONITOR</h4>
+    </div>
+    <div class="card-title" style="font-size:15px;margin-left:70px;">
+      <b style="visibility:hidden">Monitor</b><br>
+     <b>Monitor</b><br>
+     <b>5 Minute Check </b><br>
+      <b>Uptime Reports</b> <br>
+     <b>Email Alerts</b>  <br>
+     <b style="visibility:hidden">Monitor</b><br>
         
-          
-      </section>
-      <br>
+    </div>
+
+  </a>
+</div>
+  </div>
+ 
+
+
+
+               <div class="col-sm-4 col-sm-offset-1 mb-sm-40" style="margin-top:40px">
+              
+             
+                <form class="form" >
+                  <div class="form-group">
+                    <input class="form-control" id="getip" type="text" name="username" placeholder="Enter ip"/>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="emailid" type="text" name="password" placeholder="Enter Email "/>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-round btn-b" style="background-color:#ff5100;" onclick="monitopip()">Submit</button>
+                  </div>
                   
-      </div>
-      <div class="main showcase-page">
-     
-        <section class="module-medium" id="demos">
-          <div class="container">
-            <div class="row multi-columns-row">
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="iplookup.html">
-                  <div class="content-box-image"><img src="assets/images/iplookup.jpg" alt="Ip lookup" style="height:200px;width:100%"></div>
-                  <h3 class="content-box-title font-serif"> IP LookUp</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="dnslookup.html">
-                  <div class="content-box-image"><img src="assets/images/dnslookup.jpg" alt="Agency" style="height:200px;width:100%"></div>
-                  <h3 class="content-box-title font-serif">DNS Lookup</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="reverselookup.html">
-                  <div class="content-box-image"><img src="assets/images/reverse.jfif" alt="Portfolio" style="height:200px;"></div>
-                  <h3 class="content-box-title font-serif">Reverse DNS</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="docker.html">
-                  <div class="content-box-image"><img src="assets/images/docker.png" alt="Restaurant" style="height:200px;width:100%"></div>
-                  <h3 class="content-box-title font-serif">Docker</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="useragentinfo.html">
-                  <div class="content-box-image"><img src="assets/images/aws.png" alt="Finance" style="height:200px;width:100%"></div>
-                  <h3 class="content-box-title font-serif">Aws Ping</h3></a></div>
-              <div class="col-md-4 col-sm-6 col-xs-12"><a class="content-box" href="aws.html">
-                  <div class="content-box-image"><img src="assets/images/server.jpg" alt="Landing" style="height:200px;width:100%"></div>
-                  <h3 class="content-box-title font-serif">Server Headers Checker</h3></a></div>
-          
+                </form>
+              </div>
+
+
+
+
+
+  </div>
+          </div>
+                  </div>
+                 
+               
+                <section class="module">
+        <!-- --> 
+        </section>
+              
+                    
+                 
+              </div>
+            </div>
           </div>
         </section>
-          <div class="main showcase-page" >
+  
+                 <div class="main showcase-page" >
+     
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
-<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:120px;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:auto;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
 <script>
 
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-
-
-        
+              
+              
 
 
         <section class="module" id="alt-features">
           <div class="container">
-           
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
                 <h2 class="module-title font-alt">Our features</h2>
                 <div class="module-subtitle font-serif">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</div>
               </div>
-          
-            
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-3 col-lg-3">
@@ -576,15 +466,12 @@ function speed(){
           </div>
         </footer>
       </div>
-
-
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
     <!--  
     JavaScripts
     =============================================
     -->
-   
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/lib/wow/dist/wow.js"></script>
