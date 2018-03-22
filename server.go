@@ -35,6 +35,9 @@ func Serve() bool {
 	fs4 := http.FileServer(http.Dir("./IP/"))
 
 	router.PathPrefix("/IP/").Handler(http.StripPrefix("/IP/", fs4))
+	fs5 := http.FileServer(http.Dir("./Filestorage/"))
+
+	router.PathPrefix("/Filestorage/").Handler(http.StripPrefix("/Filestorage/", fs5))
 
 	router.HandleFunc("/GetIP", Service.GETIP)
 	router.HandleFunc("/GetProxy", Service.GETProxy)
@@ -54,6 +57,7 @@ func Serve() bool {
 	router.HandleFunc("/GoPing", Service.GoPing)
 	router.HandleFunc("/HostPing", Service.HostPing)
 	router.HandleFunc("/Monitorip", Service.Monitorip)
+	router.HandleFunc("/Transfer", Service.Transfer)
 
 	//For HTTPS
 

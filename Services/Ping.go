@@ -4,14 +4,15 @@ import (
 	Db "Findip/Common/DB/Mysql"
 	"encoding/json"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
-	//"os"
+	"os"
 	"os/exec"
 	"strings"
 	"time"
-
 	//"github.com/sendgrid/sendgrid-go"
 	//"github.com/sendgrid/sendgrid-go/helpers/mail"
 )
@@ -130,7 +131,6 @@ func Monitorip(w http.ResponseWriter, r *http.Request) {
 
 	}()
 
-	time.Sleep(time.Second * 10)
 	fmt.Println("loop finished ", GetIpvalue.Ip, GetIpvalue.Mailid)
 	fmt.Println("got pass and fail count  ", getpass, getfails)
 	//SendReport("Monthly", GetIpvalue.Ip, GetIpvalue.Mailid)
@@ -184,5 +184,30 @@ func SendReport(Monthly string, Monthlypassreport int, monthylyfail int, addr st
 	//		fmt.Println(response.Headers)
 
 	//	}
+
+}
+
+func Transfer(w http.ResponseWriter, r *http.Request) {
+
+	r.ParseMultipartForm(32 << 20)
+	r.ParseForm()
+
+	file, handler, err := r.FormFile("fileup")
+	fmt.Println("$$$$$$$$$$$", handler.Filename)
+
+	Pictureurl := "Filestorage/" + handler.Filename
+
+	f, err := os.OpenFile(Pictureurl, os.O_WRONLY|os.O_CREATE, 0666)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer f.Close()
+
+	io.Copy(f, file)
+
+	//	newUrl := "http://localhost:8087/transfer.html"
+	data, _ := ioutil.ReadFile("http://localhost:8087/transfer.html")
+	w.Write(data)
 
 }
