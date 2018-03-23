@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
+
 	"log"
 	"net"
 	"net/http"
@@ -188,11 +188,12 @@ func SendReport(Monthly string, Monthlypassreport int, monthylyfail int, addr st
 }
 
 func Transfer(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseMultipartForm(5 * 1024 * 1024)
+	if err != nil {
+		panic(err)
+	}
 
-	r.ParseMultipartForm(32 << 20)
-	r.ParseForm()
-
-	file, handler, err := r.FormFile("fileup")
+	file, handler, err := r.FormFile("file")
 	fmt.Println("$$$$$$$$$$$", handler.Filename)
 
 	Pictureurl := "Filestorage/" + handler.Filename
@@ -206,8 +207,14 @@ func Transfer(w http.ResponseWriter, r *http.Request) {
 
 	io.Copy(f, file)
 
-	//	newUrl := "http://localhost:8087/transfer.html"
-	data, _ := ioutil.ReadFile("http://localhost:8087/transfer.html")
-	w.Write(data)
+	responseurl := "http://localhost:8087/" + Pictureurl
+	Senddata, err := json.Marshal(responseurl)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Access-Control-Allow-Orgin", "*")
+	w.Write(Senddata)
 
 }
