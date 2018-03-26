@@ -207,7 +207,7 @@ func Transfer(w http.ResponseWriter, r *http.Request) {
 
 	io.Copy(f, file)
 
-	responseurl := "http://localhost:8087/" + Pictureurl
+	responseurl := "http://176.111.105.86:8087/" + Pictureurl
 	Senddata, err := json.Marshal(responseurl)
 
 	if err != nil {
