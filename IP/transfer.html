@@ -53,7 +53,15 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
     <style type="text/css">
-   
+   header {
+  background: #563d7c;
+  padding: 2em 1em;
+  color: #fff;
+  width:60%;
+  
+  
+}
+
 
 
 
@@ -61,90 +69,13 @@
  <script src="assets/js/jquery.min.js"></script>
 <script type="text/javascript">
 
-function lookup(){
-         var  getip =  document.getElementById('getuserip').value
-    
-       var s={
-             "Getipfromuser":getip
-            };
-
-
-
-  $.ajax({
-         type: "POST",
-         url: "http://176.111.105.86:8087/Serverheadercheck",
-         contentType:"application/json; charset=utf-8",
-          data: JSON.stringify(s),
-          async: false,
-          success: function(responsee){
-      var searchout1 = JSON.parse(responsee);
-      console.log(searchout1)
-      if (searchout1.length != 0){
-      document.getElementById("showtable").style.display = "inline";
-      console.log(searchout1)
-      
-      var  http = [];
-      var  cache = [];
-      var  content = [];
-      var  policy = [];
-      var  setcooki = [];
-            // var  lenght = searchout1.server_headers["results"]["Content-Length"]
-            var  date = searchout1.Date[0]
-
-            if (searchout1.Server.length == 0){
-              http = "-"
-            }else{
-              http = searchout1.Server[0]
-            }
-            if (searchout1["Cache-Control"].length == 0){
-              cache = "-"
-            }else{
-              cache = searchout1["Cache-Control"][0]
-            }
-             if (searchout1["P3p"].length == 0){
-              policy = "-"
-            }else{
-              policy = searchout1.P3p[0]
-            }
-             if (searchout1["Set-Cookie"].length == 0){
-              setcooki = "-"
-            }else{
-              setcooki = searchout1["Set-Cookie"][0]
-
-            }
-             if (searchout1["Content-Type"].length == 0){
-              content = "-"
-            }else{
-              content = searchout1["Content-Type"][0]
-
-            }
-
-           
-
-            $("#http").html(http)
-            $("#cache").html(cache)
-            $("#content").html(content)
-            $("#policy").html(policy)
-             $("#setcooki").html(setcooki)
-           
-            // $("#lenght").html(lenght)
-            $("#date").html(date)
-        }else{
-          alert("Please enter valid Domain")
-        }
-          
-
- }});
-
-    }
-
     function Uploadfile(){
-      alert("inside form")
+
       var formData = new FormData();
 formData.append('file', $('#file')[0].files[0]);
 
 $.ajax({
-       url : 'http://localhost:8087/Transfer',
+       url : 'http://176.111.105.86:8087/Transfer',
        type : 'POST',
        data : formData,
         contentType: 'multipart/form-data',
@@ -152,9 +83,11 @@ $.ajax({
        contentType: false,  // tell jQuery not to set contentType
        success : function(responsee) {
           var searchout1 = JSON.parse(responsee);
+            document.getElementById("showtable").style.visibility = "visible";
+          
 
            console.log(searchout1);
-           alert(searchout1);
+         
            $("#url").html(searchout1)
        }
 });
@@ -234,7 +167,7 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-         <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+          <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
         <div class="container">
           <div class="navbar-header">
             
@@ -247,11 +180,13 @@ function speed(){
                     <li><a   href="iplookup.html"> IP LookUp</a></li>
                    <li><a  href="dnslookup.html">DNS Lookup</a></li>
                    <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                     <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
                              
                 </ul>
               </li>
-           <li><a  href="useragentinfo.html">User Agent Info</a></li>
-                   <li><a  href="header.html">Server Headers Checker</a></li>
+                <li class="dropdown"> <a  href="transfer.html">File Transfer</a> </li>
+         
               <li class="dropdown"> <a  href="docker.html">DockerFile Creation</a> </li>
                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
@@ -268,6 +203,10 @@ function speed(){
                    
                 </ul>
               </li>
+               <li class="dropdown">
+              <a  href="monitor.html">Server Monitor</a>
+             
+              </li>
             </ul>
           </div>
         </div>
@@ -276,22 +215,15 @@ function speed(){
   <div>
 
       <div class="main">
-        <section class="module bg-dark-60 about-page-header" data-background="assets/images/aa.jpg" style="margin-top:-20px">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">File Transfer</h2>
-            
-                
-
-      <div class="container">
-
-
-<form  action="javascript:Uploadfile()">
+        <section class="module bg-dark-60 about-page-header" style="margin-top:-20px" >
+          <h2 class="module-title font-alt" style="color:black;margin-top:-7%" >File Transfer</h2>
+            <div class="col-sm-6 col-sm-offset-3">
+               <div class="container">
+                <form  action="javascript:Uploadfile()">
   <!-- COMPONENT START -->
-  <div class="form-group" style="width:60%">
+  <div class="form-group" style="margin-top:-3%" >
     <div class="input-group" >
-        <input type="file" class="form-control" id="file" name="fileup" placeholder='Choose a file...' />     
+        <input type="file" class="form-control" id="file" name="fileup" placeholder='Choose a file...'  style="margin-left:60%" />     
             <span class="input-group-btn">
             <!-- <button class="btn btn-primary btn-choose" style="background-color:#ff5100;" type="button">Choose</button> -->
         </span>
@@ -300,20 +232,31 @@ function speed(){
     </div>
   </div>
   <!-- COMPONENT END -->
-  <div class="form-group">
+  <div class="form-group" style="margin-left:15%">
     <button type="submit" class="btn btn-primary" >Submit</button>
-    <button type="reset" class="btn btn-danger" style="margin-left:30%">Reset</button>
+    <button type="reset" class="btn btn-danger" style="margin-left:2%">Reset</button>
   </div>
+
+    <header role="banner" id="showtable" style="visibility:hidden">
+  <span style="font-size:15px">Download url</span><span style="margin-left:10px">-</span ><span style="font-size:15px;margin-left:14px" id="url"></span>
+</header>
 </form>
+
+
+
+
+
 </div>
 
 
         
 
-              
-            </div>
-          </div>
+           
         </section>
+ 
+
+
+      
 
            <div class="main showcase-page">
      
