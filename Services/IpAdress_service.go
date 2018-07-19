@@ -257,3 +257,27 @@ func Sslchecker(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
+
+func TraceAPI(w http.ResponseWriter, r *http.Request) {
+	var GetIpvalue Getipstruct
+	err := json.NewDecoder(r.Body).Decode(&GetIpvalue)
+	if err != nil {
+		fmt.Println("Error on Get particular details", err)
+	}
+
+	
+	var client http.Client
+	clienturl := "https://api.hackertarget.com/mtr/?q=" + GetIpvalue.Getipfromuser 
+	resp, _ := client.Get(clienturl)
+
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
+		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Access-Control-Allow-Orgin", "*")
+		w.Write(bodyBytes)
+	}
+
+}

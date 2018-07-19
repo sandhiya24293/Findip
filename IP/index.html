@@ -41,6 +41,17 @@
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
 }
+.common{
+    width:25%;
+    margin-left:55%;
+    height:40%;
+    font-style: italic;
+    font-style: bold;
+    font-size: 16px;
+    font-family: Verdana;
+}
+
+
 .form-wrapper {
   width: 450px;
   padding: 8px;
@@ -166,7 +177,7 @@
     table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
+    width: 20%%;
    
     border: 2px solid white;
 }
@@ -220,46 +231,87 @@ $(document).ready(function(){
             var  continent = searchout1.continent
             var  currency= searchout1.currency
 
+            $("#myip").html(ipaddress)
 
-            if(city != null){
-              document.getElementById("showcity").style.display = "inline";
-                }
-              if(region != null){
-              document.getElementById("showregion").style.display = "inline";
-                }
-                if(country != null){
-              document.getElementById("showcountry").style.display = "inline";
-                }
-                if(countrycode != null){
-              document.getElementById("showcode").style.display = "inline";
-                }
-                  if(continent != null){
-              document.getElementById("showcontinent").style.display = "inline";
-                }
-                  if(lalitude != null){
+            // if(city != null){
+            //   document.getElementById("showcity").style.display = "inline";
+            //     }
+            //   if(region != null){
+            //   document.getElementById("showregion").style.display = "inline";
+            //     }
+            //     if(country != null){
+            //   document.getElementById("showcountry").style.display = "inline";
+            //     }
+            //     if(countrycode != null){
+            //   document.getElementById("showcode").style.display = "inline";
+            //     }
+            //       if(continent != null){
+            //   document.getElementById("showcontinent").style.display = "inline";
+            //     }
+            //       if(lalitude != null){
                 
-              document.getElementById("showlat").style.display = "inline";
-                }
-                 if(longitude != null){
-              document.getElementById("showlong").style.display = "inline";
-                }
-                 if(currency != null){
-              document.getElementById("showcurrency").style.display = "inline";
-                }
+            //   document.getElementById("showlat").style.display = "inline";
+            //     }
+            //      if(longitude != null){
+            //   document.getElementById("showlong").style.display = "inline";
+            //     }
+            //      if(currency != null){
+            //   document.getElementById("showcurrency").style.display = "inline";
+            //     }
                 
+            // if(city == null){
+            //    $("#city").html("-")
+            //     }else{
+            //        $("#city").html(city)
+            //     }
+            //    if(region == null){
+            //    $("#region").html("-")
+            //     }else{
+            //     $("#region").html(region)
+            //     }
+              
+                if(country == null){
+                $("#country1").html("-")
+                }else{
+                $("#country1").html(country)
+                }
+                // if(countrycode == null){
+                // $("#countcode").html("-")
+                // }else{
+                //   $("#countcode").html(countrycode)
+                // }
+                if(continent == null){
+               $("#continent").html("-")
+                }else{
+                  $("#continent").html(continent)
+                }
+                 if(lalitude == null){
+                $("#lat").html("-")    
+              }else{
+                  $("#lat").html(lalitude)
+              }
+                 if(longitude == null){
+                 $("#long").html("-")             
+                    }else{
+                    $("#long").html(longitude)
+                    }
+                 if(currency == null){
+                    $("#currency").html("-")
+                   }else{
+                        $("#currency").html(currency)
 
+                    }                
 
 
            
-            $("#myip").html(ipaddress)
-            $("#country1").html(country)
-            $("#continent").html(continent)
-             $("#lat").html(lalitude)
-             $("#long").html(longitude)
-            $("#city").html(city)
-            $("#region").html(region)
-            $("#currency").html(currency)
-            $("#countcode").html(countrycode)
+         
+          
+           
+           
+            // $("#city").html(city)
+            // $("#region").html(region)
+        
+           
 
  }});
 
@@ -318,6 +370,7 @@ function speed(){
                     <li><a   href="iplookup.html"> IP LookUp</a></li>
                    <li><a  href="dnslookup.html">DNS Lookup</a></li>
                    <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                    <li><a  href="trace.html">Trace IP</a></li>
                                <li><a  href="useragentinfo.html">User Agent Info</a></li>
                    <li><a  href="header.html">Server Headers Checker</a></li>
                 </ul>
@@ -388,6 +441,7 @@ function speed(){
                     <li><a   href="iplookup.html"> IP LookUp</a></li>
                    <li><a  href="dnslookup.html">DNS Lookup</a></li>
                    <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                    <li><a  href="trace.html">Trace IP</a></li>
                      <li><a  href="useragentinfo.html">User Agent Info</a></li>
                    <li><a  href="header.html">Server Headers Checker</a></li>
                              
@@ -426,27 +480,38 @@ function speed(){
 
 
 
-      <section class="bg-dark-30 showcase-page-header module parallax-bg "   data-background="assets/images/new2.jpg" style="margin-top:-35px">
+      <section class="bg-dark-30 showcase-page-header module  "   data-background="assets/images/wall4.jpg" style="margin-top:-35px">
        
         
         <div class="titan-caption" >
           <div class="caption-content">
-            <div style="font-size:40px">MY IP ADDRESS <span id= "myip"></span></div>
+            <div style="font-size:40px;margin-left:40%">MY IP ADDRESS <span id= "myip"></span></div>
+          
+    
             
+<div class="common" >
+    
+   
+    <div><span >Country  -  </span><span id="country1"></span></div>
+    <div><span >Continent  - </span><span id="continent"></span></div>
+    <!-- <div><span >Countrycode - </span><span id="countcode"></span></div> -->
+     <div><span >Lalitude -</span><span id="lat"></span></div>
+    <div><span >Longitude  -</span><span id="long"></span></div>
+     <div><span >Currency -</span><span id="currency"></span></div>
+</div>
 
-
-            <div class="font-alt mb-40 titan-title-size-1">
+<!-- 
+            <div   class="table" style="margin-top:-50px;font-style:Helvetica;font-size:15px;border:2px;color:white">
             <div  style="display :none;text-align:left" id="showcity">CITY - <span  id="city"></span></div><br>
             <div style="display :none;text-align:left" id="showregion" >REGION - <span  id="region"></span></div><br>
-            <div style="display :none" id="showcountry">COUNTRY - <span  id="country1"></span></div><br>
-            <div style="display :none" id="showcode">Countrycode- <span id="countcode"></span></div><br>
+            <div style="display :none;font-family: Helvetica" id="showcountry">COUNTRY - <span  id="country1"></span></div><br>
+            <div style="display :none" id="showcode">COUNTRYCODE - <span id="countcode"></span></div><br>
             <div style="display :none" id="showcontinent">CONTINENT -<span id="continent"></span></div><br>
             <div style="display :none" id="showlat">LALITUDE -<span id="lat"></span></div><br>
             <div style="display :none" id="showlong">LONGITUDE - <span id="long"></span></div><br>
             <div style="display :none" id="showcurrency">CURRENCY -<span id="currency"></span></div><br>
-            </div>
-            </div>
-            </div>
+            </div> -->
+           
         
           
       </section>
