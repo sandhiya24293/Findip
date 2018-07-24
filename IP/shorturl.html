@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  
+    Document Title
+    =============================================
+    -->
+      <title>FoxuTech | Tools.</title>
+
+    <!--  
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+    <!-- Default stylesheets-->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <style type="text/css">
+   
+
+
+
+</style>
+ <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+function lookup(){
+    var cardstring="";
+         var  getip =  document.getElementById('getuserip').value
+         alert(getip)
+     
+       var s={
+             "URL":getip
+            };
+
+
+
+  $.ajax({
+         type: "POST",
+         url: "http://localhost:8087/Shorterturl",
+         contentType:"application/json; charset=utf-8",
+          data: JSON.stringify(s),
+           async: false,
+          success: function(responsee){
+            alert("inide")
+      var searchout = JSON.parse(responsee);
+     alert(searchout)
+      console.log(searchout)
+     
+      
+        document.getElementById("showtable").style.display = "inline";
+      if(searchout == null || searchout == undefined){
+        
+         document.getElementById("hoststring").innerHTML="Dns Name does not exist";
+         //alert("Please search valid Domain");
+
+      }
+      else{
+        
+              document.getElementById("hoststring").innerHTML=searchout.id;
+           
+
+      }
+}});
+
+  }
+
+function speed(){
+  alert("Coming Soon!")
+}
+</script>
+
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Tools.</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a  href="index.html">Home</a>
+             
+              </li>
+            
+ 
+   
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Features</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="iplookup.html"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                    <li><a  href="trace.html">Trace IP</a></li>
+                               <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
+                </ul>
+              </li>
+         
+              <li class="dropdown">
+              <a  href="docker.html">DockerFile Creation</a>
+                
+              </li>
+            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="aws.html"> AWS PING</a></li>
+                   <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
+                   
+                </ul>
+              </li>
+             
+                 <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="ping.html"> IP PING</a></li>
+                   <li><a  href="hostping.html">HOST Ping</a></li>
+                   
+                </ul>
+              </li>
+
+              <li class="dropdown"> <a  href="transfer.html">File Transfer</a> </li>
+             
+            <a href= "https://foxutech.com/" class="btn btn-g btn-round" type="button" style="background-color:#ff5100;color:white;margin-left:15px;margin-top:8px;font-size:12px">Visit to Foxutech.com</a>
+       
+            </ul>
+          </div>
+        </div>
+      </nav>
+   <div class="main showcase-page" style="margin-top:70px">
+       <a href="index.html"> <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:120px;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<script>
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      </div> 
+           <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+        <div class="container">
+          <div class="navbar-header">
+            
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-left">
+             
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Lookup Tool</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="iplookup.html"> IP LookUp</a></li>
+                   <li><a  href="dnslookup.html">DNS Lookup</a></li>
+                   <li><a  href="reverselookup.html">Reverse DNS Lookup</a></li>
+                    <li><a  href="trace.html">Trace IP</a></li>
+                     <li><a  href="useragentinfo.html">User Agent Info</a></li>
+                   <li><a  href="header.html">Server Headers Checker</a></li>
+                             
+                </ul>
+              </li>
+                <li class="dropdown"> <a  href="transfer.html">File Transfer</a> </li>
+         
+              <li class="dropdown"> <a  href="docker.html">DockerFile Creation</a> </li>
+                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="aws.html"> AWS PING</a></li>
+                   <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
+                   
+                </ul>
+              </li>
+
+                 <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a   href="ping.html"> IP PING</a></li>
+                   <li><a  href="hostping.html">HOST Ping</a></li>
+                   
+                </ul>
+              </li>
+               <li class="dropdown">
+              <a  href="monitor.html">Server Monitor</a>
+             
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <div>
+      <div class="main">
+        <section class="module bg-dark-60 about-page-header" data-background="assets/images/tool.jpg" style="margin-top:-20px">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">SHORTERN URL</h2>
+                <div class="module-subtitle font-serif">
+                 <form id="subscription-form" role="form">
+                    <div class="input-group">
+                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Enter Domain"  required="required"/><span class="input-group-btn">
+                        <button class="btn btn-g btn-round"  type="submit" onclick="lookup()" style="background-color:#ff5100;color:white">Submit</button></span>
+                    </div>
+                  </form> 
+                  <br>
+                    <div  style="margin-left:12%">
+    <table class="table" id="showtable" style="display:none;width:100%" >
+    
+    <tbody style="border: 2px solid white;">
+   
+    
+        
+       <tr style="visibility:hidden">
+        <td>IP Address</td>
+
+      
+      
+      </tr>    
+   
+
+ <tr>
+        <td>Dns IP</td>
+
+        <td style="margin-left:40px" id="hoststring"></td>
+      
+      </tr>   
+      
+        <!-- <tr>
+         <td>Time</td>
+        <td id="time">Time Zone</td>
+       
+      </tr> -->
+    </tbody>
+  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+       
+            <div class="main showcase-page" ">
+     
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Homepage Leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:1000px;height:auto;margin-left:300px;margin-top:-60px" data-ad-client="ca-pub-5921980498900731" data-ad-slot="5911151603"></ins>
+<script>
+
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      </div> 
+            
+              
+ 
+           
+        
+
+
+        <section class="module" id="alt-features">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">Our features</h2>
+                <div class="module-subtitle font-serif">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-strategy"></span></div>
+                  <h3 class="alt-features-title font-alt">IP LOOKUP</h3>The IP Address Lookup tool includes the following IP Address details: City, State / Region, Postal / Zip Code, Country Name, Country Code, Time Zone, ISP.
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-tools-2"></span></div>
+                  <h3 class="alt-features-title font-alt">DNS LOOKUP</h3>The Domain Name System, otherwise known as DNS, is a key component of the Internet. DNS is the resolution of a domain name to an IP address. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-target"></span></div>
+                  <h3 class="alt-features-title font-alt">REVERSE DNS LOOKUP</h3>The Reverse DNS Lookup Tool requires you to enter the any IP address that has a corresponding host name. 
+                </div>
+               
+              </div>
+              <div class="col-md-6 col-lg-6 hidden-xs hidden-sm">
+                <div class="alt-services-image align-center"><img src="assets/images/ip.png" style="height:400px;margin-top:70px" alt="Feature Image"></div>
+              </div>
+              <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-camera"></span></div>
+                  <h3 class="alt-features-title font-alt">DOCKER FILE CREATION</h3>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-mobile"></span></div>
+                  <h3 class="alt-features-title font-alt">SERVER HEADER CHECK</h3>The server headers check tool commonly referred to as a server header checker is used to return a number of important results. 
+                </div>
+                <div class="alt-features-item">
+                  <div class="alt-features-icon"><span class="icon-linegraph"></span></div>
+                  <h3 class="alt-features-title font-alt">USER AGENT INFO</h3>Your User Agent tells every site your visit what browser you're using. Sites are able to detect your UA and redirect to a more fitting page for your browser if desired. 
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </section>
+             <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="widget">
+                 <a href="http://foxutech.com">
+         
+              <img src="assets/images/logofinal.png" alt="">
+          </a>
+                  <br>
+
+                                   
+
+                                    <p style="margin-top:20px">FoxuTech is technology blog about Linux, DevOps, Docker, How Tos, Virtualization and more IT technologies.</p>
+                  <p>Phone: +91 9884379333</p>
+                  <p>Contact us: mail@foxutech.com</p>
+                </div>
+              </div>
+             
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">Copyright © 2018. All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="https://www.facebook.com/foxutech/"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/foxutech"><i class="fa fa-twitter"></i></a> <a class="fa fa-google" href="https://plus.google.com/105970773317038465374"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+    <!--  
+    JavaScripts
+    =============================================
+    -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="assets/lib/smoothscroll.js"></script>
+    <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

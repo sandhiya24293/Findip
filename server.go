@@ -59,6 +59,7 @@ func Serve() bool {
 	router.HandleFunc("/Monitorip", Service.Monitorip)
 	router.HandleFunc("/Transfer", Service.Transfer)
 	router.HandleFunc("/TraceAPI", Service.TraceAPI)
+	router.HandleFunc("/Shorterturl", Service.ShorternURL)
 
 	//For HTTPS
 
