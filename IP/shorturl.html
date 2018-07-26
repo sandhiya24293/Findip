@@ -65,7 +65,7 @@
 function lookup(){
     var cardstring="";
          var  getip =  document.getElementById('getuserip').value
-         alert(getip)
+       
      
        var s={
              "URL":getip
@@ -75,21 +75,20 @@ function lookup(){
 
   $.ajax({
          type: "POST",
-         url: "http://localhost:8087/Shorterturl",
+         url: "http://176.111.105.86:8087/Shorterturl",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
            async: false,
           success: function(responsee){
-            alert("inide")
+         
       var searchout = JSON.parse(responsee);
-     alert(searchout)
-      console.log(searchout)
+     
      
       
         document.getElementById("showtable").style.display = "inline";
-      if(searchout == null || searchout == undefined){
+      if(searchout.id == null || searchout.id == undefined){
         
-         document.getElementById("hoststring").innerHTML="Dns Name does not exist";
+         document.getElementById("hoststring").innerHTML="Please Enter Valid URL";
          //alert("Please search valid Domain");
 
       }
@@ -216,7 +215,7 @@ function speed(){
                 </ul>
               </li>
                <li class="dropdown">
-              <a  href="monitor.html">Server Monitor</a>
+               <a  href="shorturl.html">SHORTERN URL </a>
              
               </li>
             </ul>
@@ -233,38 +232,25 @@ function speed(){
                 <div class="module-subtitle font-serif">
                  <form id="subscription-form" role="form">
                     <div class="input-group">
-                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Enter Domain"  required="required"/><span class="input-group-btn">
+                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Ex :https://www.google.com/"  required="required"/><span class="input-group-btn">
                         <button class="btn btn-g btn-round"  type="submit" onclick="lookup()" style="background-color:#ff5100;color:white">Submit</button></span>
                     </div>
                   </form> 
                   <br>
                     <div  style="margin-left:12%">
     <table class="table" id="showtable" style="display:none;width:100%" >
-    
-    <tbody style="border: 2px solid white;">
-   
-    
-        
+      <tbody style="border: 2px solid white;">
        <tr style="visibility:hidden">
         <td>IP Address</td>
-
-      
-      
-      </tr>    
-   
-
- <tr>
-        <td>Dns IP</td>
+         </tr>    
+           <tr>
+        <td>Shortern URL </td>
 
         <td style="margin-left:40px" id="hoststring"></td>
       
       </tr>   
       
-        <!-- <tr>
-         <td>Time</td>
-        <td id="time">Time Zone</td>
-       
-      </tr> -->
+     
     </tbody>
   </table>
 

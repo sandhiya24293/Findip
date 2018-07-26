@@ -23,7 +23,7 @@ func ShorternURL(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
-    clienturl := "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDBBlepvakv6nRw4pyA0bIxx_Ri6wbAPqY" 
+    clienturl := "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyArZsLhuevwJmNLhnGvU30rNpq6qhDG6P8" 
   	 values := map[string]string{"longUrl": GetIpvalue.URL}
 	jsonValue, _ := json.Marshal(values)
 	resp, err := http.Post(clienturl, "application/json", bytes.NewBuffer(jsonValue))	
