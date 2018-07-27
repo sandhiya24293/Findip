@@ -60,6 +60,7 @@ func Serve() bool {
 	router.HandleFunc("/Transfer", Service.Transfer)
 	router.HandleFunc("/TraceAPI", Service.TraceAPI)
 	router.HandleFunc("/Shorterturl", Service.ShorternURL)
+	router.HandleFunc("/", Service.Getredirect)
 
 	//For HTTPS
 

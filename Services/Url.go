@@ -1,11 +1,12 @@
 package Services
 
 import (
-"io/ioutil"
+
 	"encoding/json"
 	"net/http"
-	"bytes"
+	
 	"fmt"
+	"encoding/base64"
 )
 
 
@@ -23,12 +24,36 @@ func ShorternURL(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error on Get particular details", err)
 	}
-    clienturl := "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyArZsLhuevwJmNLhnGvU30rNpq6qhDG6P8" 
-  	 values := map[string]string{"longUrl": GetIpvalue.URL}
-	jsonValue, _ := json.Marshal(values)
-	resp, err := http.Post(clienturl, "application/json", bytes.NewBuffer(jsonValue))	
-	bytedata,_ := ioutil.ReadAll(resp.Body)
-	w.Write(bytedata)
+  	str := UrlEncoded(GetIpvalue.URL)
+	outputstring := "http://paymyhire.com:8087/?url=" +str
+	w.Write([]byte(outputstring))
+
 
 	}
 
+func Getredirect(w http.ResponseWriter, r *http.Request) {
+	
+	  param1 := r.URL.Query().Get("url")
+	decodestring := Decodestring(param1)
+	http.Redirect(w, r, decodestring, http.StatusSeeOther)
+	}
+
+func UrlEncoded(str string) string {
+  data := []byte(str)
+	str1 := base64.StdEncoding.EncodeToString(data)
+	
+	return str1
+}
+
+func Decodestring(str string )string{
+	
+	data, err := base64.StdEncoding.DecodeString(str)
+	if err != nil {
+		fmt.Println("error:", err)
+		
+	}
+	
+	data1 := string(data[:])
+	return data1
+}
+	

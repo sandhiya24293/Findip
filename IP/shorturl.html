@@ -75,18 +75,17 @@ function lookup(){
 
   $.ajax({
          type: "POST",
-         url: "http://176.111.105.86:8087/Shorterturl",
+         url: "http://localhost:8087/Shorterturl",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
            async: false,
           success: function(responsee){
          
-      var searchout = JSON.parse(responsee);
-     
+      
      
       
         document.getElementById("showtable").style.display = "inline";
-      if(searchout.id == null || searchout.id == undefined){
+      if(responsee == null || responsee == undefined || responsee == ""){
         
          document.getElementById("hoststring").innerHTML="Please Enter Valid URL";
          //alert("Please search valid Domain");
@@ -94,7 +93,7 @@ function lookup(){
       }
       else{
         
-              document.getElementById("hoststring").innerHTML=searchout.id;
+              document.getElementById("hoststring").innerHTML=responsee;
            
 
       }
