@@ -25,7 +25,7 @@ func ShorternURL(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error on Get particular details", err)
 	}
   	str := UrlEncoded(GetIpvalue.URL)
-	outputstring := "http://paymyhire.com:8087/?url=" +str
+	outputstring := "http://foxu.tech:8087/?url=" +str
 	w.Write([]byte(outputstring))
 
 

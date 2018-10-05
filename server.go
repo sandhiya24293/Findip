@@ -50,7 +50,7 @@ func Serve() bool {
 	router.HandleFunc("/ReverseDnslookup", Service.ReverseDnslookup)
 	router.HandleFunc("/Dnslookup", Service.Dnslookup)
 	router.HandleFunc("/SSlchecker", Service.Sslchecker)
-	router.HandleFunc("/Speed_Service", Speed_Service)
+	//router.HandleFunc("/Speed_Service", Speed_Service)
 	router.HandleFunc("/Dockerfile", Service.WriteDockerFile)
 	router.HandleFunc("/Awsping", Service.Awsping)
 	router.HandleFunc("/Googleping", Service.Googleping)
@@ -61,6 +61,7 @@ func Serve() bool {
 	router.HandleFunc("/TraceAPI", Service.TraceAPI)
 	router.HandleFunc("/Shorterturl", Service.ShorternURL)
 	router.HandleFunc("/", Service.Getredirect)
+	router.HandleFunc("/rating", Service.Rating)
 
 	//For HTTPS
 

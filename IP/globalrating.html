@@ -8,8 +8,7 @@
     Document Title
     =============================================
     -->
-      <title>FoxuTech | Tools.</title>
-
+    <title>FoxuTech | Tools.</title>
     <!--  
     Favicons
     =============================================
@@ -63,43 +62,81 @@
 <script type="text/javascript">
 
 function lookup(){
-    var cardstring="";
          var  getip =  document.getElementById('getuserip').value
-       
-     
+    
        var s={
-             "URL":getip
+             "Domain":getip
             };
 
 
 
   $.ajax({
          type: "POST",
-         url: "http://176.111.105.86:8087/Shorterturl",
+         url: "http://176.111.105.86:8087/rating",
          contentType:"application/json; charset=utf-8",
           data: JSON.stringify(s),
-           async: false,
+          async: false,
           success: function(responsee){
-         
-      
+      var searchout1 = JSON.parse(responsee);
+      console.log(searchout1)
+      document.getElementById("showtable").style.display = "inline";
+      if (searchout1.Countryrank == "false" && searchout1.Globalrank == "false")  {
+          alert("Please enter the valid Domain")
+          $("#CR").html("-")
+            $("#GR").html("-")
+            $("#CO").html("-")
+         }   else if (searchout1.Countryrank == "false"){
+            $("#CR").html("-")
+            $("#GR").html(searchout1.Globalrank)
+            $("#CO").html("-")
+         } else {
+            $("#CR").html(searchout1.Countryrank)
+            $("#GR").html(searchout1.Globalrank)
+            $("#CO").html(searchout1.Country)
+         }
      
+            // var  lenght = searchout1.server_headers["results"]["Content-Length"]
       
-        document.getElementById("showtable").style.display = "inline";
-      if(responsee == null || responsee == undefined || responsee == ""){
-        
-         document.getElementById("hoststring").innerHTML="Please Enter Valid URL";
-         //alert("Please search valid Domain");
 
-      }
-      else{
-        
-              document.getElementById("hoststring").innerHTML=responsee;
+            // if (searchout1.Country == ""){
+            //   http = "-"
+            // }else{
+            //   http = searchout1.Server[0]
+            // }
+            // if (searchout1["Cache-Control"].length == 0){
+            //   cache = "-"
+            // }else{
+            //   cache = searchout1["Cache-Control"][0]
+            // }
+            //  if (searchout1["P3p"].length == 0){
+            //   policy = "-"
+            // }else{
+            //   policy = searchout1.P3p[0]
+            // }
+            //  if (searchout1["Set-Cookie"].length == 0){
+            //   setcooki = "-"
+            // }else{
+            //   setcooki = searchout1["Set-Cookie"][0]
+
+            // }
+            //  if (searchout1["Content-Type"].length == 0){
+            //   content = "-"
+            // }else{
+            //   content = searchout1["Content-Type"][0]
+
+            // }
+
            
 
-      }
-}});
 
-  }
+       
+
+ }});
+
+  
+        }
+
+
 
 function speed(){
   alert("Coming Soon!")
@@ -141,24 +178,23 @@ function speed(){
               <a  href="docker.html">DockerFile Creation</a>
                 
               </li>
-            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
+             <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Cloud Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="aws.html"> AWS PING</a></li>
                    <li><a  href="googlecloud.html">Google Cloud Ping</a></li>
                    
                 </ul>
               </li>
-             
-                 <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"> Ping</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a   href="ping.html"> IP PING</a></li>
                    <li><a  href="hostping.html">HOST Ping</a></li>
                    
                 </ul>
               </li>
-
               <li class="dropdown"> <a  href="transfer.html">File Transfer</a> </li>
              
+
             <a href= "https://foxutech.com/" class="btn btn-g btn-round" type="button" style="background-color:#ff5100;color:white;margin-left:15px;margin-top:8px;font-size:12px">Visit to Foxutech.com</a>
        
             </ul>
@@ -166,7 +202,7 @@ function speed(){
         </div>
       </nav>
    <div class="main showcase-page" style="margin-top:70px">
-       <a href="index.html"> <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
+      <a href="index.html">  <img src="assets/images/logofinal.png" style="display:block; height: auto;margin-left:60px;"></a>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Homepage Leaderboard -->
@@ -176,7 +212,7 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-           <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
+         <nav class="navbar navbar-custom" role="navigation" style="background-color:black;color:white;margin-top:-50px">
         <div class="container">
           <div class="navbar-header">
             
@@ -214,8 +250,7 @@ function speed(){
                 </ul>
               </li>
                <li class="dropdown">
-               <a  href="shorturl.html">SHORTERN URL </a>
-             
+                  <a  href="shorturl.html">SHORTERN URL </a>
               </li>
                 <li class="dropdown">
               <a  href="globalrating.html">SITE RATING </a>
@@ -226,34 +261,55 @@ function speed(){
         </div>
       </nav>
   <div>
+  <div>
+
       <div class="main">
-        <section class="module bg-dark-60 about-page-header" data-background="assets/images/tool.jpg" style="margin-top:-20px">
+        <section class="module bg-dark-60 about-page-header" data-background="assets/images/new2.jpg" style="margin-top:-20px">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">SHORTERN URL</h2>
+                <h2 class="module-title font-alt">GLOBAL RATING FOR DOMAIN </h2>
                 <div class="module-subtitle font-serif">
                  <form id="subscription-form" role="form">
                     <div class="input-group">
-                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Ex :https://www.google.com/"  required="required"/><span class="input-group-btn">
+                      <input class="form-control" type="text" id="getuserip" style="text-transform: lowercase;" placeholder="Enter Domain"  required="required"/><span class="input-group-btn">
                         <button class="btn btn-g btn-round"  type="submit" onclick="lookup()" style="background-color:#ff5100;color:white">Submit</button></span>
                     </div>
                   </form> 
                   <br>
                     <div  style="margin-left:12%">
-    <table class="table" id="showtable" style="display:none;width:100%" >
-      <tbody style="border: 2px solid white;">
+    <table class="table table-responsive" id="showtable" style="display:none;width:100%" >
+    
+    <tbody style="border: 2px solid white;">
+   
+    
+        
        <tr style="visibility:hidden">
         <td>IP Address</td>
-         </tr>    
-           <tr>
-        <td>Shortern URL </td>
 
-        <td style="margin-left:40px" id="hoststring"></td>
       
-      </tr>   
       
-     
+      </tr>    
+   
+
+     <tr>
+        <td>Global Rank </td>
+        <td id="GR"></td>
+      
+      </tr>      
+      <tr>
+        <td>Country Rank</td>
+        <td id="CR"></td>
+        </tr>
+        
+      <tr>
+        <td>Country</td>
+        <td id="CO"></td>
+        </tr>
+       
+  
+      
+    
     </tbody>
   </table>
 
@@ -262,8 +318,8 @@ function speed(){
             </div>
           </div>
         </section>
-       
-            <div class="main showcase-page" ">
+
+           <div class="main showcase-page">
      
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -274,10 +330,11 @@ function speed(){
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
       </div> 
-            
-              
- 
-           
+               
+                </div>
+             
+        <hr class="divider-w">
+          
         
 
 

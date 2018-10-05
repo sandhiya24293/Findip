@@ -6,12 +6,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"Rentmatics_App/Logger"
-)
 
-var (
-	log = Logger.NewLogger("rent")
-)
+	)
+
 
 func main() {
 
